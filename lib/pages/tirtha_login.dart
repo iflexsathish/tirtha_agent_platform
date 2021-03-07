@@ -17,18 +17,14 @@ class _tirthaLoginState extends State<tirthaLogin> {
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          //padding: EdgeInsets.all(15.0),
           children: <Widget>[
             Center(
               child: Container(
-                  //padding: EdgeInsets.all(10.0),
-                  //margin: const EdgeInsets.all(10.0),
                   color: Colors.deepPurple.shade300,
                   width: 340.0,
                   height: 800.0,
                   child: Column(
                     children: <Widget>[
-
                       SizedBox(
                         height: 200.0,
                       ),
@@ -87,18 +83,14 @@ class _tirthaLoginState extends State<tirthaLogin> {
                     ],
                   ),
                 ),
-
-            ),
+              ),
             Center(
               child: Container(
-                //padding: EdgeInsets.all(10.0),
-                //margin: const EdgeInsets.all(10.0),
                 color: Colors.grey[200],
                 width: 940.0,
                 height: 800.0,
                 child: Column(
                   children: <Widget>[
-
                     SizedBox(
                       height: 225.0,
                     ),
@@ -112,18 +104,18 @@ class _tirthaLoginState extends State<tirthaLogin> {
                     SizedBox(
                       height: 40.0,
                     ),
-                Container (
-                  width: 400.0,
-                  height: 50.0,
-                  child :
-                  TextField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        fillColor: Colors.purple,
-                        prefixIcon: Icon(Icons.person),
-                        labelText: "Username",
-                      ),
-                    ),
+                    Container (
+                      width: 400.0,
+                      height: 50.0,
+                      child :
+                      TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            fillColor: Colors.purple,
+                            prefixIcon: Icon(Icons.person),
+                            labelText: "Username",
+                          ),
+                        ),
                 ),
                     SizedBox(
                       height: 30.0,
@@ -176,17 +168,39 @@ class _tirthaLoginState extends State<tirthaLogin> {
                     SizedBox(
                       height: 100.0,
                     ),
-                    Text("Want to become an agent? Register",
-                        style: TextStyle(
-                          color: Colors.black54,
-                          fontFamily: "Calibiri" ,
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.normal,
-                        )),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Center(
+                              child: Container(
+                                child: Text("Want to become an agent?",
+                                    style: TextStyle(
+                                      color: Colors.black54,
+                                      fontFamily: "Calibiri" ,
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.normal,
+                                    )),
+                              ),
+                          ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          Center(
+                            child: Container(
+                              child: Text("Register",
+                                  style: TextStyle(
+                                    color: Colors.indigo,
+                                    fontFamily: "Calibiri" ,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.normal,
+                                  )),
+                            ),
+                          ),
+                          ],
+                    ),
                   ],
                 ),
               ),
-
             ),
           ],
         ),
