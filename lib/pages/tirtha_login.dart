@@ -114,7 +114,7 @@ class _tirthaLoginState extends State<tirthaLogin> {
                               border: OutlineInputBorder(),
                               fillColor: Colors.purple,
                               prefixIcon: Icon(Icons.person),
-                              labelText: "Username",
+                              labelText: "agent111@tirtha.org",
                             ),
                           style: TextStyle(
                             fontFamily: "verdana" ,
@@ -135,7 +135,7 @@ class _tirthaLoginState extends State<tirthaLogin> {
                             border: OutlineInputBorder(),
                             fillColor: Colors.white,
                             prefixIcon: Icon(Icons.lock),
-                            labelText: "Password",
+                            labelText: "******",
                           ),
                           style: TextStyle(
                             fontFamily: "verdana" ,

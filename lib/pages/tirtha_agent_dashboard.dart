@@ -46,7 +46,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                       Text("Tirtha",
                           style: TextStyle(
                             color: Colors.white,
-                            fontFamily: "Calibiri" ,
+                            fontFamily: "verdana" ,
                             fontSize: 16.0,
                             fontWeight: FontWeight.bold,
                           )),
@@ -282,7 +282,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(40),
                                       child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
+                                        'assets/images/VarahaSwamy1.jpg',
                                         fit: BoxFit.cover,
                                         height: 80,
                                         width: 80,
@@ -296,7 +296,122 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
+                                    child: Text("Shri Varaha Swamy Temple",
+                                        style: TextStyle(
+                                          color: Colors.deepPurple.shade300,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                    child: Text("Tirumala, AP",
+                                        style: TextStyle(
+                                          color: Colors.deepPurple.shade300,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Text("Status :",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                        SizedBox(
+                                          width: 5.0,
+                                        ),
+                                        Text("UNDER REVIEW",
+                                            style: TextStyle(
+                                              color: Colors.amber.shade600,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Text("No. of Visits :",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                        SizedBox(
+                                          width: 5.0,
+                                        ),
+                                        Text("122",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.normal,
+                                            )),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(30),
+                                      child: Image.asset(
+                                        'assets/images/ragamber.png',
+                                        fit: BoxFit.cover,
+                                        height: 15,
+                                        width: 15,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Card(
+                        child: Container(
+                          margin: EdgeInsets.all(5.0),
+                          height: 150.0,
+                          child: Row(
+                            children: [
+                              Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(5, 35, 0, 0),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(40),
+                                      child: Image.asset(
+                                        'assets/images/Govindarajaswamy1.jpg',
+                                        fit: BoxFit.cover,
+                                        height: 80,
+                                        width: 80,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
+                                    child: Text("Govinda Raja Swamy Temple",
                                         style: TextStyle(
                                           color: Colors.deepPurple.shade300,
                                           fontFamily: "verdana" ,
@@ -352,7 +467,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("255",
+                                        Text("49",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -397,7 +512,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(40),
                                       child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
+                                        'assets/images/Padmavathi_Ammavari_Temple.jpg',
                                         fit: BoxFit.cover,
                                         height: 80,
                                         width: 80,
@@ -411,7 +526,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
+                                    child: Text("Sri Padmavathi Ammavari Temple",
                                         style: TextStyle(
                                           color: Colors.deepPurple.shade300,
                                           fontFamily: "verdana" ,
@@ -443,9 +558,9 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("LISTED",
+                                        Text("UNDER REVIEW",
                                             style: TextStyle(
-                                              color: Colors.green.shade600,
+                                              color: Colors.amber.shade600,
                                               fontFamily: "verdana" ,
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.bold,
@@ -467,7 +582,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("255",
+                                        Text("NA",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -486,7 +601,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(30),
                                       child: Image.asset(
-                                        'assets/images/raggreen.png',
+                                        'assets/images/ragamber.png',
                                         fit: BoxFit.cover,
                                         height: 15,
                                         width: 15,
@@ -501,582 +616,466 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                       ),
                       Card(
                         child: Container(
-                          margin: EdgeInsets.all(5.0),
-                          height: 150.0,
-                          child: Row(
-                            children: [
-                              Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(5, 35, 0, 0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(40),
-                                      child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
-                                        fit: BoxFit.cover,
-                                        height: 80,
-                                        width: 80,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
-                                        style: TextStyle(
-                                          color: Colors.deepPurple.shade300,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                    child: Text("Tirumala, AP",
-                                        style: TextStyle(
-                                          color: Colors.deepPurple.shade300,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 12.0,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                    child: Row(
-                                      children: [
-                                        Text("Status :",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                        SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        Text("LISTED",
-                                            style: TextStyle(
-                                              color: Colors.green.shade600,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
-                                    child: Row(
-                                      children: [
-                                        Text("No. of Visits :",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                        SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        Text("255",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.normal,
-                                            )),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(30),
-                                      child: Image.asset(
-                                        'assets/images/raggreen.png',
-                                        fit: BoxFit.cover,
-                                        height: 15,
-                                        width: 15,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Card(
-                        child: Container(
-                          margin: EdgeInsets.all(5.0),
-                          height: 150.0,
-                          child: Row(
-                            children: [
-                              Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(5, 35, 0, 0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(40),
-                                      child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
-                                        fit: BoxFit.cover,
-                                        height: 80,
-                                        width: 80,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
-                                        style: TextStyle(
-                                          color: Colors.deepPurple.shade300,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                    child: Text("Tirumala, AP",
-                                        style: TextStyle(
-                                          color: Colors.deepPurple.shade300,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 12.0,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                    child: Row(
-                                      children: [
-                                        Text("Status :",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                        SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        Text("LISTED",
-                                            style: TextStyle(
-                                              color: Colors.green.shade600,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
-                                    child: Row(
-                                      children: [
-                                        Text("No. of Visits :",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                        SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        Text("255",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.normal,
-                                            )),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(30),
-                                      child: Image.asset(
-                                        'assets/images/raggreen.png',
-                                        fit: BoxFit.cover,
-                                        height: 15,
-                                        width: 15,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Card(
-                        child: Container(
-                          margin: EdgeInsets.all(5.0),
-                          height: 150.0,
-                          child: Row(
-                            children: [
-                              Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(5, 35, 0, 0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(40),
-                                      child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
-                                        fit: BoxFit.cover,
-                                        height: 80,
-                                        width: 80,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
-                                        style: TextStyle(
-                                          color: Colors.deepPurple.shade300,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                    child: Text("Tirumala, AP",
-                                        style: TextStyle(
-                                          color: Colors.deepPurple.shade300,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 12.0,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                    child: Row(
-                                      children: [
-                                        Text("Status :",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                        SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        Text("LISTED",
-                                            style: TextStyle(
-                                              color: Colors.green.shade600,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
-                                    child: Row(
-                                      children: [
-                                        Text("No. of Visits :",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                        SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        Text("255",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.normal,
-                                            )),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(30),
-                                      child: Image.asset(
-                                        'assets/images/raggreen.png',
-                                        fit: BoxFit.cover,
-                                        height: 15,
-                                        width: 15,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Card(
-                        child: Container(
-                          margin: EdgeInsets.all(5.0),
-                          height: 150.0,
-                          child: Row(
-                            children: [
-                              Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(5, 35, 0, 0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(40),
-                                      child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
-                                        fit: BoxFit.cover,
-                                        height: 80,
-                                        width: 80,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
-                                        style: TextStyle(
-                                          color: Colors.deepPurple.shade300,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                    child: Text("Tirumala, AP",
-                                        style: TextStyle(
-                                          color: Colors.deepPurple.shade300,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 12.0,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                    child: Row(
-                                      children: [
-                                        Text("Status :",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                        SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        Text("LISTED",
-                                            style: TextStyle(
-                                              color: Colors.green.shade600,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
-                                    child: Row(
-                                      children: [
-                                        Text("No. of Visits :",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                        SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        Text("255",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.normal,
-                                            )),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(30),
-                                      child: Image.asset(
-                                        'assets/images/raggreen.png',
-                                        fit: BoxFit.cover,
-                                        height: 15,
-                                        width: 15,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Card(
-                        child: Container(
-                          margin: EdgeInsets.all(5.0),
-                          height: 150.0,
-                          child: Row(
-                            children: [
-                              Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(5, 35, 0, 0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(40),
-                                      child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
-                                        fit: BoxFit.cover,
-                                        height: 80,
-                                        width: 80,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
-                                        style: TextStyle(
-                                          color: Colors.deepPurple.shade300,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                    child: Text("Tirumala, AP",
-                                        style: TextStyle(
-                                          color: Colors.deepPurple.shade300,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 12.0,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                    child: Row(
-                                      children: [
-                                        Text("Status :",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                        SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        Text("LISTED",
-                                            style: TextStyle(
-                                              color: Colors.green.shade600,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
-                                    child: Row(
-                                      children: [
-                                        Text("No. of Visits :",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                        SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        Text("255",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.normal,
-                                            )),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(30),
-                                      child: Image.asset(
-                                        'assets/images/raggreen.png',
-                                        fit: BoxFit.cover,
-                                        height: 15,
-                                        width: 15,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
 
+                          margin: EdgeInsets.all(5.0),
+                          height: 150.0,
+                          child: Row(
+                            children: [
+                              Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(5, 35, 0, 0),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(40),
+                                      child: Image.asset(
+                                        'assets/images/Kapilatheertham1.jpg',
+                                        fit: BoxFit.cover,
+                                        height: 80,
+                                        width: 80,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
+                                    child: Text("Kapila Threetham",
+                                        style: TextStyle(
+                                          color: Colors.deepPurple.shade300,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                    child: Text("Tirumala, AP",
+                                        style: TextStyle(
+                                          color: Colors.deepPurple.shade300,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Text("Status :",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                        SizedBox(
+                                          width: 5.0,
+                                        ),
+                                        Text("LISTED",
+                                            style: TextStyle(
+                                              color: Colors.green.shade600,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Text("No. of Visits :",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                        SizedBox(
+                                          width: 5.0,
+                                        ),
+                                        Text("255",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.normal,
+                                            )),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(30),
+                                      child: Image.asset(
+                                        'assets/images/raggreen.png',
+                                        fit: BoxFit.cover,
+                                        height: 15,
+                                        width: 15,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Card(
+                        child: Container(
+                          margin: EdgeInsets.all(5.0),
+                          height: 150.0,
+                          child: Row(
+                            children: [
+                              Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(5, 35, 0, 0),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(40),
+                                      child: Image.asset(
+                                        'assets/images/VarahaSwamy1.jpg',
+                                        fit: BoxFit.cover,
+                                        height: 80,
+                                        width: 80,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
+                                    child: Text("Shri Varaha Swamy Temple",
+                                        style: TextStyle(
+                                          color: Colors.deepPurple.shade300,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                    child: Text("Tirumala, AP",
+                                        style: TextStyle(
+                                          color: Colors.deepPurple.shade300,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Text("Status :",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                        SizedBox(
+                                          width: 5.0,
+                                        ),
+                                        Text("UNDER REVIEW",
+                                            style: TextStyle(
+                                              color: Colors.amber.shade600,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Text("No. of Visits :",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                        SizedBox(
+                                          width: 5.0,
+                                        ),
+                                        Text("122",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.normal,
+                                            )),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(30),
+                                      child: Image.asset(
+                                        'assets/images/ragamber.png',
+                                        fit: BoxFit.cover,
+                                        height: 15,
+                                        width: 15,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Card(
+                        child: Container(
+                          margin: EdgeInsets.all(5.0),
+                          height: 150.0,
+                          child: Row(
+                            children: [
+                              Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(5, 35, 0, 0),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(40),
+                                      child: Image.asset(
+                                        'assets/images/Govindarajaswamy1.jpg',
+                                        fit: BoxFit.cover,
+                                        height: 80,
+                                        width: 80,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
+                                    child: Text("Govinda Raja Swamy Temple",
+                                        style: TextStyle(
+                                          color: Colors.deepPurple.shade300,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                    child: Text("Tirumala, AP",
+                                        style: TextStyle(
+                                          color: Colors.deepPurple.shade300,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Text("Status :",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                        SizedBox(
+                                          width: 5.0,
+                                        ),
+                                        Text("LISTED",
+                                            style: TextStyle(
+                                              color: Colors.green.shade600,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Text("No. of Visits :",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                        SizedBox(
+                                          width: 5.0,
+                                        ),
+                                        Text("49",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.normal,
+                                            )),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(30),
+                                      child: Image.asset(
+                                        'assets/images/raggreen.png',
+                                        fit: BoxFit.cover,
+                                        height: 15,
+                                        width: 15,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Card(
+                        child: Container(
+                          margin: EdgeInsets.all(5.0),
+                          height: 150.0,
+                          child: Row(
+                            children: [
+                              Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(5, 35, 0, 0),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(40),
+                                      child: Image.asset(
+                                        'assets/images/Padmavathi_Ammavari_Temple.jpg',
+                                        fit: BoxFit.cover,
+                                        height: 80,
+                                        width: 80,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
+                                    child: Text("Sri Padmavathi Ammavari Temple",
+                                        style: TextStyle(
+                                          color: Colors.deepPurple.shade300,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                    child: Text("Tirumala, AP",
+                                        style: TextStyle(
+                                          color: Colors.deepPurple.shade300,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Text("Status :",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                        SizedBox(
+                                          width: 5.0,
+                                        ),
+                                        Text("UNDER REVIEW",
+                                            style: TextStyle(
+                                              color: Colors.amber.shade600,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
+                                    child: Row(
+                                      children: [
+                                        Text("No. of Visits :",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                        SizedBox(
+                                          width: 5.0,
+                                        ),
+                                        Text("NA",
+                                            style: TextStyle(
+                                              color: Colors.deepPurple.shade300,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.normal,
+                                            )),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(0, 0, 5, 0),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(30),
+                                      child: Image.asset(
+                                        'assets/images/ragamber.png',
+                                        fit: BoxFit.cover,
+                                        height: 15,
+                                        width: 15,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ],
-
                   ),
                 ),
                 SizedBox(
@@ -1124,7 +1123,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(40),
                                       child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
+                                        'assets/images/HanumanTirupati1.jpg',
                                         fit: BoxFit.cover,
                                         height: 80,
                                         width: 80,
@@ -1138,7 +1137,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
+                                    child: Text("Bedi Anjaneyar",
                                         style: TextStyle(
                                           color: Colors.deepPurple.shade300,
                                           fontFamily: "verdana" ,
@@ -1170,9 +1169,9 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("LISTED",
+                                        Text("DRAFT",
                                             style: TextStyle(
-                                              color: Colors.green.shade600,
+                                              color: Colors.grey.shade600,
                                               fontFamily: "verdana" ,
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.bold,
@@ -1184,7 +1183,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
                                     child: Row(
                                       children: [
-                                        Text("No. of Visits :",
+                                        Text("Stages Completed :",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1194,7 +1193,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("255",
+                                        Text("3/10",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1213,7 +1212,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(30),
                                       child: Image.asset(
-                                        'assets/images/raggreen.png',
+                                        'assets/images/raggrey.png',
                                         fit: BoxFit.cover,
                                         height: 15,
                                         width: 15,
@@ -1239,7 +1238,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(40),
                                       child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
+                                        'assets/images/Venugopalaswamy1.jpg',
                                         fit: BoxFit.cover,
                                         height: 80,
                                         width: 80,
@@ -1253,7 +1252,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
+                                    child: Text("Venugopala Swamy Temple",
                                         style: TextStyle(
                                           color: Colors.deepPurple.shade300,
                                           fontFamily: "verdana" ,
@@ -1285,9 +1284,9 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("LISTED",
+                                        Text("DRAFT",
                                             style: TextStyle(
-                                              color: Colors.green.shade600,
+                                              color: Colors.grey.shade600,
                                               fontFamily: "verdana" ,
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.bold,
@@ -1299,7 +1298,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
                                     child: Row(
                                       children: [
-                                        Text("No. of Visits :",
+                                        Text("Stages Completed :",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1309,7 +1308,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("255",
+                                        Text("8/10",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1328,7 +1327,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(30),
                                       child: Image.asset(
-                                        'assets/images/raggreen.png',
+                                        'assets/images/raggrey.png',
                                         fit: BoxFit.cover,
                                         height: 15,
                                         width: 15,
@@ -1354,7 +1353,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(40),
                                       child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
+                                        'assets/images/KanipakamGanesha.jpg',
                                         fit: BoxFit.cover,
                                         height: 80,
                                         width: 80,
@@ -1368,7 +1367,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
+                                    child: Text("Vinayaka Temple",
                                         style: TextStyle(
                                           color: Colors.deepPurple.shade300,
                                           fontFamily: "verdana" ,
@@ -1400,9 +1399,9 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("LISTED",
+                                        Text("DRAFT",
                                             style: TextStyle(
-                                              color: Colors.green.shade600,
+                                              color: Colors.grey.shade600,
                                               fontFamily: "verdana" ,
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.bold,
@@ -1414,7 +1413,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
                                     child: Row(
                                       children: [
-                                        Text("No. of Visits :",
+                                        Text("Stages Completed :",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1424,7 +1423,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("255",
+                                        Text("5/10",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1443,7 +1442,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(30),
                                       child: Image.asset(
-                                        'assets/images/raggreen.png',
+                                        'assets/images/raggrey.png',
                                         fit: BoxFit.cover,
                                         height: 15,
                                         width: 15,
@@ -1469,7 +1468,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(40),
                                       child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
+                                        'assets/images/Saibaba2.jpg',
                                         fit: BoxFit.cover,
                                         height: 80,
                                         width: 80,
@@ -1483,7 +1482,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
+                                    child: Text("Sri Saibaba Swamy Temple",
                                         style: TextStyle(
                                           color: Colors.deepPurple.shade300,
                                           fontFamily: "verdana" ,
@@ -1515,9 +1514,9 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("LISTED",
+                                        Text("DRAFT",
                                             style: TextStyle(
-                                              color: Colors.green.shade600,
+                                              color: Colors.grey.shade600,
                                               fontFamily: "verdana" ,
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.bold,
@@ -1529,7 +1528,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
                                     child: Row(
                                       children: [
-                                        Text("No. of Visits :",
+                                        Text("Stages Completed :",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1539,7 +1538,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("255",
+                                        Text("5/10",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1558,7 +1557,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(30),
                                       child: Image.asset(
-                                        'assets/images/raggreen.png',
+                                        'assets/images/raggrey.png',
                                         fit: BoxFit.cover,
                                         height: 15,
                                         width: 15,
@@ -1584,7 +1583,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(40),
                                       child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
+                                        'assets/images/HanumanTirupati1.jpg',
                                         fit: BoxFit.cover,
                                         height: 80,
                                         width: 80,
@@ -1598,7 +1597,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
+                                    child: Text("Bedi Anjaneyar",
                                         style: TextStyle(
                                           color: Colors.deepPurple.shade300,
                                           fontFamily: "verdana" ,
@@ -1630,9 +1629,9 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("LISTED",
+                                        Text("DRAFT",
                                             style: TextStyle(
-                                              color: Colors.green.shade600,
+                                              color: Colors.grey.shade600,
                                               fontFamily: "verdana" ,
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.bold,
@@ -1644,7 +1643,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
                                     child: Row(
                                       children: [
-                                        Text("No. of Visits :",
+                                        Text("Stages Completed :",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1654,7 +1653,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("255",
+                                        Text("3/10",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1673,7 +1672,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(30),
                                       child: Image.asset(
-                                        'assets/images/raggreen.png',
+                                        'assets/images/raggrey.png',
                                         fit: BoxFit.cover,
                                         height: 15,
                                         width: 15,
@@ -1699,7 +1698,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(40),
                                       child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
+                                        'assets/images/Venugopalaswamy1.jpg',
                                         fit: BoxFit.cover,
                                         height: 80,
                                         width: 80,
@@ -1713,7 +1712,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
+                                    child: Text("Venugopala Swamy Temple",
                                         style: TextStyle(
                                           color: Colors.deepPurple.shade300,
                                           fontFamily: "verdana" ,
@@ -1745,9 +1744,9 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("LISTED",
+                                        Text("DRAFT",
                                             style: TextStyle(
-                                              color: Colors.green.shade600,
+                                              color: Colors.grey.shade600,
                                               fontFamily: "verdana" ,
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.bold,
@@ -1759,7 +1758,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
                                     child: Row(
                                       children: [
-                                        Text("No. of Visits :",
+                                        Text("Stages Completed :",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1769,7 +1768,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("255",
+                                        Text("8/10",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1788,7 +1787,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(30),
                                       child: Image.asset(
-                                        'assets/images/raggreen.png',
+                                        'assets/images/raggrey.png',
                                         fit: BoxFit.cover,
                                         height: 15,
                                         width: 15,
@@ -1814,7 +1813,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(40),
                                       child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
+                                        'assets/images/KanipakamGanesha.jpg',
                                         fit: BoxFit.cover,
                                         height: 80,
                                         width: 80,
@@ -1828,7 +1827,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
+                                    child: Text("Vinayaka Temple",
                                         style: TextStyle(
                                           color: Colors.deepPurple.shade300,
                                           fontFamily: "verdana" ,
@@ -1860,9 +1859,9 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("LISTED",
+                                        Text("DRAFT",
                                             style: TextStyle(
-                                              color: Colors.green.shade600,
+                                              color: Colors.grey.shade600,
                                               fontFamily: "verdana" ,
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.bold,
@@ -1874,7 +1873,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
                                     child: Row(
                                       children: [
-                                        Text("No. of Visits :",
+                                        Text("Stages Completed :",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1884,7 +1883,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("255",
+                                        Text("5/10",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1903,7 +1902,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(30),
                                       child: Image.asset(
-                                        'assets/images/raggreen.png',
+                                        'assets/images/raggrey.png',
                                         fit: BoxFit.cover,
                                         height: 15,
                                         width: 15,
@@ -1929,7 +1928,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(40),
                                       child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
+                                        'assets/images/Saibaba2.jpg',
                                         fit: BoxFit.cover,
                                         height: 80,
                                         width: 80,
@@ -1943,7 +1942,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
+                                    child: Text("Sri Saibaba Swamy Temple",
                                         style: TextStyle(
                                           color: Colors.deepPurple.shade300,
                                           fontFamily: "verdana" ,
@@ -1975,9 +1974,9 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("LISTED",
+                                        Text("DRAFT",
                                             style: TextStyle(
-                                              color: Colors.green.shade600,
+                                              color: Colors.grey.shade600,
                                               fontFamily: "verdana" ,
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.bold,
@@ -1989,7 +1988,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
                                     child: Row(
                                       children: [
-                                        Text("No. of Visits :",
+                                        Text("Stages Completed :",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -1999,7 +1998,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                         SizedBox(
                                           width: 5.0,
                                         ),
-                                        Text("255",
+                                        Text("5/10",
                                             style: TextStyle(
                                               color: Colors.deepPurple.shade300,
                                               fontFamily: "verdana" ,
@@ -2018,7 +2017,7 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(30),
                                       child: Image.asset(
-                                        'assets/images/raggreen.png',
+                                        'assets/images/raggrey.png',
                                         fit: BoxFit.cover,
                                         height: 15,
                                         width: 15,
@@ -2032,7 +2031,6 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                         ),
                       ),
                     ],
-
                   ),
                 ),
                 SizedBox(
@@ -2043,34 +2041,37 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                     Container(
                         color: Colors.grey.shade100,
                         width: 1260.0,
-                        height: 125.0,
+                        height: 140.0,
                         // margin: EdgeInsets.all(100.0),
                         child: Center(
                           child: Container(
-                            margin: EdgeInsets.all(10.0),
+                            margin: EdgeInsets.all(40.0),
                             child: Column(
                               children: [
-
-                                Padding(
-                                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
+                                Material(
+                                  borderRadius: BorderRadius.circular(10.0),
+                                  //elevation: 5.0,
                                   child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(40),
-                                    child: Image.asset(
-                                      'assets/images/More1.png',
-                                      fit: BoxFit.cover,
-                                      height: 70,
-                                      width: 70,
-                                      color: Color(0xEDBB1313).withOpacity(0.6),
+                                    borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                                    child: MaterialButton(
+                                      onPressed: () async {
+                                        dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
+                                      },
+                                      minWidth: 250.0,
+                                      height: 50.0,
+                                      color: Colors.deepPurple.shade300,
+                                      child: Text(
+                                        "New Tirtha",
+                                        style: TextStyle(
+                                          fontSize: 18.0,
+                                          fontFamily: "verdana",
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
-                                Text("NEW TIRTHA",
-                                    style: TextStyle(
-                                      color: Colors.deepPurpleAccent.shade200,
-                                      fontFamily: "verdana" ,
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold,
-                                    )),
                               ],
                             ),
                           ),
