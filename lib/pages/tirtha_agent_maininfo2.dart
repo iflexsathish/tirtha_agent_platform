@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 
-class tirthaAgentMainInfo extends StatefulWidget {
+class tirthaAgentMainInfo2 extends StatefulWidget {
   @override
-  _tirthaAgentMainInfoState createState() => _tirthaAgentMainInfoState();
+  _tirthaAgentMainInfo2State createState() => _tirthaAgentMainInfo2State();
 }
 
-class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
+class _tirthaAgentMainInfo2State extends State<tirthaAgentMainInfo2> {
 
   @override
 
@@ -195,7 +195,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                             padding: const EdgeInsets.fromLTRB(10, 15 , 0, 0),
                             child: Column(
                                 children: <Widget> [
-                                  Text("Stage 1/10",
+                                  Text("Stage 2/10",
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
                                         color: Colors.deepPurple.shade300,
@@ -1027,7 +1027,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                         borderRadius: BorderRadius.all(Radius.circular(20.0)),
                                         child: MaterialButton(
                                           onPressed: () async {
-                                            dynamic result = await Navigator.pushNamed(context, '/tirthaAgentDashBoard');
+                                            dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
                                           },
                                           minWidth: 125.0,
                                           height: 50.0,
@@ -1073,7 +1073,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                         borderRadius: BorderRadius.all(Radius.circular(20.0)),
                                         child: MaterialButton(
                                           onPressed: () async {
-                                            dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo2');
+                                            dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo3');
                                           },
                                           minWidth: 125.0,
                                           height: 50.0,
