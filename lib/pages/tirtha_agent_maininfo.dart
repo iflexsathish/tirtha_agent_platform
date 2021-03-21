@@ -11,6 +11,15 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
 
   @override
 
+  final TextEditingController _rcontroller = new TextEditingController();
+  var religion = ['Hinduism', 'Sikhism', 'Christianity', 'Islam', 'Buddhism', 'Jainism'];
+
+  final TextEditingController _pcontroller = new TextEditingController();
+  var pDeity = ['Shiva', 'Vishnu', 'Ganesha', 'Subramaniya', 'Durga', 'Lakshmi', 'Saraswathi'];
+
+  final TextEditingController _scontroller = new TextEditingController();
+  var sDeity = ['Shiva', 'Vishnu', 'Ganesha', 'Subramaniya', 'Durga', 'Lakshmi', 'Saraswathi', 'Brahma', 'Shanishwar', 'Sai baba'];
+
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
@@ -446,13 +455,14 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                       padding: const EdgeInsets.fromLTRB(20, 15 , 0, 0),
                       child: Row(
                         children: [
+                          //Religion
                           Column(
                               children: <Widget> [
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
                                     width: 80.0,
-                                    child: Text("Name",
+                                    child: Text("Religion",
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           color: Colors.blue.shade600,
@@ -470,38 +480,57 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                           Column(
                               children: <Widget> [
                                 Container(
-                                  width: 500.0,
+                                  width: 200.0,
                                   height: 35.0,
-                                  child: TextField(
+                                  child: new Row(
+                                    children: <Widget>[
+                                      new Expanded(
+                                          child: new TextField(controller: _rcontroller,
                                       decoration: InputDecoration(
-                                        border: OutlineInputBorder(
-                                          borderSide: BorderSide.none,
-                                        ),
-                                        filled: true,
-                                        fillColor: Colors.white,
-                                        contentPadding: const EdgeInsets.only(
-                                            left: 10.0, bottom: 8.0, top: 8.0),
-                                      ),
+                                              border: OutlineInputBorder(
+                                                borderSide: BorderSide.none,
+                                              ),
+                                              filled: true,
+                                              fillColor: Colors.white,
+                                              contentPadding: const EdgeInsets.only(
+                                                  left: 10.0, bottom: 8.0, top: 8.0),
+                                            ),
                                       style: TextStyle(
-                                        //color: Colors.grey,
-                                        backgroundColor: Colors.white38,
-                                        fontFamily: "verdana" ,
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.normal,
-                                      )),
+                                              //color: Colors.grey,
+                                              backgroundColor: Colors.white38,
+                                              fontFamily: "verdana" ,
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.normal,
+                                            )
+                                          )
+                                      ),
+                                      new PopupMenuButton<String>(
+                                        icon: const Icon(Icons.arrow_drop_down),
+                                        onSelected: (String value) {
+                                          _rcontroller.text = value;
+                                        },
+                                        itemBuilder: (BuildContext context) {
+                                          return religion.map<PopupMenuItem<String>>((String value) {
+                                            return new PopupMenuItem(child: new Text(value), value: value);
+                                          }).toList();
+                                        },
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ]
                           ),
                           SizedBox(
                             width: 25.0,
                           ),
+                          //Primary Deity
                           Column(
                               children: <Widget> [
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
-                                    width: 80.0,
-                                    child: Text("Location",
+                                    width: 150.0,
+                                    child: Text("Primary Deity",
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           color: Colors.blue.shade600,
@@ -519,25 +548,111 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                           Column(
                               children: <Widget> [
                                 Container(
-                                  width: 350.0,
+                                  width: 250.0,
                                   height: 35.0,
-                                  child: TextField(
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(
-                                          borderSide: BorderSide.none,
-                                        ),
-                                        filled: true,
-                                        fillColor: Colors.white,
-                                        contentPadding: const EdgeInsets.only(
-                                            left: 10.0, bottom: 8.0, top: 8.0),
+                                  child: new Row(
+                                    children: <Widget>[
+                                      new Expanded(
+                                          child: new TextField(controller: _pcontroller,
+                                              decoration: InputDecoration(
+                                                border: OutlineInputBorder(
+                                                  borderSide: BorderSide.none,
+                                                ),
+                                                filled: true,
+                                                fillColor: Colors.white,
+                                                contentPadding: const EdgeInsets.only(
+                                                    left: 10.0, bottom: 8.0, top: 8.0),
+                                              ),
+                                              style: TextStyle(
+                                                //color: Colors.grey,
+                                                backgroundColor: Colors.white38,
+                                                fontFamily: "verdana" ,
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.normal,
+                                              )
+                                          )
                                       ),
-                                      style: TextStyle(
-                                        //color: Colors.grey,
-                                        backgroundColor: Colors.white38,
-                                        fontFamily: "verdana" ,
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.normal,
-                                      )),
+                                      new PopupMenuButton<String>(
+                                        icon: const Icon(Icons.arrow_drop_down),
+                                        onSelected: (String value) {
+                                          _pcontroller.text = value;
+                                        },
+                                        itemBuilder: (BuildContext context) {
+                                          return pDeity.map<PopupMenuItem<String>>((String value) {
+                                            return new PopupMenuItem(child: new Text(value), value: value);
+                                          }).toList();
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ]
+                          ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          //Secondary Deity
+                          Column(
+                              children: <Widget> [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 150.0,
+                                    child: Text("Secondary Deity",
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          color: Colors.blue.shade600,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                ),
+                              ]
+                          ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          Column(
+                              children: <Widget> [
+                                Container(
+                                  width: 250.0,
+                                  height: 35.0,
+                                  child: new Row(
+                                    children: <Widget>[
+                                      new Expanded(
+                                          child: new TextField(controller: _scontroller,
+                                              decoration: InputDecoration(
+                                                border: OutlineInputBorder(
+                                                  borderSide: BorderSide.none,
+                                                ),
+                                                filled: true,
+                                                fillColor: Colors.white,
+                                                contentPadding: const EdgeInsets.only(
+                                                    left: 10.0, bottom: 8.0, top: 8.0),
+                                              ),
+                                              style: TextStyle(
+                                                //color: Colors.grey,
+                                                backgroundColor: Colors.white38,
+                                                fontFamily: "verdana" ,
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.normal,
+                                              )
+                                          )
+                                      ),
+                                      new PopupMenuButton<String>(
+                                        icon: const Icon(Icons.arrow_drop_down),
+                                        onSelected: (String value) {
+                                          _scontroller.text = value;
+                                        },
+                                        itemBuilder: (BuildContext context) {
+                                          return sDeity.map<PopupMenuItem<String>>((String value) {
+                                            return new PopupMenuItem(child: new Text(value), value: value);
+                                          }).toList();
+                                        },
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ]
                           ),
@@ -1000,7 +1115,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                 SizedBox(
                   height: 5.0,
                 ),
-                Row(
+                Row (
                   children: [
                     Container(
                         color: Colors.grey.shade100,
