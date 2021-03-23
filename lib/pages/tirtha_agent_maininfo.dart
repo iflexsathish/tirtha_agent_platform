@@ -11,6 +11,9 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
 
   @override
 
+  final TextEditingController _addresscontroller = new TextEditingController();
+  var addressType = ['Business', 'Correspondence', 'Office', 'Other'];
+
   final TextEditingController _rcontroller = new TextEditingController();
   var religion = ['Hinduism', 'Sikhism', 'Christianity', 'Islam', 'Buddhism', 'Jainism'];
 
@@ -19,6 +22,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
 
   final TextEditingController _scontroller = new TextEditingController();
   var sDeity = ['Shiva', 'Vishnu', 'Ganesha', 'Subramaniya', 'Durga', 'Lakshmi', 'Saraswathi', 'Brahma', 'Shanishwar', 'Sai baba'];
+
 
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -166,6 +170,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                 ),
               ],
               ),
+                //Main Info Row
                 Row(
                   children: [
                     Column(
@@ -201,7 +206,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                             width: 640.0,
                             height: 50.0,
                             alignment: Alignment.centerRight,
-                            padding: const EdgeInsets.fromLTRB(10, 15 , 0, 0),
+                            padding: const EdgeInsets.fromLTRB(15, 15 , 0, 0),
                             child: Column(
                                 children: <Widget> [
                                   Text("Stage 1/10",
@@ -220,6 +225,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                     ),
                   ],
                 ),
+                //Name Section
                 Row(
                   children: [
                     Container(
@@ -331,23 +337,88 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                     ),
                   ],
                 ),
+                //Address section
                 Row(
                   children: [
                     Container(
                       color: Colors.grey.shade200,
                       width: 1260.0,
-                      height: 60.0,
+                      height: 45.0,
                       //alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.fromLTRB(20, 0 , 0, 0),
+                      padding: const EdgeInsets.fromLTRB(15, 0 , 0, 0),
                       child: Row(
                         children: [
+                          // Column(
+                          //     children: <Widget> [
+                          //       Padding(
+                          //         padding: const EdgeInsets.all(8.0),
+                          //         child: Container(
+                          //           width: 120.0,
+                          //           child: Text("Addr Type",
+                          //               textAlign: TextAlign.left,
+                          //               style: TextStyle(
+                          //                 color: Colors.blue.shade600,
+                          //                 fontFamily: "verdana" ,
+                          //                 fontSize: 16.0,
+                          //                 fontWeight: FontWeight.bold,
+                          //               )),
+                          //         ),
+                          //       ),
+                          //     ]
+                          // ),
+                          // Column(
+                          //     children: <Widget> [
+                          //       Container(
+                          //         width: 200.0,
+                          //         height: 35.0,
+                          //         child: new Row(
+                          //           children: <Widget>[
+                          //             new Expanded(
+                          //                 child: new TextField(controller: _addresscontroller,
+                          //                     decoration: InputDecoration(
+                          //                       border: OutlineInputBorder(
+                          //                         borderSide: BorderSide.none,
+                          //                       ),
+                          //                       filled: true,
+                          //                       fillColor: Colors.white,
+                          //                       contentPadding: const EdgeInsets.only(
+                          //                           left: 10.0, bottom: 8.0, top: 8.0),
+                          //                     ),
+                          //                     style: TextStyle(
+                          //                       //color: Colors.grey,
+                          //                       backgroundColor: Colors.white38,
+                          //                       fontFamily: "verdana" ,
+                          //                       fontSize: 16.0,
+                          //                       fontWeight: FontWeight.normal,
+                          //                     )
+                          //                 )
+                          //             ),
+                          //             new PopupMenuButton<String>(
+                          //               icon: const Icon(Icons.arrow_drop_down),
+                          //               onSelected: (String value) {
+                          //                 _addresscontroller.text = value;
+                          //               },
+                          //               itemBuilder: (BuildContext context) {
+                          //                 return addressType.map<PopupMenuItem<String>>((String value) {
+                          //                   return new PopupMenuItem(child: new Text(value), value: value);
+                          //                 }).toList();
+                          //               },
+                          //             ),
+                          //           ],
+                          //         ),
+                          //       ),
+                          //     ]
+                          // ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
                           Column(
                               children: <Widget> [
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
-                                    width: 80.0,
-                                    child: Text("Address",
+                                    width: 85.0,
+                                    child: Text("Address1",
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           color: Colors.blue.shade600,
@@ -396,7 +467,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
                                     width: 80.0,
-                                    child: Text("Pincode",
+                                    child: Text("District",
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           color: Colors.blue.shade600,
@@ -438,7 +509,418 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                           ),
                         ],
                       ),
-
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Container(
+                      color: Colors.grey.shade200,
+                      width: 1260.0,
+                      height: 45.0,
+                      //alignment: Alignment.centerLeft,
+                      padding: const EdgeInsets.fromLTRB(15, 0 , 0, 0),
+                      child: Row(
+                        children: [
+                          // Column(
+                          //     children: <Widget> [
+                          //       Padding(
+                          //         padding: const EdgeInsets.all(8.0),
+                          //         child: Container(
+                          //           width: 120.0,
+                          //           child: Text("Addr Type",
+                          //               textAlign: TextAlign.left,
+                          //               style: TextStyle(
+                          //                 color: Colors.blue.shade600,
+                          //                 fontFamily: "verdana" ,
+                          //                 fontSize: 16.0,
+                          //                 fontWeight: FontWeight.bold,
+                          //               )),
+                          //         ),
+                          //       ),
+                          //     ]
+                          // ),
+                          // Column(
+                          //     children: <Widget> [
+                          //       Container(
+                          //         width: 200.0,
+                          //         height: 35.0,
+                          //         child: new Row(
+                          //           children: <Widget>[
+                          //             new Expanded(
+                          //                 child: new TextField(controller: _addresscontroller,
+                          //                     decoration: InputDecoration(
+                          //                       border: OutlineInputBorder(
+                          //                         borderSide: BorderSide.none,
+                          //                       ),
+                          //                       filled: true,
+                          //                       fillColor: Colors.white,
+                          //                       contentPadding: const EdgeInsets.only(
+                          //                           left: 10.0, bottom: 8.0, top: 8.0),
+                          //                     ),
+                          //                     style: TextStyle(
+                          //                       //color: Colors.grey,
+                          //                       backgroundColor: Colors.white38,
+                          //                       fontFamily: "verdana" ,
+                          //                       fontSize: 16.0,
+                          //                       fontWeight: FontWeight.normal,
+                          //                     )
+                          //                 )
+                          //             ),
+                          //             new PopupMenuButton<String>(
+                          //               icon: const Icon(Icons.arrow_drop_down),
+                          //               onSelected: (String value) {
+                          //                 _addresscontroller.text = value;
+                          //               },
+                          //               itemBuilder: (BuildContext context) {
+                          //                 return addressType.map<PopupMenuItem<String>>((String value) {
+                          //                   return new PopupMenuItem(child: new Text(value), value: value);
+                          //                 }).toList();
+                          //               },
+                          //             ),
+                          //           ],
+                          //         ),
+                          //       ),
+                          //     ]
+                          // ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          Column(
+                              children: <Widget> [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 85.0,
+                                    child: Text("Address2",
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          color: Colors.blue.shade600,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                ),
+                              ]
+                          ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          Column(
+                              children: <Widget> [
+                                Container(
+                                  width: 500.0,
+                                  height: 35.0,
+                                  child: TextField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: BorderSide.none,
+                                        ),
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                        contentPadding: const EdgeInsets.only(
+                                            left: 10.0, bottom: 8.0, top: 8.0),
+                                      ),
+                                      style: TextStyle(
+                                        //color: Colors.grey,
+                                        backgroundColor: Colors.white38,
+                                        fontFamily: "verdana" ,
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.normal,
+                                      )),
+                                ),
+                              ]
+                          ),
+                          SizedBox(
+                            width: 25.0,
+                          ),
+                          Column(
+                              children: <Widget> [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 80.0,
+                                    child: Text("City",
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          color: Colors.blue.shade600,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                ),
+                              ]
+                          ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          Column(
+                              children: <Widget> [
+                                Container(
+                                  width: 350.0,
+                                  height: 35.0,
+                                  child: TextField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: BorderSide.none,
+                                        ),
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                        contentPadding: const EdgeInsets.only(
+                                            left: 10.0, bottom: 8.0, top: 8.0),
+                                      ),
+                                      style: TextStyle(
+                                        //color: Colors.grey,
+                                        backgroundColor: Colors.white38,
+                                        fontFamily: "verdana" ,
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.normal,
+                                      )),
+                                ),
+                              ]
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Container(
+                      color: Colors.grey.shade200,
+                      width: 1260.0,
+                      height: 45.0,
+                      //alignment: Alignment.centerLeft,
+                      padding: const EdgeInsets.fromLTRB(15, 0 , 0, 0),
+                      child: Row(
+                        children: [
+                          // Column(
+                          //     children: <Widget> [
+                          //       Padding(
+                          //         padding: const EdgeInsets.all(8.0),
+                          //         child: Container(
+                          //           width: 120.0,
+                          //           child: Text("Addr Type",
+                          //               textAlign: TextAlign.left,
+                          //               style: TextStyle(
+                          //                 color: Colors.blue.shade600,
+                          //                 fontFamily: "verdana" ,
+                          //                 fontSize: 16.0,
+                          //                 fontWeight: FontWeight.bold,
+                          //               )),
+                          //         ),
+                          //       ),
+                          //     ]
+                          // ),
+                          // Column(
+                          //     children: <Widget> [
+                          //       Container(
+                          //         width: 200.0,
+                          //         height: 35.0,
+                          //         child: new Row(
+                          //           children: <Widget>[
+                          //             new Expanded(
+                          //                 child: new TextField(controller: _addresscontroller,
+                          //                     decoration: InputDecoration(
+                          //                       border: OutlineInputBorder(
+                          //                         borderSide: BorderSide.none,
+                          //                       ),
+                          //                       filled: true,
+                          //                       fillColor: Colors.white,
+                          //                       contentPadding: const EdgeInsets.only(
+                          //                           left: 10.0, bottom: 8.0, top: 8.0),
+                          //                     ),
+                          //                     style: TextStyle(
+                          //                       //color: Colors.grey,
+                          //                       backgroundColor: Colors.white38,
+                          //                       fontFamily: "verdana" ,
+                          //                       fontSize: 16.0,
+                          //                       fontWeight: FontWeight.normal,
+                          //                     )
+                          //                 )
+                          //             ),
+                          //             new PopupMenuButton<String>(
+                          //               icon: const Icon(Icons.arrow_drop_down),
+                          //               onSelected: (String value) {
+                          //                 _addresscontroller.text = value;
+                          //               },
+                          //               itemBuilder: (BuildContext context) {
+                          //                 return addressType.map<PopupMenuItem<String>>((String value) {
+                          //                   return new PopupMenuItem(child: new Text(value), value: value);
+                          //                 }).toList();
+                          //               },
+                          //             ),
+                          //           ],
+                          //         ),
+                          //       ),
+                          //     ]
+                          // ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          Column(
+                              children: <Widget> [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 85.0,
+                                    child: Text("State",
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          color: Colors.blue.shade600,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                ),
+                              ]
+                          ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          Column(
+                              children: <Widget> [
+                                Container(
+                                  width: 250.0,
+                                  height: 35.0,
+                                  child: TextField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: BorderSide.none,
+                                        ),
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                        contentPadding: const EdgeInsets.only(
+                                            left: 10.0, bottom: 8.0, top: 8.0),
+                                      ),
+                                      style: TextStyle(
+                                        //color: Colors.grey,
+                                        backgroundColor: Colors.white38,
+                                        fontFamily: "verdana" ,
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.normal,
+                                      )),
+                                ),
+                              ]
+                          ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          Column(
+                              children: <Widget> [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 80.0,
+                                    child: Text("Pincode",
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          color: Colors.blue.shade600,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                ),
+                              ]
+                          ),
+                          // SizedBox(
+                          //   width: 5.0,
+                          // ),
+                          Column(
+                              children: <Widget> [
+                                Container(
+                                  width: 150.0,
+                                  height: 35.0,
+                                  child: TextField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: BorderSide.none,
+                                        ),
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                        contentPadding: const EdgeInsets.only(
+                                            left: 10.0, bottom: 8.0, top: 8.0),
+                                      ),
+                                      style: TextStyle(
+                                        //color: Colors.grey,
+                                        backgroundColor: Colors.white38,
+                                        fontFamily: "verdana" ,
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.normal,
+                                      )),
+                                ),
+                              ]
+                          ),
+                          SizedBox(
+                            width: 25.0,
+                          ),
+                          Column(
+                              children: <Widget> [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 100.0,
+                                    child: Text("Addr Type",
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          color: Colors.blue.shade600,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
+                                ),
+                              ]
+                          ),
+                          Column(
+                              children: <Widget> [
+                                Container(
+                                  width: 300.0,
+                                  height: 35.0,
+                                  child: new Row(
+                                    children: <Widget>[
+                                      new Expanded(
+                                          child: new TextField(controller: _addresscontroller,
+                                              decoration: InputDecoration(
+                                                border: OutlineInputBorder(
+                                                  borderSide: BorderSide.none,
+                                                ),
+                                                filled: true,
+                                                fillColor: Colors.white,
+                                                contentPadding: const EdgeInsets.only(
+                                                    left: 10.0, bottom: 8.0, top: 8.0),
+                                              ),
+                                              style: TextStyle(
+                                                //color: Colors.grey,
+                                                backgroundColor: Colors.white38,
+                                                fontFamily: "verdana" ,
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.normal,
+                                              )
+                                          )
+                                      ),
+                                      new PopupMenuButton<String>(
+                                        icon: const Icon(Icons.arrow_drop_down),
+                                        onSelected: (String value) {
+                                          _addresscontroller.text = value;
+                                        },
+                                        itemBuilder: (BuildContext context) {
+                                          return addressType.map<PopupMenuItem<String>>((String value) {
+                                            return new PopupMenuItem(child: new Text(value), value: value);
+                                          }).toList();
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ]
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -677,8 +1159,8 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
-                                    width: 80.0,
-                                    child: Text("Address",
+                                    width: 100.0,
+                                    child: Text("Estd Date",
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           color: Colors.blue.shade600,
@@ -696,7 +1178,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                           Column(
                               children: <Widget> [
                                 Container(
-                                  width: 500.0,
+                                  width: 150.0,
                                   height: 35.0,
                                   child: TextField(
                                       decoration: InputDecoration(
@@ -727,7 +1209,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
                                     width: 80.0,
-                                    child: Text("Pincode",
+                                    child: Text("Purpose",
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           color: Colors.blue.shade600,
@@ -745,7 +1227,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                           Column(
                               children: <Widget> [
                                 Container(
-                                  width: 350.0,
+                                  width: 500.0,
                                   height: 35.0,
                                   child: TextField(
                                       decoration: InputDecoration(
@@ -791,8 +1273,8 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
-                                    width: 80.0,
-                                    child: Text("Name",
+                                    width: 150.0,
+                                    child: Text("Opening Time1",
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           color: Colors.blue.shade600,
@@ -810,7 +1292,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                           Column(
                               children: <Widget> [
                                 Container(
-                                  width: 500.0,
+                                  width: 100.0,
                                   height: 35.0,
                                   child: TextField(
                                       decoration: InputDecoration(
@@ -840,8 +1322,8 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
-                                    width: 80.0,
-                                    child: Text("Location",
+                                    width: 150.0,
+                                    child: Text("Closing Time 1",
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           color: Colors.blue.shade600,
@@ -859,7 +1341,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                           Column(
                               children: <Widget> [
                                 Container(
-                                  width: 350.0,
+                                  width: 100.0,
                                   height: 35.0,
                                   child: TextField(
                                       decoration: InputDecoration(
@@ -878,6 +1360,27 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                         fontSize: 16.0,
                                         fontWeight: FontWeight.normal,
                                       )),
+                                ),
+                              ]
+                          ),
+                          SizedBox(
+                            width: 50.0,
+                          ),
+                          Column(
+                              children: <Widget> [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    width: 150.0,
+                                    child: Text("Special Notes",
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          color: Colors.blue.shade600,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.bold,
+                                        )),
+                                  ),
                                 ),
                               ]
                           ),
@@ -902,8 +1405,8 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
-                                    width: 80.0,
-                                    child: Text("Address",
+                                    width: 150.0,
+                                    child: Text("Opening Time2",
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           color: Colors.blue.shade600,
@@ -921,7 +1424,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                           Column(
                               children: <Widget> [
                                 Container(
-                                  width: 500.0,
+                                  width: 100.0,
                                   height: 35.0,
                                   child: TextField(
                                       decoration: InputDecoration(
@@ -951,8 +1454,8 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Container(
-                                    width: 80.0,
-                                    child: Text("Pincode",
+                                    width: 150.0,
+                                    child: Text("Closing Time 2",
                                         textAlign: TextAlign.left,
                                         style: TextStyle(
                                           color: Colors.blue.shade600,
@@ -970,7 +1473,35 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                           Column(
                               children: <Widget> [
                                 Container(
-                                  width: 350.0,
+                                  width: 100.0,
+                                  height: 35.0,
+                                  child: TextField(
+                                      decoration: InputDecoration(
+                                        border: OutlineInputBorder(
+                                          borderSide: BorderSide.none,
+                                        ),
+                                        filled: true,
+                                        fillColor: Colors.white,
+                                        contentPadding: const EdgeInsets.only(
+                                            left: 10.0, bottom: 8.0, top: 8.0),
+                                      ),
+                                      style: TextStyle(
+                                        //color: Colors.grey,
+                                        backgroundColor: Colors.white38,
+                                        fontFamily: "verdana" ,
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.normal,
+                                      )),
+                                ),
+                              ]
+                          ),
+                          SizedBox(
+                            width: 50.0,
+                          ),
+                          Column(
+                              children: <Widget> [
+                                Container(
+                                  width: 600.0,
                                   height: 35.0,
                                   child: TextField(
                                       decoration: InputDecoration(
@@ -994,121 +1525,6 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                           ),
                         ],
                       ),
-
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 5.0,
-                ),
-                Row(
-                  children: [
-                    Container(
-                      color: Colors.grey.shade200,
-                      width: 1260.0,
-                      height: 85.0,
-                      //alignment: Alignment.centerLeft,
-                      padding: const EdgeInsets.fromLTRB(20, 15 , 0, 0),
-                      child: Row(
-                        children: [
-                          Column(
-                              children: <Widget> [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Container(
-                                    width: 80.0,
-                                    child: Text("Name",
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                          color: Colors.blue.shade600,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ),
-                                ),
-                              ]
-                          ),
-                          SizedBox(
-                            width: 5.0,
-                          ),
-                          Column(
-                              children: <Widget> [
-                                Container(
-                                  width: 500.0,
-                                  height: 35.0,
-                                  child: TextField(
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(
-                                          borderSide: BorderSide.none,
-                                        ),
-                                        filled: true,
-                                        fillColor: Colors.white,
-                                        contentPadding: const EdgeInsets.only(
-                                            left: 10.0, bottom: 8.0, top: 8.0),
-                                      ),
-                                      style: TextStyle(
-                                        //color: Colors.grey,
-                                        backgroundColor: Colors.white38,
-                                        fontFamily: "verdana" ,
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.normal,
-                                      )),
-                                ),
-                              ]
-                          ),
-                          SizedBox(
-                            width: 25.0,
-                          ),
-                          Column(
-                              children: <Widget> [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Container(
-                                    width: 80.0,
-                                    child: Text("Location",
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                          color: Colors.blue.shade600,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ),
-                                ),
-                              ]
-                          ),
-                          SizedBox(
-                            width: 5.0,
-                          ),
-                          Column(
-                              children: <Widget> [
-                                Container(
-                                  width: 350.0,
-                                  height: 35.0,
-                                  child: TextField(
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(
-                                          borderSide: BorderSide.none,
-                                        ),
-                                        filled: true,
-                                        fillColor: Colors.white,
-                                        contentPadding: const EdgeInsets.only(
-                                            left: 10.0, bottom: 8.0, top: 8.0),
-                                      ),
-                                      style: TextStyle(
-                                        //color: Colors.grey,
-                                        backgroundColor: Colors.white38,
-                                        fontFamily: "verdana" ,
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.normal,
-                                      )),
-                                ),
-                              ]
-                          ),
-                        ],
-                      ),
-
                     ),
                   ],
                 ),
@@ -1120,7 +1536,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                     Container(
                         color: Colors.grey.shade100,
                         width: 1260.0,
-                        height: 70.0,
+                        height: 80.0,
                         // margin: EdgeInsets.all(100.0),
                         //alignment: Alignment.center,
                         child: Center(
@@ -1145,7 +1561,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                             dynamic result = await Navigator.pushNamed(context, '/tirthaAgentDashBoard');
                                           },
                                           minWidth: 125.0,
-                                          height: 50.0,
+                                          height: 60.0,
                                           color: const Color(0x7EE31A1A).withOpacity(0.5),
                                           child: Text(
                                             "Prev",
@@ -1168,7 +1584,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                             dynamic result = await Navigator.pushNamed(context, '/tirthaAgentDashBoard');
                                           },
                                           minWidth: 200.0,
-                                          height: 50.0,
+                                          height: 60.0,
                                           color: const Color(0x7EE31A1A).withOpacity(0.5),
                                           child: Text(
                                             "Save & Exit",
@@ -1191,7 +1607,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                             dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo2');
                                           },
                                           minWidth: 125.0,
-                                          height: 50.0,
+                                          height: 60.0,
                                           color: const Color(0x7EE31A1A).withOpacity(0.5),
                                           child: Text(
                                             "Next",
@@ -1214,7 +1630,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                             dynamic result = await Navigator.pushNamed(context, '/tirthaAgentDashBoard');
                                           },
                                           minWidth: 150.0,
-                                          height: 50.0,
+                                          height: 60.0,
                                           color: Colors.grey.shade600,
                                           child: Text(
                                             "Cancel",
