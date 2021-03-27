@@ -25,13 +25,13 @@ Future<TirthaModel> saveTirtha(
     int location,
     String estdDate,
     String purpose,
-    // String openTime1,
-    // String closeTime1,
-    // String openTime2,
-    // String closeTime2,
+    String openTime1,
+    String closeTime1,
+    String openTime2,
+    String closeTime2,
     String notes) async {
 
-  // print('this is a test $chkelder');
+   print('this is a test');
 
   final String apiUrl = "http://localhost:7070/tirtha/tirtha/register";
 
@@ -61,13 +61,13 @@ Future<TirthaModel> saveTirtha(
       "templeTimings": [
         {
           "name": name,
-          "startTime" : DateTime.parse("2021-02-18T11:00:00.000+05:30"),
-          "endTime" : DateTime.parse("2021-02-18T11:00:00.000+05:30")
+          "startTime": "10:00",
+          "endTime": "12:00"
         }
       ]
   });
 
-  if (response.statusCode == 201) {
+  if (response.statusCode == 201 || response.statusCode == 200) {
     final String responseString = response.body;
 
     return tirthaModelFromJson(responseString);
@@ -1527,7 +1527,9 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                             final String openTime2 = _openTime2Controller.text;
                                             final String closeTime2 = _closeTime2Controller.text;
                                             final String notes = _notesController.text;
+
                                             print('saveTirtha Called - Before');
+
                                             final TirthaModel tirtha = await saveTirtha(
                                                 addressType,
                                                 religion,
@@ -1543,10 +1545,10 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                                 location,
                                                 estdDate,
                                                 purpose,
-                                                // openTime1,
-                                                // closeTime1,
-                                                // openTime2,
-                                                // closeTime2,
+                                                openTime1,
+                                                closeTime1,
+                                                openTime2,
+                                                closeTime2,
                                                 notes);
 
                                             print('saveTirtha Called - AFTER');

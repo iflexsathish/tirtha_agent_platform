@@ -4,7 +4,8 @@
 
 import 'dart:convert';
 
-TirthaModel tirthaModelFromJson(String str) => TirthaModel.fromJson(json.decode(str));
+TirthaModel tirthaModelFromJson(String str) => TirthaModel.fromJson(
+    json.decode(str));
 
 String tirthaModelToJson(TirthaModel data) => json.encode(data.toJson());
 
@@ -127,47 +128,19 @@ class TempleTiming {
     this.startTime,
   });
 
-  Time endTime;
+  String endTime;
   String name;
-  Time startTime;
+  String startTime;
 
   factory TempleTiming.fromJson(Map<String, dynamic> json) => TempleTiming(
-    endTime: Time.fromJson(json["endTime"]),
+    endTime: json["endTime"],
     name: json["name"],
-    startTime: Time.fromJson(json["startTime"]),
+    startTime: json["startTime"],
   );
 
   Map<String, dynamic> toJson() => {
-    "endTime": endTime.toJson(),
+    "endTime": endTime,
     "name": name,
-    "startTime": startTime.toJson(),
-  };
-}
-
-class Time {
-  Time({
-    this.hour,
-    this.minute,
-    this.nano,
-    this.second,
-  });
-
-  String hour;
-  String minute;
-  int nano;
-  String second;
-
-  factory Time.fromJson(Map<String, dynamic> json) => Time(
-    hour: json["hour"],
-    minute: json["minute"],
-    nano: json["nano"],
-    second: json["second"],
-  );
-
-  Map<String, dynamic> toJson() => {
-    "hour": hour,
-    "minute": minute,
-    "nano": nano,
-    "second": second,
+    "startTime": startTime,
   };
 }
