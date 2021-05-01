@@ -155,9 +155,9 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                     children: [
                       Card(
                         child: Container(
-
                           margin: EdgeInsets.all(5.0),
                           height: 150.0,
+                          //width: 300.0,
                           child: Row(
                             children: [
                               Column(
@@ -176,78 +176,81 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                   ),
                                 ],
                               ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
-                                    child: Text("Kapila Threetham",
-                                        style: TextStyle(
-                                          color: Colors.deepPurple.shade300,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
-                                    child: Text("Tirumala, AP",
-                                        style: TextStyle(
-                                          color: Colors.deepPurple.shade300,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 12.0,
-                                          fontWeight: FontWeight.bold,
-                                        )),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
-                                    child: Row(
-                                      children: [
-                                        Text("Status :",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                        SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        Text("LISTED",
-                                            style: TextStyle(
-                                              color: Colors.green.shade600,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                      ],
+                              FittedBox(
+                                fit: BoxFit.cover,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(10, 30, 15, 0),
+                                      child: Text("Kapila Threetham",
+                                          style: TextStyle(
+                                            color: Colors.deepPurple.shade300,
+                                            fontFamily: "verdana" ,
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
+                                          )),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
-                                    child: Row(
-                                      children: [
-                                        Text("No. of Visits :",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                        SizedBox(
-                                          width: 5.0,
-                                        ),
-                                        Text("255",
-                                            style: TextStyle(
-                                              color: Colors.deepPurple.shade300,
-                                              fontFamily: "verdana" ,
-                                              fontSize: 12.0,
-                                              fontWeight: FontWeight.normal,
-                                            )),
-                                      ],
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                      child: Text("Tirumala, AP",
+                                          style: TextStyle(
+                                            color: Colors.deepPurple.shade300,
+                                            fontFamily: "verdana" ,
+                                            fontSize: 12.0,
+                                            fontWeight: FontWeight.bold,
+                                          )),
                                     ),
-                                  ),
-                                ],
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+                                      child: Row(
+                                        children: [
+                                          Text("Status :",
+                                              style: TextStyle(
+                                                color: Colors.deepPurple.shade300,
+                                                fontFamily: "verdana" ,
+                                                fontSize: 12.0,
+                                                fontWeight: FontWeight.bold,
+                                              )),
+                                          SizedBox(
+                                            width: 5.0,
+                                          ),
+                                          Text("LISTED",
+                                              style: TextStyle(
+                                                color: Colors.green.shade600,
+                                                fontFamily: "verdana" ,
+                                                fontSize: 12.0,
+                                                fontWeight: FontWeight.bold,
+                                              )),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.fromLTRB(10, 3, 0, 0),
+                                      child: Row(
+                                        children: [
+                                          Text("No. of Visits :",
+                                              style: TextStyle(
+                                                color: Colors.deepPurple.shade300,
+                                                fontFamily: "verdana" ,
+                                                fontSize: 12.0,
+                                                fontWeight: FontWeight.bold,
+                                              )),
+                                          SizedBox(
+                                            width: 5.0,
+                                          ),
+                                          Text("255",
+                                              style: TextStyle(
+                                                color: Colors.deepPurple.shade300,
+                                                fontFamily: "verdana" ,
+                                                fontSize: 12.0,
+                                                fontWeight: FontWeight.normal,
+                                              )),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                               Column(
                                 children: [
