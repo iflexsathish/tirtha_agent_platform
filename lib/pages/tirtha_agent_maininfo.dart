@@ -1613,7 +1613,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                               dynamic result =
                                               await Navigator.pushNamed(
                                                   context,
-                                                  '/tirthaAgentMainInfo2');
+                                                  '/tirthaAgentSevaInfo');
                                             },
                                             minWidth: 125.0,
                                             height: 60.0,
