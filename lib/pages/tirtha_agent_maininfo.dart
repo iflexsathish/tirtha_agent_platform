@@ -49,7 +49,7 @@ Future<String> saveTirtha(
   );
 
 
-  final String apiUrl = "http://192.168.1.7:7070/tirtha/tirtha/register";
+  final String apiUrl = "http://10.0.2.2:7070/tirtha/tirtha/register";
   Map<String, String> headers = {"Content-type": "application/json"};
   String body =tirthaModelToJson(tirthaModelVal);
   print("Request body: "+body);

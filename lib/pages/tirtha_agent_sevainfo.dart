@@ -18,18 +18,55 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
   bool chksaturday = false;
   bool chksunday = false;
   final TextEditingController _sevafromController = new TextEditingController();
+  final TextEditingController _sevatoController = new TextEditingController();
+  final TextEditingController _reportingController = new TextEditingController();
 
-  TimeOfDay selectedTime = TimeOfDay.now();
+  TimeOfDay selSevaFromTime = TimeOfDay.now();
+  TimeOfDay selSevaToTime = TimeOfDay.now();
+  TimeOfDay selReportTime = TimeOfDay.now();
 
-  void _selectTime() async {
+  void _selSevaFromTime() async {
     final TimeOfDay newTime = await showTimePicker(
       context: context,
-      initialTime: selectedTime,
+      initialTime: selSevaFromTime,
     );
     if (newTime != null) {
       setState(() {
-        selectedTime = newTime;
-        _sevafromController.text = selectedTime.toString();  //selectedTime.toString();
+        selSevaFromTime = newTime;
+        _sevafromController.text = selSevaFromTime.hour.toString() + ':' + selSevaFromTime.minute.toString();
+        // _sevafromController.text = formatDate(
+        //     DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+        //     [hh, ':', nn, " ", am]).toString();
+      });
+    }
+  }
+  void _selSevaToTime() async {
+    final TimeOfDay newTime = await showTimePicker(
+      context: context,
+      initialTime: selSevaToTime,
+    );
+    if (newTime != null) {
+      setState(() {
+        selSevaToTime = newTime;
+        _sevatoController.text = selSevaToTime.hour.toString() + ':' + selSevaToTime.minute.toString();
+        // _sevafromController.text = formatDate(
+        //     DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+        //     [hh, ':', nn, " ", am]).toString();
+      });
+    }
+  }
+  void _selReportTime() async {
+    final TimeOfDay newTime = await showTimePicker(
+      context: context,
+      initialTime: selReportTime,
+    );
+    if (newTime != null) {
+      setState(() {
+        selReportTime = newTime;
+        _reportingController.text = selReportTime.hour.toString() + ':' + selReportTime.minute.toString();
+        // _sevafromController.text = formatDate(
+        //     DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+        //     [hh, ':', nn, " ", am]).toString();
       });
     }
   }
@@ -563,11 +600,11 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                             Column(
                                 children: <Widget> [
                                   Container(
-                                    width: 300.0,
+                                    width: 100.0,
                                     height: 30.0,
                                     child: TextField(
                                         controller: _sevafromController,
-                                        onTap: _selectTime,
+                                        onTap: _selSevaFromTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -614,11 +651,11 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                             Column(
                                 children: <Widget> [
                                   Container(
-                                    width: 300.0,
+                                    width: 100.0,
                                     height: 30.0,
                                     child: TextField(
-                                        controller: _sevafromController,
-                                        onTap: _selectTime,
+                                        controller: _sevatoController,
+                                        onTap: _selSevaToTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -638,6 +675,7 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                   ),
                                 ]
                             ),
+
                           ],
                         ),
 
@@ -678,11 +716,11 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                             Column(
                                 children: <Widget> [
                                   Container(
-                                    width: 300.0,
+                                    width: 100.0,
                                     height: 30.0,
                                     child: TextField(
-                                        controller: _sevafromController,
-                                        onTap: _selectTime,
+                                        controller: _reportingController,
+                                        onTap: _selReportTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -751,6 +789,29 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                   ),
                                 ]
                             ),
+                            SizedBox(
+                              width: 260.0,
+                            ),
+                            ClipRRect(
+                              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                              child: MaterialButton(
+                                onPressed: () async {
+                                  dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
+                                },
+                                minWidth: 40.0,
+                                height: 40.0,
+                                color: const Color(0x7EE31A1A).withOpacity(0.5),
+                                child: Text(
+                                  "Upload Image",
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontFamily: "verdana",
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
 
@@ -762,7 +823,7 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                       Container(
                         color: Colors.grey.shade200,
                         width: 1260.0,
-                        height: 145.0,
+                        height: 140.0,
                         //alignment: Alignment.centerLeft,
                         padding: const EdgeInsets.fromLTRB(20, 50 , 0, 0),
                         child: Row(
@@ -772,7 +833,7 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Container(
-                                      width: 100.0,
+                                      width: 130.0,
                                       child: Text("No of Persons",
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
@@ -912,27 +973,35 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                 ]
                             ),
                             SizedBox(
-                              width: 55.0,
+                              width: 25.0,
                             ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                              child: MaterialButton(
-                                onPressed: () async {
-                                  dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
-                                },
-                                minWidth: 50.0,
-                                height: 50.0,
-                                color: const Color(0x7EE31A1A).withOpacity(0.5),
-                                child: Text(
-                                  "Add Seva",
-                                  style: TextStyle(
-                                    fontSize: 18.0,
-                                    fontFamily: "verdana",
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                            Column(
+                              children: [
+                                Container(
+                                  width: 120.0,
+                                  height: 40.0,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                    child: MaterialButton(
+                                      onPressed: () async {
+                                        dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
+                                      },
+                                      minWidth: 50.0,
+                                      height: 50.0,
+                                      color: const Color(0x7EE31A1A).withOpacity(0.5),
+                                      child: Text(
+                                        "Add Seva",
+                                        style: TextStyle(
+                                          fontSize: 18.0,
+                                          fontFamily: "verdana",
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
+                              ],
                             ),
                           ],
                         ),
