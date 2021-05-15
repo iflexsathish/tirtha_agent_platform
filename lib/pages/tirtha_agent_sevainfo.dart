@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart';
-import 'package:intl/intl.dart';
 import '../GlobalVals.dart' as globals;
 import '../tirthaSeva_model.dart';
 
@@ -11,7 +10,7 @@ class tirthaAgentSevaInfo extends StatefulWidget {
   _tirthaAgentSevaInfoState createState() => _tirthaAgentSevaInfoState();
 }
 
-Future<String> saveTirthaSeva(  //TO CONTINUE FROM HERE
+Future<String> saveTirthaSeva(
     String sevaName,
     List<String> sevaAvailableDays,
     String sevaFrom,
