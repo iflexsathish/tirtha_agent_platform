@@ -1,11 +1,58 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:http/http.dart';
 import 'package:intl/intl.dart';
+import '../GlobalVals.dart' as globals;
+import '../tirthaSeva_model.dart';
 
 class tirthaAgentSevaInfo extends StatefulWidget {
   @override
   _tirthaAgentSevaInfoState createState() => _tirthaAgentSevaInfoState();
+}
+
+Future<String> saveTirthaSeva(  //TO CONTINUE FROM HERE
+    String sevaName,
+    List<String> sevaAvailableDays,
+    String sevaFrom,
+    String sevaTo,
+    String reportingTime,
+    String sevaRptPlace,
+    int sevaPersons,
+    int sevaCost,
+    String sevaInstruction) async {
+
+   final sevaTimingRecord=Timing(startTime: "20:00",endTime: "10:00",reportingTime: "10:00");
+   final List<Timing> sevaTimings=[sevaTimingRecord];
+
+  final tirthaSevaModelVal=TirthaSevaModel(
+      name: sevaName,availableOnDays: sevaAvailableDays,timing: sevaTimings,
+      reportingPoint: sevaRptPlace,maxPersonAllowed: sevaPersons,fee: sevaCost,displayImg: sevaName,
+      specialInstructions: sevaInstruction
+  );
+
+  // final String apiUrl = "http://10.0.2.2:7070/tirtha/tirtha/seva-details";
+  Map<String, String> headers = {"Content-type": "application/json"};
+  Map<String, String> queryParameters = {"tirthaId": globals.tirthaId};
+
+   print("Global tirtha id "+globals.tirthaId);
+
+   var apiUrl = Uri.http('10.0.2.2:7070', '/tirtha/tirtha/seva-details', queryParameters);
+
+  String body =tirthaSevaModelToJson(tirthaSevaModelVal);
+  print("Request body: "+body);
+
+  Response response = await post(apiUrl, headers: headers, body: body);
+  int statusCode = response.statusCode;
+  print("Response code:"+ statusCode.toString());
+
+
+  if (response.statusCode == 201 || response.statusCode == 200) {
+    print("Response body: "+response.body);
+    return response.body;
+  } else {
+    return null;
+  }
 }
 
 class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
@@ -17,9 +64,15 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
   bool chkfriday = false;
   bool chksaturday = false;
   bool chksunday = false;
+
+  final TextEditingController _sevaNameController = new TextEditingController();
   final TextEditingController _sevafromController = new TextEditingController();
   final TextEditingController _sevatoController = new TextEditingController();
   final TextEditingController _reportingController = new TextEditingController();
+  final TextEditingController _sevaPersonController = new TextEditingController();
+  final TextEditingController _sevaRptPlaceController = new TextEditingController();
+  final TextEditingController _sevaCostController = new TextEditingController();
+  final TextEditingController _sevaInstructionController = new TextEditingController();
 
   TimeOfDay selSevaFromTime = TimeOfDay.now();
   TimeOfDay selSevaToTime = TimeOfDay.now();
@@ -311,6 +364,8 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                     width: 940.0,
                                     height: 35.0,
                                     child: TextField(
+                                        controller: _sevaNameController
+                                          ..text = 'Suprabhata Darshan',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -603,7 +658,8 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                     width: 100.0,
                                     height: 30.0,
                                     child: TextField(
-                                        controller: _sevafromController,
+                                        controller: _sevafromController
+                                          ..text = '5.0',
                                         onTap: _selSevaFromTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -654,7 +710,8 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                     width: 100.0,
                                     height: 30.0,
                                     child: TextField(
-                                        controller: _sevatoController,
+                                        controller: _sevatoController
+                                        ..text = '6.0',
                                         onTap: _selSevaToTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -719,7 +776,8 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                     width: 100.0,
                                     height: 30.0,
                                     child: TextField(
-                                        controller: _reportingController,
+                                        controller: _reportingController
+                                        ..text = '4.30',
                                         onTap: _selReportTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -770,6 +828,8 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                     width: 300.0,
                                     height: 35.0,
                                     child: TextField(
+                                        controller: _sevaRptPlaceController
+                                          ..text = 'Seva Center',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -846,15 +906,14 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                   ),
                                 ]
                             ),
-                            // SizedBox(
-                            //   width: 5.0,
-                            // ),
                             Column(
                                 children: <Widget> [
                                   Container(
                                     width: 80.0,
                                     height: 35.0,
                                     child: TextField(
+                                        controller: _sevaPersonController
+                                          ..text = '1',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -904,6 +963,8 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                     width: 80.0,
                                     height: 35.0,
                                     child: TextField(
+                                        controller: _sevaCostController
+                                          ..text = '1000',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -953,6 +1014,8 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                     width: 400.0,
                                     height: 80.0,
                                     child: TextField(
+                                        controller: _sevaInstructionController
+                                          ..text = 'Dhoti and Saree dress code',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -984,7 +1047,91 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                                     child: MaterialButton(
                                       onPressed: () async {
-                                        dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
+
+                                        final String sevaName =
+                                            _sevaNameController.text;
+                                        final String sevaFrom =
+                                            _sevafromController.text;
+                                        final String sevaTo =
+                                            _sevatoController.text;
+                                        final String reportingTime =
+                                            _reportingController.text;
+                                        final String sevaPersons =
+                                        _sevaPersonController.text;
+                                        final int sevaPersonInt = int.parse(sevaPersons);
+                                        final String sevaRptPlace =
+                                            _sevaRptPlaceController.text;
+                                        final String sevaCost =
+                                            _sevaCostController.text;
+                                        final int sevaCostInt = int.parse(sevaCost);
+                                        // final int sevaCostInt = sevaCost.
+                                        final String sevaInstruction =
+                                            _sevaInstructionController.text;
+
+                                        List<String> sevaAvblDays = [];
+
+                                        if (this.chkmonday) {
+                                          var sevaMon = "MONDAY";
+                                          sevaAvblDays.add(sevaMon);
+                                        }
+                                        if (this.chktuesday) {
+                                          var sevaTue = "TUESDAY";
+                                          sevaAvblDays.add(sevaTue);
+                                        }
+                                        if (this.chkwednesday) {
+                                          var sevaWed = "WEDNESDAY";
+                                          sevaAvblDays.add(sevaWed);
+                                        }
+                                        if (this.chkthursday) {
+                                          var sevaThu = "THURSDAY";
+                                          sevaAvblDays.add(sevaThu);
+                                        }
+                                        if (this.chkfriday) {
+                                          var sevaFri = "FRIDAY";
+                                          sevaAvblDays.add(sevaFri);
+                                        }
+                                        if (this.chksaturday) {
+                                          var sevaSat = "SATURDAY";
+                                          sevaAvblDays.add(sevaSat);
+                                        }
+                                        if (this.chksunday) {
+                                          var sevaSun = "SUNDAY";
+                                          sevaAvblDays.add(sevaSun);
+                                        }
+
+                                        await saveTirthaSeva(
+                                            sevaName,
+                                            sevaAvblDays,
+                                            sevaFrom,
+                                            sevaTo,
+                                            reportingTime,
+                                            sevaRptPlace,
+                                            sevaPersonInt,
+                                            sevaCostInt,
+                                            sevaInstruction
+                                        );
+
+                                        print(
+                                            'saveTirthaSeva Called - AFTER');
+
+
+                                        // return showDialog(
+                                        //   context: context,
+                                        //   builder: (ctx) => AlertDialog(
+                                        //     title: Text("Tirtha - Alert"),
+                                        //     content: Text("Tirtha saved successfully. Tirtha Id: " + globals.tirthaId),
+                                        //     actions: <Widget>[
+                                        //       FlatButton(
+                                        //         onPressed: () {
+                                        //           Navigator.of(ctx).pop();
+                                        //         },
+                                        //         child: Text("OK"),
+                                        //       ),
+                                        //     ],
+                                        //   ),
+                                        // );
+
+                                        //dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
                                       },
                                       minWidth: 50.0,
                                       height: 50.0,

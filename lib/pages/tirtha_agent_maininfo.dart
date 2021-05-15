@@ -10,6 +10,7 @@ import 'package:http/http.dart';
 // import 'package:test_app/tirtha_model.dart';
 
 import '../tirtha_model.dart';
+import '../GlobalVals.dart' as globals;
 
 class tirthaAgentMainInfo extends StatefulWidget {
   @override
@@ -70,6 +71,8 @@ Future<String> saveTirtha(
 class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
   TirthaModel _tirtha;
 
+  final String tirthaId = 'none';
+
   final TextEditingController _addresscontroller = new TextEditingController();
   var addressType = ['BUSINESS', 'PERMANENT', 'CURRENT', 'HOME'];
 
@@ -119,15 +122,13 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
   final TextEditingController _locationController = new TextEditingController();
   final TextEditingController _estdDateController = new TextEditingController();
   final TextEditingController _purposeController = new TextEditingController();
-  final TextEditingController _openTime1Controller =
-  new TextEditingController();
-  final TextEditingController _closeTime1Controller =
-  new TextEditingController();
-  final TextEditingController _openTime2Controller =
-  new TextEditingController();
-  final TextEditingController _closeTime2Controller =
-  new TextEditingController();
+  final TextEditingController _openTime1Controller =  new TextEditingController();
+  final TextEditingController _closeTime1Controller =  new TextEditingController();
+  final TextEditingController _openTime2Controller =  new TextEditingController();
+  final TextEditingController _closeTime2Controller =  new TextEditingController();
   final TextEditingController _notesController = new TextEditingController();
+
+  final TextEditingController _tirthaIdController = new TextEditingController();
 
   //controller: t1Controller,
 
@@ -1537,8 +1538,7 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                               print(
                                                   'saveTirtha Called - Before');
 
-                                              final String
-                                              tirthaRegistrationId =
+                                              globals.tirthaId =
                                               await saveTirtha(
                                                   addressType,
                                                   religion,
@@ -1560,18 +1560,18 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                                   closeTime2,
                                                   notes);
 
-                                              print(
-                                                  'saveTirtha Called - AFTER');
+                                              // print(
+                                              //     'saveTirtha Called - AFTER ' + globals.tirthaId);
 
                                               // setState(() {
-                                              //   _tirtha = tirtha;
+                                              //   globals.tirthaId = tirthaRegistrationId;
                                               // });
 
                                               return showDialog(
                                                 context: context,
                                                 builder: (ctx) => AlertDialog(
                                                   title: Text("Tirtha - Alert"),
-                                                  content: Text("Tirtha saved successfully. Tirtha Id: " + tirthaRegistrationId),
+                                                  content: Text("Tirtha saved successfully. Tirtha Id: " + globals.tirthaId),
                                                   actions: <Widget>[
                                                     FlatButton(
                                                       onPressed: () {
@@ -1638,6 +1638,10 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                               Radius.circular(20.0)),
                                           child: MaterialButton(
                                             onPressed: () async {
+
+                                              // print(
+                                              //     'Value of Tirtha Id is ' + tirthaRegistrationId);
+
                                               dynamic result =
                                               await Navigator.pushNamed(
                                                   context,
