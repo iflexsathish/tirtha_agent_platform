@@ -40,7 +40,7 @@ Future<String> saveTirtha(
 
   final address=Address(addressLine1:address1 , addressLine2:address2 , addressType: "PERMANENT", city: city,district: district,pinCode: pincode,state: state);
   final locationCoordinates=LocationCoordinates(latitude: 12345,longitude: 3456);
-  final templeTimingRecord=TempleTiming(endTime: "20:00",name: "opens",startTime: "10:00");
+  final templeTimingRecord=TempleTiming(endTime: openTime1,name: "opens",startTime: closeTime1);
   final List<TempleTiming> templeTimings=[templeTimingRecord];
 
   final tirthaModelVal=TirthaModel(
@@ -129,6 +129,126 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
   final TextEditingController _notesController = new TextEditingController();
 
   final TextEditingController _tirthaIdController = new TextEditingController();
+
+  TimeOfDay selOT1Time = TimeOfDay.now();
+  TimeOfDay selCT1Time = TimeOfDay.now();
+  TimeOfDay selOT2Time = TimeOfDay.now();
+  TimeOfDay selCT2Time = TimeOfDay.now();
+
+  void _selOT1Time() async {
+    final TimeOfDay newTime = await showTimePicker(
+      context: context,
+      initialTime: selOT1Time,
+    );
+    if (newTime != null) {
+      setState(() {
+        selOT1Time = newTime;
+        String fromTimeHour = selOT1Time.hour.toString();
+        String fromTimeMin = selOT1Time.minute.toString();
+
+        int hourLength = fromTimeHour.length;
+        int minLength = fromTimeMin.length;
+
+        if (hourLength == 1 ){
+          fromTimeHour = "0" + fromTimeHour;
+        }
+
+        if (minLength == 1 ){
+          fromTimeMin = fromTimeMin + "0";
+        }
+        _openTime1Controller.text = fromTimeHour + ':' + fromTimeMin;
+        // _sevafromController.text = formatDate(
+        //     DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+        //     [hh, ':', nn, " ", am]).toString();
+      });
+    }
+  }
+  void _selCT1Time() async {
+    final TimeOfDay newTime = await showTimePicker(
+      context: context,
+      initialTime: selCT1Time,
+    );
+    if (newTime != null) {
+      setState(() {
+        selCT1Time = newTime;
+        String fromTimeHour = selCT1Time.hour.toString();
+        String fromTimeMin = selCT1Time.minute.toString();
+
+        int hourLength = fromTimeHour.length;
+        int minLength = fromTimeMin.length;
+
+        if (hourLength == 1 ){
+          fromTimeHour = "0" + fromTimeHour;
+        }
+
+        if (minLength == 1 ){
+          fromTimeMin = fromTimeMin + "0";
+        }
+        _closeTime1Controller.text = fromTimeHour + ':' + fromTimeMin;
+        //_sevatoController.text = selSevaToTime.hour.toString() + ':' + selSevaToTime.minute.toString();
+        // _sevafromController.text = formatDate(
+        //     DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+        //     [hh, ':', nn, " ", am]).toString();
+      });
+    }
+  }
+  void _selOT2Time() async {
+    final TimeOfDay newTime = await showTimePicker(
+      context: context,
+      initialTime: selOT2Time,
+    );
+    if (newTime != null) {
+      setState(() {
+        selOT2Time = newTime;
+        String fromTimeHour = selOT2Time.hour.toString();
+        String fromTimeMin = selOT2Time.minute.toString();
+
+        int hourLength = fromTimeHour.length;
+        int minLength = fromTimeMin.length;
+
+        if (hourLength == 1 ){
+          fromTimeHour = "0" + fromTimeHour;
+        }
+
+        if (minLength == 1 ){
+          fromTimeMin = fromTimeMin + "0";
+        }
+        _openTime2Controller.text = fromTimeHour + ':' + fromTimeMin;
+        // _sevafromController.text = formatDate(
+        //     DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+        //     [hh, ':', nn, " ", am]).toString();
+      });
+    }
+  }
+  void _selCT2Time() async {
+    final TimeOfDay newTime = await showTimePicker(
+      context: context,
+      initialTime: selCT2Time,
+    );
+    if (newTime != null) {
+      setState(() {
+        selCT2Time = newTime;
+        String fromTimeHour = selCT2Time.hour.toString();
+        String fromTimeMin = selCT2Time.minute.toString();
+
+        int hourLength = fromTimeHour.length;
+        int minLength = fromTimeMin.length;
+
+        if (hourLength == 1 ){
+          fromTimeHour = "0" + fromTimeHour;
+        }
+
+        if (minLength == 1 ){
+          fromTimeMin = fromTimeMin + "0";
+        }
+        _closeTime2Controller.text = fromTimeHour + ':' + fromTimeMin;
+        //_sevatoController.text = selSevaToTime.hour.toString() + ':' + selSevaToTime.minute.toString();
+        // _sevafromController.text = formatDate(
+        //     DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
+        //     [hh, ':', nn, " ", am]).toString();
+      });
+    }
+  }
 
   //controller: t1Controller,
 
@@ -1207,8 +1327,9 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                 height: 35.0,
                                 child: TextField(
                                   //controller: _openTime1Controller,
-                                    controller: _openTime1Controller
-                                      ..text = '8:00',
+                                    controller: _openTime1Controller,
+                                      //..text = '8:00',
+                                    onTap: _selOT1Time,
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                         borderSide: BorderSide.none,
@@ -1255,8 +1376,9 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                 height: 35.0,
                                 child: TextField(
                                   //controller: _closeTime1Controller,
-                                    controller: _closeTime1Controller
-                                      ..text = '12:00',
+                                    controller: _closeTime1Controller,
+                                      // ..text = '12:00',
+                                    onTap: _selCT1Time,
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                         borderSide: BorderSide.none,
@@ -1334,8 +1456,9 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                 height: 35.0,
                                 child: TextField(
                                   //controller: _openTime2Controller,
-                                    controller: _openTime2Controller
-                                      ..text = '14:00',
+                                    controller: _openTime2Controller,
+                                      //..text = '14:00',
+                                    onTap: _selOT2Time,
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                         borderSide: BorderSide.none,
@@ -1382,8 +1505,9 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                 height: 35.0,
                                 child: TextField(
                                   //controller: _closeTime2Controller,
-                                    controller: _closeTime2Controller
-                                      ..text = '20:00',
+                                    controller: _closeTime2Controller,
+                                      //..text = '20:00',
+                                    onTap: _selCT2Time,
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
                                         borderSide: BorderSide.none,

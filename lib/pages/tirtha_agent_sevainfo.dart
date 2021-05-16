@@ -21,7 +21,7 @@ Future<String> saveTirthaSeva(
     int sevaCost,
     String sevaInstruction) async {
 
-   final sevaTimingRecord=Timing(startTime: "20:00",endTime: "10:00",reportingTime: "10:00");
+   final sevaTimingRecord=Timing(startTime: sevaFrom,endTime: sevaTo,reportingTime: reportingTime);
    final List<Timing> sevaTimings=[sevaTimingRecord];
 
   final tirthaSevaModelVal=TirthaSevaModel(
@@ -47,8 +47,7 @@ Future<String> saveTirthaSeva(
 
 
   if (response.statusCode == 201 || response.statusCode == 200) {
-    print("Response body: "+response.body);
-    return response.body;
+    return statusCode.toString();
   } else {
     return null;
   }
@@ -85,7 +84,20 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
     if (newTime != null) {
       setState(() {
         selSevaFromTime = newTime;
-        _sevafromController.text = selSevaFromTime.hour.toString() + ':' + selSevaFromTime.minute.toString();
+        String fromTimeHour = selSevaFromTime.hour.toString();
+        String fromTimeMin = selSevaFromTime.minute.toString();
+
+        int hourLength = fromTimeHour.length;
+        int minLength = fromTimeMin.length;
+
+        if (hourLength == 1 ){
+          fromTimeHour = "0" + fromTimeHour;
+        }
+
+        if (minLength == 1 ){
+          fromTimeMin = fromTimeMin + "0";
+        }
+        _sevafromController.text = fromTimeHour + ':' + fromTimeMin;
         // _sevafromController.text = formatDate(
         //     DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
         //     [hh, ':', nn, " ", am]).toString();
@@ -100,7 +112,21 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
     if (newTime != null) {
       setState(() {
         selSevaToTime = newTime;
-        _sevatoController.text = selSevaToTime.hour.toString() + ':' + selSevaToTime.minute.toString();
+        String fromTimeHour = selSevaToTime.hour.toString();
+        String fromTimeMin = selSevaToTime.minute.toString();
+
+        int hourLength = fromTimeHour.length;
+        int minLength = fromTimeMin.length;
+
+        if (hourLength == 1 ){
+          fromTimeHour = "0" + fromTimeHour;
+        }
+
+        if (minLength == 1 ){
+          fromTimeMin = fromTimeMin + "0";
+        }
+        _sevatoController.text = fromTimeHour + ':' + fromTimeMin;
+        //_sevatoController.text = selSevaToTime.hour.toString() + ':' + selSevaToTime.minute.toString();
         // _sevafromController.text = formatDate(
         //     DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
         //     [hh, ':', nn, " ", am]).toString();
@@ -115,7 +141,21 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
     if (newTime != null) {
       setState(() {
         selReportTime = newTime;
-        _reportingController.text = selReportTime.hour.toString() + ':' + selReportTime.minute.toString();
+        String fromTimeHour = selReportTime.hour.toString();
+        String fromTimeMin = selReportTime.minute.toString();
+
+        int hourLength = fromTimeHour.length;
+        int minLength = fromTimeMin.length;
+
+        if (hourLength == 1 ){
+          fromTimeHour = "0" + fromTimeHour;
+        }
+
+        if (minLength == 1 ){
+          fromTimeMin = fromTimeMin + "0";
+        }
+        _reportingController.text = fromTimeHour + ':' + fromTimeMin;
+        //_reportingController.text = selReportTime.hour.toString() + ':' + selReportTime.minute.toString();
         // _sevafromController.text = formatDate(
         //     DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
         //     [hh, ':', nn, " ", am]).toString();
@@ -657,8 +697,8 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                     width: 100.0,
                                     height: 30.0,
                                     child: TextField(
-                                        controller: _sevafromController
-                                          ..text = '5.0',
+                                        controller: _sevafromController,
+                                          //..text = "05:00",
                                         onTap: _selSevaFromTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -709,8 +749,8 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                     width: 100.0,
                                     height: 30.0,
                                     child: TextField(
-                                        controller: _sevatoController
-                                        ..text = '6.0',
+                                        controller: _sevatoController,
+                                        //..text = "06:00",
                                         onTap: _selSevaToTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -775,8 +815,8 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                     width: 100.0,
                                     height: 30.0,
                                     child: TextField(
-                                        controller: _reportingController
-                                        ..text = '4.30',
+                                        controller: _reportingController,
+                                        //..text = "04:30",
                                         onTap: _selReportTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -1098,6 +1138,7 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                           sevaAvblDays.add(sevaSun);
                                         }
 
+                                        final String responseCode =
                                         await saveTirthaSeva(
                                             sevaName,
                                             sevaAvblDays,
@@ -1113,22 +1154,39 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                         print(
                                             'saveTirthaSeva Called - AFTER');
 
-
-                                        // return showDialog(
-                                        //   context: context,
-                                        //   builder: (ctx) => AlertDialog(
-                                        //     title: Text("Tirtha - Alert"),
-                                        //     content: Text("Tirtha saved successfully. Tirtha Id: " + globals.tirthaId),
-                                        //     actions: <Widget>[
-                                        //       FlatButton(
-                                        //         onPressed: () {
-                                        //           Navigator.of(ctx).pop();
-                                        //         },
-                                        //         child: Text("OK"),
-                                        //       ),
-                                        //     ],
-                                        //   ),
-                                        // );
+                                        if (responseCode == "200" || responseCode == "201") {
+                                          return showDialog(
+                                            context: context,
+                                            builder: (ctx) => AlertDialog(
+                                              title: Text("Tirtha - Alert"),
+                                              content: Text("Seva Details saved successfully for Tirtha Id: " + globals.tirthaId),
+                                              actions: <Widget>[
+                                                FlatButton(
+                                                  onPressed: () {
+                                                    Navigator.of(ctx).pop();
+                                                  },
+                                                  child: Text("OK"),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        } else {
+                                          return showDialog(
+                                            context: context,
+                                            builder: (ctx) => AlertDialog(
+                                              title: Text("Tirtha - Alert"),
+                                              content: Text("Seva details failed to save."),
+                                              actions: <Widget>[
+                                                FlatButton(
+                                                  onPressed: () {
+                                                    Navigator.of(ctx).pop();
+                                                  },
+                                                  child: Text("OK"),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        }
 
                                         //dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
                                       },
