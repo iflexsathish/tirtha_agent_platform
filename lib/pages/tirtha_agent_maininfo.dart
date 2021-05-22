@@ -10,7 +10,7 @@ import 'package:http/http.dart';
 // import 'package:test_app/tirtha_model.dart';
 import '../pages/agentCommons.dart' as commons;
 
-import '../tirtha_model.dart';
+import '../models/tirtha_model.dart';
 import '../GlobalVals.dart' as globals;
 
 class tirthaAgentMainInfo extends StatefulWidget {

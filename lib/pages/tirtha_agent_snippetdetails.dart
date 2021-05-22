@@ -6,7 +6,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart';
 import '../GlobalVals.dart' as globals;
-import '../tirthaSeva_model.dart';
+import '../models/tirthaSeva_model.dart';
 import '../pages/agentCommons.dart' as commons;
 
 class tirthaAgentSnippetDetails extends StatefulWidget {
