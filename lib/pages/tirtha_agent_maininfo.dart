@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:http/http.dart';
 // import 'package:test_app/tirtha_model.dart';
-import '../pages/agentheader.dart' as header;
+import '../pages/agentCommons.dart' as commons;
 
 import '../tirtha_model.dart';
 import '../GlobalVals.dart' as globals;
@@ -264,57 +264,10 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
               child: Column(
                 children: <Widget>[
                   //Header Row
-                  header.agentHeader(),
+                  commons.agentHeader(),
                   //Main Info Row
-                  Row(
-                    children: [
-                      Column(
-                        children: [
-                          Center(
-                            child: Container(
-                              //color: Colors.deepPurple.shade300,
-                              width: 600.0,
-                              height: 50.0,
-                              alignment: Alignment.centerLeft,
-                              padding: const EdgeInsets.fromLTRB(15, 15, 0, 0),
-                              child: Column(children: <Widget>[
-                                Text("Main Information",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      color: Colors.deepPurple.shade300,
-                                      fontFamily: "verdana",
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.bold,
-                                    )),
-                              ]),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Center(
-                            child: Container(
-                              //color: Colors.deepPurple.shade300,
-                              width: 640.0,
-                              height: 50.0,
-                              alignment: Alignment.centerRight,
-                              padding: const EdgeInsets.fromLTRB(15, 15, 0, 0),
-                              child: Column(children: <Widget>[
-                                Text("Stage 1/10",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      color: Colors.deepPurple.shade300,
-                                      fontFamily: "verdana",
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.bold,
-                                    )),
-                              ]),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                  commons.agentTitleBar(
+                    titleText: "Main Information",
                   ),
                   //Name Section
                   Row(
@@ -1462,30 +1415,10 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                         SizedBox(
                                           width: 345.0,
                                         ),
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(20.0)),
-                                          child: MaterialButton(
-                                            onPressed: () async {
-                                              dynamic result =
-                                              await Navigator.pushNamed(
-                                                  context,
-                                                  '/tirthaAgentDashBoard');
-                                            },
-                                            minWidth: 125.0,
-                                            height: 60.0,
-                                            color: const Color(0x7EE31A1A)
-                                                .withOpacity(0.5),
-                                            child: Text(
-                                              "Prev",
-                                              style: TextStyle(
-                                                fontSize: 18.0,
-                                                fontFamily: "verdana",
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
+                                        commons.NavigateToPrev(
+                                          navigateToPage: "/tirthaAgentDashBoard",
+                                          height: 60.0,
+                                          width: 125.0,
                                         ),
                                         SizedBox(
                                           width: 50.0,
@@ -1605,61 +1538,18 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                         SizedBox(
                                           width: 50.0,
                                         ),
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(20.0)),
-                                          child: MaterialButton(
-                                            onPressed: () async {
-                                              dynamic result =
-                                              await Navigator.pushNamed(
-                                                  context,
-                                                  '/tirthaAgentSevaInfo');
-                                            },
-                                            minWidth: 125.0,
-                                            height: 60.0,
-                                            color: const Color(0x7EE31A1A)
-                                                .withOpacity(0.5),
-                                            child: Text(
-                                              "Next",
-                                              style: TextStyle(
-                                                fontSize: 18.0,
-                                                fontFamily: "verdana",
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
+                                        commons.NavigateToNext(
+                                          navigateToPage: "/tirthaAgentSevaInfo",
+                                          height: 60.0,
+                                          width: 125.0,
                                         ),
                                         SizedBox(
                                           width: 185.0,
                                         ),
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(20.0)),
-                                          child: MaterialButton(
-                                            onPressed: () async {
-
-                                              // print(
-                                              //     'Value of Tirtha Id is ' + tirthaRegistrationId);
-
-                                              dynamic result =
-                                              await Navigator.pushNamed(
-                                                  context,
-                                                  '/tirthaAgentDashBoard');
-                                            },
-                                            minWidth: 150.0,
-                                            height: 60.0,
-                                            color: Colors.grey.shade600,
-                                            child: Text(
-                                              "Cancel",
-                                              style: TextStyle(
-                                                fontSize: 18.0,
-                                                fontFamily: "verdana",
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          ),
+                                        commons.NavigateToCancel(
+                                          navigateToPage: "/tirthaAgentDashBoard",
+                                          height: 60.0,
+                                          width: 150.0,
                                         ),
                                       ],
                                     ),
@@ -1679,4 +1569,12 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
     );
   }
 }
+
+
+
+
+
+
+
+
 

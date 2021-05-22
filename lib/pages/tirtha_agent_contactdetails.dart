@@ -9,9 +9,9 @@ import '../GlobalVals.dart' as globals;
 import '../tirthaSeva_model.dart';
 import '../pages/agentCommons.dart' as commons;
 
-class tirthaAgentSevaInfo extends StatefulWidget {
+class tirthaAgentContactDetails extends StatefulWidget {
   @override
-  _tirthaAgentSevaInfoState createState() => _tirthaAgentSevaInfoState();
+  _tirthaAgentContactDetailsState createState() => _tirthaAgentContactDetailsState();
 }
 
 Future<String> saveTirthaSeva(
@@ -57,7 +57,7 @@ Future<String> saveTirthaSeva(
   }
 }
 
-class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
+class _tirthaAgentContactDetailsState extends State<tirthaAgentContactDetails> {
 
   bool chkmonday = false;
   bool chktuesday = false;
@@ -182,7 +182,7 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                 //Header Row
                   commons.agentHeader(),
                   commons.agentTitleBar(
-                    titleText: "Seva Details",
+                    titleText: "Contact Details",
                   ),
                   Row(
                     children: [
@@ -1038,7 +1038,7 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                       Container(
                           color: Colors.grey.shade100,
                           width: 1260.0,
-                          height: 80.0,
+                          height: 70.0,
                           // margin: EdgeInsets.all(100.0),
                           //alignment: Alignment.center,
                           child: Center(
@@ -1057,7 +1057,7 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                           width: 345.0,
                                         ),
                                         commons.NavigateToPrev(
-                                          navigateToPage: "/tirthaAgentMainInfo",
+                                          navigateToPage: "/tirthaAgentSpecialEvents",
                                           height: 50.0,
                                           width: 125.0,
                                         ),
@@ -1088,7 +1088,7 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                           width: 50.0,
                                         ),
                                         commons.NavigateToNext(
-                                          navigateToPage: "/tirthaAgentSpecialEvents",
+                                          navigateToPage: "/tirthaAgentContactDetails",
                                           height: 50.0,
                                           width: 125.0,
                                         ),
@@ -1100,6 +1100,7 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                           height: 50.0,
                                           width: 150.0,
                                         ),
+
                                       ],
                                     ),
                                   ),
