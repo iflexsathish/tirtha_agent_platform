@@ -9,9 +9,9 @@ import '../GlobalVals.dart' as globals;
 import '../tirthaSeva_model.dart';
 import '../pages/agentCommons.dart' as commons;
 
-class tirthaAgentContactDetails extends StatefulWidget {
+class tirthaAgentSnippetDetails extends StatefulWidget {
   @override
-  _tirthaAgentContactDetailsState createState() => _tirthaAgentContactDetailsState();
+  _tirthaAgentSnippetDetailsState createState() => _tirthaAgentSnippetDetailsState();
 }
 
 // Future<String> saveTirthaSeva(
@@ -57,7 +57,7 @@ class tirthaAgentContactDetails extends StatefulWidget {
 //   }
 // }
 
-class _tirthaAgentContactDetailsState extends State<tirthaAgentContactDetails> {
+class _tirthaAgentSnippetDetailsState extends State<tirthaAgentSnippetDetails> {
 
 
   final TextEditingController _sevaNameController = new TextEditingController();
@@ -84,7 +84,7 @@ class _tirthaAgentContactDetailsState extends State<tirthaAgentContactDetails> {
                 //Header Row
                   commons.agentHeader(),
                   commons.agentTitleBar(
-                    titleText: "Contact Details",
+                    titleText: "Snippet Details",
                   ),
                   Row(
                     children: [
@@ -102,7 +102,127 @@ class _tirthaAgentContactDetailsState extends State<tirthaAgentContactDetails> {
                                     padding: const EdgeInsets.all(8.0),
                                     child: Container(
                                       width: 120.0,
-                                      child: Text("Contact Name",
+                                      child: Text("Snippet URL",
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                            color: Colors.blue.shade600,
+                                            fontFamily: "verdana" ,
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                    ),
+                                  ),
+                                ]
+                            ),
+                            Column(
+                                children: <Widget> [
+                                  Container(
+                                    width: 700.0,
+                                    height: 35.0,
+                                    child: TextField(
+                                        controller: _sevaNameController
+                                          ..text = 'Suprabhata Darshan',
+                                        decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                            borderSide: BorderSide.none,
+                                          ),
+                                          filled: true,
+                                          fillColor: Colors.white,
+                                          contentPadding: const EdgeInsets.only(
+                                              left: 10.0, bottom: 8.0, top: 8.0),
+                                        ),
+                                        style: TextStyle(
+                                          //color: Colors.grey,
+                                          backgroundColor: Colors.white38,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.normal,
+                                        )),
+                                  ),
+                                ]
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        color: Colors.grey.shade200,
+                        width: 1260.0,
+                        height: 60.0,
+                        //alignment: Alignment.centerLeft,
+                        padding: const EdgeInsets.fromLTRB(20, 15 , 0, 0),
+                        child: Row(
+                          children: [
+                            Column(
+                                children: <Widget> [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Container(
+                                      width: 120.0,
+                                      child: Text("Endpoint",
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                            color: Colors.blue.shade600,
+                                            fontFamily: "verdana" ,
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                    ),
+                                  ),
+                                ]
+                            ),
+                            Column(
+                                children: <Widget> [
+                                  Container(
+                                    width: 700.0,
+                                    height: 35.0,
+                                    child: TextField(
+                                        controller: _sevaNameController
+                                          ..text = 'Suprabhata Darshan',
+                                        decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                            borderSide: BorderSide.none,
+                                          ),
+                                          filled: true,
+                                          fillColor: Colors.white,
+                                          contentPadding: const EdgeInsets.only(
+                                              left: 10.0, bottom: 8.0, top: 8.0),
+                                        ),
+                                        style: TextStyle(
+                                          //color: Colors.grey,
+                                          backgroundColor: Colors.white38,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.normal,
+                                        )),
+                                  ),
+                                ]
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        color: Colors.grey.shade200,
+                        width: 1260.0,
+                        height: 60.0,
+                        //alignment: Alignment.centerLeft,
+                        padding: const EdgeInsets.fromLTRB(20, 15 , 0, 0),
+                        child: Row(
+                          children: [
+                            Column(
+                                children: <Widget> [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Container(
+                                      width: 120.0,
+                                      child: Text("Description",
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                             color: Colors.blue.shade600,
@@ -156,290 +276,122 @@ class _tirthaAgentContactDetailsState extends State<tirthaAgentContactDetails> {
                         padding: const EdgeInsets.fromLTRB(20, 15 , 0, 0),
                         child: Row(
                           children: [
-                            Column(
-                                children: <Widget> [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      width: 120.0,
-                                      child: Text("Address",
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            color: Colors.blue.shade600,
-                                            fontFamily: "verdana" ,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.bold,
-                                          )),
-                                    ),
-                                  ),
-                                ]
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Container(
-                                    width: 800.0,
-                                    height: 35.0,
-                                    child: TextField(
-                                        controller: _sevaNameController
-                                          ..text = 'Suprabhata Darshan',
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide.none,
-                                          ),
-                                          filled: true,
-                                          fillColor: Colors.white,
-                                          contentPadding: const EdgeInsets.only(
-                                              left: 10.0, bottom: 8.0, top: 8.0),
-                                        ),
-                                        style: TextStyle(
-                                          //color: Colors.grey,
-                                          backgroundColor: Colors.white38,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.normal,
-                                        )),
-                                  ),
-                                ]
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        color: Colors.grey.shade200,
-                        width: 1260.0,
-                        height: 60.0,
-                        //alignment: Alignment.centerLeft,
-                        padding: const EdgeInsets.fromLTRB(20, 15 , 0, 0),
-                        child: Row(
-                          children: [
-                            Column(
-                                children: <Widget> [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      width: 120.0,
-                                      child: Text("Mobile",
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            color: Colors.blue.shade600,
-                                            fontFamily: "verdana" ,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.bold,
-                                          )),
-                                    ),
-                                  ),
-                                ]
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Container(
-                                    width: 250.0,
-                                    height: 35.0,
-                                    child: TextField(
-                                        controller: _sevaNameController
-                                          ..text = 'Suprabhata Darshan',
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide.none,
-                                          ),
-                                          filled: true,
-                                          fillColor: Colors.white,
-                                          contentPadding: const EdgeInsets.only(
-                                              left: 10.0, bottom: 8.0, top: 8.0),
-                                        ),
-                                        style: TextStyle(
-                                          //color: Colors.grey,
-                                          backgroundColor: Colors.white38,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.normal,
-                                        )),
-                                  ),
-                                ]
-                            ),
-                            SizedBox(
-                              width: 50.0,
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      width: 75.0,
-                                      child: Text("Email",
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            color: Colors.blue.shade600,
-                                            fontFamily: "verdana" ,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.bold,
-                                          )),
-                                    ),
-                                  ),
-                                ]
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Container(
-                                    width: 410.0,
-                                    height: 35.0,
-                                    child: TextField(
-                                        controller: _sevaNameController
-                                          ..text = 'Suprabhata Darshan',
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide.none,
-                                          ),
-                                          filled: true,
-                                          fillColor: Colors.white,
-                                          contentPadding: const EdgeInsets.only(
-                                              left: 10.0, bottom: 8.0, top: 8.0),
-                                        ),
-                                        style: TextStyle(
-                                          //color: Colors.grey,
-                                          backgroundColor: Colors.white38,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.normal,
-                                        )),
-                                  ),
-                                ]
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        color: Colors.grey.shade200,
-                        width: 1260.0,
-                        height: 60.0,
-                        //alignment: Alignment.centerLeft,
-                        padding: const EdgeInsets.fromLTRB(20, 15 , 0, 0),
-                        child: Row(
-                          children: [
-                            Column(
-                                children: <Widget> [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      width: 120.0,
-                                      child: Text("Department",
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            color: Colors.blue.shade600,
-                                            fontFamily: "verdana" ,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.bold,
-                                          )),
-                                    ),
-                                  ),
-                                ]
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Container(
-                                    width: 250.0,
-                                    height: 35.0,
-                                    child: TextField(
-                                        controller: _sevaNameController
-                                          ..text = 'Suprabhata Darshan',
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide.none,
-                                          ),
-                                          filled: true,
-                                          fillColor: Colors.white,
-                                          contentPadding: const EdgeInsets.only(
-                                              left: 10.0, bottom: 8.0, top: 8.0),
-                                        ),
-                                        style: TextStyle(
-                                          //color: Colors.grey,
-                                          backgroundColor: Colors.white38,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.normal,
-                                        )),
-                                  ),
-                                ]
-                            ),
-                            SizedBox(
-                              width: 40.0,
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      width: 100.0,
-                                      child: Text("Designation",
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            color: Colors.blue.shade600,
-                                            fontFamily: "verdana" ,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.bold,
-                                          )),
-                                    ),
-                                  ),
-                                ]
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Container(
-                                    width: 395.0,
-                                    height: 35.0,
-                                    child: TextField(
-                                        controller: _sevaNameController
-                                          ..text = 'Suprabhata Darshan',
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide.none,
-                                          ),
-                                          filled: true,
-                                          fillColor: Colors.white,
-                                          contentPadding: const EdgeInsets.only(
-                                              left: 10.0, bottom: 8.0, top: 8.0),
-                                        ),
-                                        style: TextStyle(
-                                          //color: Colors.grey,
-                                          backgroundColor: Colors.white38,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.normal,
-                                        )),
-                                  ),
-                                ]
-                            ),
-                            SizedBox(
-                              width: 100.0,
-                            ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                              child: MaterialButton(
-                                onPressed: () async {
-                                  dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
-                                },
-                                minWidth: 40.0,
-                                height: 40.0,
-                                color: const Color(0x7EE31A1A).withOpacity(0.5),
-                                child: Text(
-                                  "Upload Image",
-                                  style: TextStyle(
-                                    fontSize: 14.0,
-                                    fontFamily: "verdana",
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ),
+                            // Column(
+                            //     children: <Widget> [
+                            //       Padding(
+                            //         padding: const EdgeInsets.all(8.0),
+                            //         child: Container(
+                            //           width: 120.0,
+                            //           child: Text("Department",
+                            //               textAlign: TextAlign.left,
+                            //               style: TextStyle(
+                            //                 color: Colors.blue.shade600,
+                            //                 fontFamily: "verdana" ,
+                            //                 fontSize: 16.0,
+                            //                 fontWeight: FontWeight.bold,
+                            //               )),
+                            //         ),
+                            //       ),
+                            //     ]
+                            // ),
+                            // Column(
+                            //     children: <Widget> [
+                            //       Container(
+                            //         width: 250.0,
+                            //         height: 35.0,
+                            //         child: TextField(
+                            //             controller: _sevaNameController
+                            //               ..text = 'Suprabhata Darshan',
+                            //             decoration: InputDecoration(
+                            //               border: OutlineInputBorder(
+                            //                 borderSide: BorderSide.none,
+                            //               ),
+                            //               filled: true,
+                            //               fillColor: Colors.white,
+                            //               contentPadding: const EdgeInsets.only(
+                            //                   left: 10.0, bottom: 8.0, top: 8.0),
+                            //             ),
+                            //             style: TextStyle(
+                            //               //color: Colors.grey,
+                            //               backgroundColor: Colors.white38,
+                            //               fontFamily: "verdana" ,
+                            //               fontSize: 16.0,
+                            //               fontWeight: FontWeight.normal,
+                            //             )),
+                            //       ),
+                            //     ]
+                            // ),
+                            // SizedBox(
+                            //   width: 40.0,
+                            // ),
+                            // Column(
+                            //     children: <Widget> [
+                            //       Padding(
+                            //         padding: const EdgeInsets.all(8.0),
+                            //         child: Container(
+                            //           width: 100.0,
+                            //           child: Text("Designation",
+                            //               textAlign: TextAlign.left,
+                            //               style: TextStyle(
+                            //                 color: Colors.blue.shade600,
+                            //                 fontFamily: "verdana" ,
+                            //                 fontSize: 16.0,
+                            //                 fontWeight: FontWeight.bold,
+                            //               )),
+                            //         ),
+                            //       ),
+                            //     ]
+                            // ),
+                            // Column(
+                            //     children: <Widget> [
+                            //       Container(
+                            //         width: 395.0,
+                            //         height: 35.0,
+                            //         child: TextField(
+                            //             controller: _sevaNameController
+                            //               ..text = 'Suprabhata Darshan',
+                            //             decoration: InputDecoration(
+                            //               border: OutlineInputBorder(
+                            //                 borderSide: BorderSide.none,
+                            //               ),
+                            //               filled: true,
+                            //               fillColor: Colors.white,
+                            //               contentPadding: const EdgeInsets.only(
+                            //                   left: 10.0, bottom: 8.0, top: 8.0),
+                            //             ),
+                            //             style: TextStyle(
+                            //               //color: Colors.grey,
+                            //               backgroundColor: Colors.white38,
+                            //               fontFamily: "verdana" ,
+                            //               fontSize: 16.0,
+                            //               fontWeight: FontWeight.normal,
+                            //             )),
+                            //       ),
+                            //     ]
+                            // ),
+                            // SizedBox(
+                            //   width: 100.0,
+                            // ),
+                            // ClipRRect(
+                            //   borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                            //   child: MaterialButton(
+                            //     onPressed: () async {
+                            //       dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
+                            //     },
+                            //     minWidth: 40.0,
+                            //     height: 40.0,
+                            //     color: const Color(0x7EE31A1A).withOpacity(0.5),
+                            //     child: Text(
+                            //       "Upload Image",
+                            //       style: TextStyle(
+                            //         fontSize: 14.0,
+                            //         fontFamily: "verdana",
+                            //         fontWeight: FontWeight.bold,
+                            //         color: Colors.white,
+                            //       ),
+                            //     ),
+                            //   ),
+                            // ),
                           ],
                         ),
                       ),
@@ -455,53 +407,53 @@ class _tirthaAgentContactDetailsState extends State<tirthaAgentContactDetails> {
                         padding: const EdgeInsets.fromLTRB(20, 50 , 0, 0),
                         child: Row(
                           children: [
-                            Column(
-                                children: <Widget> [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      width: 130.0,
-                                      child: Text("Contact Timings",
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            color: Colors.blue.shade600,
-                                            fontFamily: "verdana" ,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.bold,
-                                          )),
-                                    ),
-                                  ),
-                                ]
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Container(
-                                    width: 200.0,
-                                    height: 35.0,
-                                    child: TextField(
-                                        controller: _sevaPersonController
-                                          ..text = '1',
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide.none,
-                                          ),
-                                          filled: true,
-                                          fillColor: Colors.white,
-                                          contentPadding: const EdgeInsets.only(
-                                              left: 10.0, bottom: 8.0, top: 8.0),
-                                        ),
-                                        style: TextStyle(
-                                          //color: Colors.grey,
-                                          backgroundColor: Colors.white38,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.normal,
-                                        )),
-                                  ),
-                                ]
-                            ),
+                            // Column(
+                            //     children: <Widget> [
+                            //       Padding(
+                            //         padding: const EdgeInsets.all(8.0),
+                            //         child: Container(
+                            //           width: 130.0,
+                            //           child: Text("Contact Timings",
+                            //               textAlign: TextAlign.left,
+                            //               style: TextStyle(
+                            //                 color: Colors.blue.shade600,
+                            //                 fontFamily: "verdana" ,
+                            //                 fontSize: 16.0,
+                            //                 fontWeight: FontWeight.bold,
+                            //               )),
+                            //         ),
+                            //       ),
+                            //     ]
+                            // ),
+                            // Column(
+                            //     children: <Widget> [
+                            //       Container(
+                            //         width: 200.0,
+                            //         height: 35.0,
+                            //         child: TextField(
+                            //             controller: _sevaPersonController
+                            //               ..text = '1',
+                            //             decoration: InputDecoration(
+                            //               border: OutlineInputBorder(
+                            //                 borderSide: BorderSide.none,
+                            //               ),
+                            //               filled: true,
+                            //               fillColor: Colors.white,
+                            //               contentPadding: const EdgeInsets.only(
+                            //                   left: 10.0, bottom: 8.0, top: 8.0),
+                            //             ),
+                            //             style: TextStyle(
+                            //               //color: Colors.grey,
+                            //               backgroundColor: Colors.white38,
+                            //               fontFamily: "verdana" ,
+                            //               fontSize: 16.0,
+                            //               fontWeight: FontWeight.normal,
+                            //             )),
+                            //       ),
+                            //     ]
+                            // ),
                             SizedBox(
-                              width: 680.0,
+                              width: 1000.0,
                             ),
                             Column(
                               children: [
@@ -589,7 +541,7 @@ class _tirthaAgentContactDetailsState extends State<tirthaAgentContactDetails> {
                                       height: 50.0,
                                       color: const Color(0x7EE31A1A).withOpacity(0.5),
                                       child: Text(
-                                        "Add Contact",
+                                        "Add Details",
                                         style: TextStyle(
                                           fontSize: 18.0,
                                           fontFamily: "verdana",
@@ -634,7 +586,7 @@ class _tirthaAgentContactDetailsState extends State<tirthaAgentContactDetails> {
                                           width: 345.0,
                                         ),
                                         commons.NavigateToPrev(
-                                          navigateToPage: "/tirthaAgentSpecialEvents",
+                                          navigateToPage: "/tirthaAgentContactDetails",
                                           height: 50.0,
                                           width: 125.0,
                                         ),
