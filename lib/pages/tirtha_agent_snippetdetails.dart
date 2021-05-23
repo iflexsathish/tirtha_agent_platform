@@ -1,12 +1,8 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
-import 'package:http/http.dart';
 import '../GlobalVals.dart' as globals;
-import '../models/tirthaSnippet_model.dart';
+import '../methods/tirthaSnippet_method.dart' as tirthaSnippet;
 import '../pages/agentCommons.dart' as commons;
 
 class tirthaAgentSnippetDetails extends StatefulWidget {
@@ -14,40 +10,6 @@ class tirthaAgentSnippetDetails extends StatefulWidget {
   _tirthaAgentSnippetDetailsState createState() => _tirthaAgentSnippetDetailsState();
 }
 
-Future<String> saveTirthaSnippet(
-    String snippetURL,
-    String snippetEP,
-    String snippetDesc) async {
-
-  final int serialNo = 0;
-
-  final TirthaSnippetModelVal=TirthaSnippetModel(
-      serialNum: serialNo,snippetUrl: snippetURL,snippetEndPoint: snippetEP,
-      snippetDescription: snippetDesc
-  );
-
-  // final String apiUrl = "http://10.0.2.2:7070/tirtha/tirtha/seva-details";
-  Map<String, String> headers = {"Content-type": "application/json"};
-  Map<String, String> queryParameters = {"tirthaId": globals.tirthaId};
-
-   print("Global tirtha id "+globals.tirthaId);
-
-   var apiUrl = Uri.http('10.0.2.2:7070', '/tirtha/tirtha/history-snippet', queryParameters);
-
-  String body =tirthaSnippetModelToJson(TirthaSnippetModelVal);
-  print("Request body: "+body);
-
-  Response response = await post(apiUrl, headers: headers, body: body);
-  int statusCode = response.statusCode;
-  print("Response code:"+ statusCode.toString());
-
-
-  if (response.statusCode == 201 || response.statusCode == 200) {
-    return statusCode.toString();
-  } else {
-    return null;
-  }
-}
 
 class _tirthaAgentSnippetDetailsState extends State<tirthaAgentSnippetDetails> {
 
@@ -459,7 +421,7 @@ class _tirthaAgentSnippetDetailsState extends State<tirthaAgentSnippetDetails> {
                                             _snippetDescController.text;
 
                                         final String responseCode =
-                                        await saveTirthaSnippet(
+                                        await tirthaSnippet.saveTirthaSnippet(
                                             sURL,
                                             sEndPoint,
                                             sDesc
