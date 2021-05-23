@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart';
+import 'package:tirtha_agent/models/tirthaEvent_model.dart';
 import '../GlobalVals.dart' as globals;
-import '../models/tirthaSeva_model.dart';
 import '../pages/agentCommons.dart' as commons;
 
 class tirthaAgentSpecialEvents extends StatefulWidget {
@@ -14,69 +14,64 @@ class tirthaAgentSpecialEvents extends StatefulWidget {
   _tirthaAgentSpecialEventsState createState() => _tirthaAgentSpecialEventsState();
 }
 
-// Future<String> saveTirthaSeva(
-//     String sevaName,
-//     String sevaFrom,
-//     String sevaTo,
-//     String reportingTime,
-//     String sevaRptPlace,
-//     int sevaPersons,
-//     int sevaCost,
-//     String sevaInstruction) async {
-//
-//    final sevaTimingRecord=Timing(startTime: sevaFrom,endTime: sevaTo,reportingTime: reportingTime);
-//    final List<Timing> sevaTimings=[sevaTimingRecord];
-//
-//   final tirthaSevaModelVal=TirthaSevaModel(
-//       name: sevaName,availableOnDays: sevaAvailableDays,timing: sevaTimings,
-//       reportingPoint: sevaRptPlace,maxPersonAllowed: sevaPersons,fee: sevaCost,displayImg: sevaName,
-//       specialInstructions: sevaInstruction
-//   );
-//
-//   // final String apiUrl = "http://10.0.2.2:7070/tirtha/tirtha/seva-details";
-//   Map<String, String> headers = {"Content-type": "application/json"};
-//   Map<String, String> queryParameters = {"tirthaId": globals.tirthaId};
-//
-//    print("Global tirtha id "+globals.tirthaId);
-//
-//    var apiUrl = Uri.http('10.0.2.2:7070', '/tirtha/tirtha/seva-details', queryParameters);
-//
-//   String body =tirthaSevaModelToJson(tirthaSevaModelVal);
-//   print("Request body: "+body);
-//
-//   Response response = await post(apiUrl, headers: headers, body: body);
-//   int statusCode = response.statusCode;
-//   print("Response code:"+ statusCode.toString());
-//
-//
-//   if (response.statusCode == 201 || response.statusCode == 200) {
-//     return statusCode.toString();
-//   } else {
-//     return null;
-//   }
-// }
+Future<String> saveTirthaEvent(
+    String eventName,
+    String eventFreq,
+    String durationUnit,
+    String durationValue,
+    String startMonth,
+    String endMonth,
+    String speciality,
+    String remarks) async {
+
+  final int serialNum = 0;
+
+  final TirthaEventsModelVal=TirthaEventsModel(
+      eventName: eventName,eventFrequency: eventFreq,eventDuration: durationUnit,
+      eventDurationNumber: durationValue,starMonth: startMonth,endMonth: endMonth, displayImg: eventName,
+      eventSpeciality: speciality, eventRemarks: remarks,serialNum: serialNum
+  );
+
+  // final String apiUrl = "http://10.0.2.2:7070/tirtha/tirtha/seva-details";
+  Map<String, String> headers = {"Content-type": "application/json"};
+  Map<String, String> queryParameters = {"tirthaId": globals.tirthaId};
+  // Map<String, String> queryParameters = {"tirthaId": "60a13150ff31be1560ee2666"};
+
+   print("Global tirtha id "+globals.tirthaId);
+
+   var apiUrl = Uri.http('10.0.2.2:7070', '/tirtha/tirtha/special-events', queryParameters);
+
+  String body =tirthaEventsModelToJson(TirthaEventsModelVal);
+  print("Request body: "+body);
+
+  Response response = await post(apiUrl, headers: headers, body: body);
+  int statusCode = response.statusCode;
+  print("Response code:"+ statusCode.toString());
+
+
+  if (response.statusCode == 201 || response.statusCode == 200) {
+    return statusCode.toString();
+  } else {
+    return null;
+  }
+}
 
 class _tirthaAgentSpecialEventsState extends State<tirthaAgentSpecialEvents> {
 
   final TextEditingController _efcontroller = new TextEditingController();
-  var frequency = ['Yearly','Monthly','Weekly','Half Yearly','Quarterly','Once in X Years','Once in X Months'];
+  var frequency = ['MONTHLY_MULTIPLE', 'MONTHLY_ONCE', 'YEARLY_MULTIPLE', 'YEARLY_ONCE', 'DAILY_ONCE', 'WEEKLY_MULTIPLE', 'WEEKLY_ONCE', 'ONCE_IN_MULTIPLE_YEARS', 'DAILY_MULTIPLE'];
 
   final TextEditingController _durationcontroller = new TextEditingController();
   var duration = ['Year','Month','Weekly','Quarter','Day','Hour'];
 
   final TextEditingController _startmonthcontroller = new TextEditingController();
   final TextEditingController _endmonthcontroller = new TextEditingController();
-  var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var months = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
 
-  final TextEditingController _sevaNameController = new TextEditingController();
-  final TextEditingController _sevafromController = new TextEditingController();
-  final TextEditingController _sevatoController = new TextEditingController();
-  final TextEditingController _reportingController = new TextEditingController();
-  final TextEditingController _sevaPersonController = new TextEditingController();
-  final TextEditingController _sevaRptPlaceController = new TextEditingController();
-  final TextEditingController _sevaCostController = new TextEditingController();
-  final TextEditingController _sevaInstructionController = new TextEditingController();
-
+  final TextEditingController _eventNameController = new TextEditingController();
+  final TextEditingController _durationvalueController = new TextEditingController();
+  final TextEditingController _eventspecialityController = new TextEditingController();
+  final TextEditingController _eventremarksController = new TextEditingController();
 
   @override
 
@@ -132,7 +127,7 @@ class _tirthaAgentSpecialEventsState extends State<tirthaAgentSpecialEvents> {
                                     width: 940.0,
                                     height: 35.0,
                                     child: TextField(
-                                        controller: _sevaNameController
+                                        controller: _eventNameController
                                           ..text = 'Bramhotsavam',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -199,7 +194,7 @@ class _tirthaAgentSpecialEventsState extends State<tirthaAgentSpecialEvents> {
                                         child: new TextField(
                                           //controller: _efcontroller,
                                             controller: _efcontroller
-                                              ..text = 'Yearly',
+                                              ..text = 'YEARLY_ONCE',
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
                                                 borderSide: BorderSide.none,
@@ -341,7 +336,7 @@ class _tirthaAgentSpecialEventsState extends State<tirthaAgentSpecialEvents> {
                                     width: 100.0,
                                     height: 35.0,
                                     child: TextField(
-                                        controller: _sevaNameController
+                                        controller: _durationvalueController
                                           ..text = '20',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -408,7 +403,7 @@ class _tirthaAgentSpecialEventsState extends State<tirthaAgentSpecialEvents> {
                                         child: new TextField(
                                           //controller: _startmonthcontroller,
                                             controller: _startmonthcontroller
-                                              ..text = 'January',
+                                              ..text = 'JANUARY',
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
                                                 borderSide: BorderSide.none,
@@ -481,7 +476,7 @@ class _tirthaAgentSpecialEventsState extends State<tirthaAgentSpecialEvents> {
                                         child: new TextField(
                                           //controller: _endmonthcontroller,
                                             controller: _endmonthcontroller
-                                              ..text = 'Days',
+                                              ..text = 'MARCH',
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
                                                 borderSide: BorderSide.none,
@@ -566,7 +561,7 @@ class _tirthaAgentSpecialEventsState extends State<tirthaAgentSpecialEvents> {
                                     width: 600.0,
                                     height: 50.0,
                                     child: TextField(
-                                        controller: _sevaInstructionController
+                                        controller: _eventspecialityController
                                           ..text = 'Bramhamotsavam Festival',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -652,7 +647,7 @@ class _tirthaAgentSpecialEventsState extends State<tirthaAgentSpecialEvents> {
                                     width: 800.0,
                                     height: 80.0,
                                     child: TextField(
-                                        controller: _sevaInstructionController
+                                        controller: _eventremarksController
                                           ..text = 'Bramhamotsavam Festival',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -686,75 +681,71 @@ class _tirthaAgentSpecialEventsState extends State<tirthaAgentSpecialEvents> {
                                     child: MaterialButton(
                                       onPressed: () async {
 
-                                        final String sevaName =
-                                            _sevaNameController.text;
-                                        final String sevaFrom =
-                                            _sevafromController.text;
-                                        final String sevaTo =
-                                            _sevatoController.text;
-                                        final String reportingTime =
-                                            _reportingController.text;
-                                        final String sevaPersons =
-                                        _sevaPersonController.text;
-                                        final int sevaPersonInt = int.parse(sevaPersons);
-                                        final String sevaRptPlace =
-                                            _sevaRptPlaceController.text;
-                                        final String sevaCost =
-                                            _sevaCostController.text;
-                                        final int sevaCostInt = int.parse(sevaCost);
-                                        // final int sevaCostInt = sevaCost.
-                                        final String sevaInstruction =
-                                            _sevaInstructionController.text;
+                                        final String eventName =
+                                            _eventNameController.text;
+                                        final String eventFreq =
+                                            _efcontroller.text;
+                                        final String durationUnit =
+                                            _durationcontroller.text;
+                                        final String durationValue =
+                                            _durationvalueController.text;
+                                        final String startMonth =
+                                        _startmonthcontroller.text;
+                                        final String endMonth =
+                                            _endmonthcontroller.text;
+                                        final String speciality =
+                                            _eventspecialityController.text;
+                                        final String remarks =
+                                            _eventremarksController.text;
 
-
-                                        // final String responseCode =
-                                        // await saveTirthaSeva(
-                                        //     sevaName,
-                                        //     sevaFrom,
-                                        //     sevaTo,
-                                        //     reportingTime,
-                                        //     sevaRptPlace,
-                                        //     sevaPersonInt,
-                                        //     sevaCostInt,
-                                        //     sevaInstruction
-                                        // );
+                                        final String responseCode =
+                                        await saveTirthaEvent(
+                                            eventName,
+                                            eventFreq,
+                                            durationUnit,
+                                            durationValue,
+                                            startMonth,
+                                            endMonth,
+                                            speciality,
+                                            remarks
+                                        );
 
                                         print(
                                             'saveTirthaSeva Called - AFTER');
 
-                                        // if (responseCode == "200" || responseCode == "201") {
-                                        //   return showDialog(
-                                        //     context: context,
-                                        //     builder: (ctx) => AlertDialog(
-                                        //       title: Text("Tirtha - Alert"),
-                                        //       content: Text("Seva Details saved successfully for Tirtha Id: " + globals.tirthaId),
-                                        //       actions: <Widget>[
-                                        //         FlatButton(
-                                        //           onPressed: () {
-                                        //             Navigator.of(ctx).pop();
-                                        //           },
-                                        //           child: Text("OK"),
-                                        //         ),
-                                        //       ],
-                                        //     ),
-                                        //   );
-                                        // } else {
-                                        //   return showDialog(
-                                        //     context: context,
-                                        //     builder: (ctx) => AlertDialog(
-                                        //       title: Text("Tirtha - Alert"),
-                                        //       content: Text("Seva details failed to save."),
-                                        //       actions: <Widget>[
-                                        //         FlatButton(
-                                        //           onPressed: () {
-                                        //             Navigator.of(ctx).pop();
-                                        //           },
-                                        //           child: Text("OK"),
-                                        //         ),
-                                        //       ],
-                                        //     ),
-                                        //   );
-                                        // }
+                                        if (responseCode == "200" || responseCode == "201") {
+                                          return showDialog(
+                                            context: context,
+                                            builder: (ctx) => AlertDialog(
+                                              title: Text("Tirtha - Alert"),
+                                              content: Text("Event Details saved successfully for Tirtha Id:" + globals.tirthaId),
+                                              actions: <Widget>[
+                                                FlatButton(
+                                                  onPressed: () {
+                                                    Navigator.of(ctx).pop();
+                                                  },
+                                                  child: Text("OK"),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        } else {
+                                          return showDialog(
+                                            context: context,
+                                            builder: (ctx) => AlertDialog(
+                                              title: Text("Tirtha - Alert"),
+                                              content: Text("Event details failed to save."),
+                                              actions: <Widget>[
+                                                FlatButton(
+                                                  onPressed: () {
+                                                    Navigator.of(ctx).pop();
+                                                  },
+                                                  child: Text("OK"),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        }
 
                                         //dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
                                       },

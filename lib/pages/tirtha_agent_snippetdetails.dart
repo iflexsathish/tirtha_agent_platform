@@ -6,7 +6,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart';
 import '../GlobalVals.dart' as globals;
-import '../models/tirthaSeva_model.dart';
+import '../models/tirthaSnippet_model.dart';
 import '../pages/agentCommons.dart' as commons;
 
 class tirthaAgentSnippetDetails extends StatefulWidget {
@@ -14,60 +14,46 @@ class tirthaAgentSnippetDetails extends StatefulWidget {
   _tirthaAgentSnippetDetailsState createState() => _tirthaAgentSnippetDetailsState();
 }
 
-// Future<String> saveTirthaSeva(
-//     String sevaName,
-//     List<String> sevaAvailableDays,
-//     String sevaFrom,
-//     String sevaTo,
-//     String reportingTime,
-//     String sevaRptPlace,
-//     int sevaPersons,
-//     int sevaCost,
-//     String sevaInstruction) async {
-//
-//    final sevaTimingRecord=Timing(startTime: sevaFrom,endTime: sevaTo,reportingTime: reportingTime);
-//    final List<Timing> sevaTimings=[sevaTimingRecord];
-//
-//   final tirthaSevaModelVal=TirthaSevaModel(
-//       name: sevaName,availableOnDays: sevaAvailableDays,timing: sevaTimings,
-//       reportingPoint: sevaRptPlace,maxPersonAllowed: sevaPersons,fee: sevaCost,displayImg: sevaName,
-//       specialInstructions: sevaInstruction
-//   );
-//
-//   // final String apiUrl = "http://10.0.2.2:7070/tirtha/tirtha/seva-details";
-//   Map<String, String> headers = {"Content-type": "application/json"};
-//   Map<String, String> queryParameters = {"tirthaId": globals.tirthaId};
-//
-//    print("Global tirtha id "+globals.tirthaId);
-//
-//    var apiUrl = Uri.http('10.0.2.2:7070', '/tirtha/tirtha/seva-details', queryParameters);
-//
-//   String body =tirthaSevaModelToJson(tirthaSevaModelVal);
-//   print("Request body: "+body);
-//
-//   Response response = await post(apiUrl, headers: headers, body: body);
-//   int statusCode = response.statusCode;
-//   print("Response code:"+ statusCode.toString());
-//
-//
-//   if (response.statusCode == 201 || response.statusCode == 200) {
-//     return statusCode.toString();
-//   } else {
-//     return null;
-//   }
-// }
+Future<String> saveTirthaSnippet(
+    String snippetURL,
+    String snippetEP,
+    String snippetDesc) async {
+
+  final int serialNo = 0;
+
+  final TirthaSnippetModelVal=TirthaSnippetModel(
+      serialNum: serialNo,snippetUrl: snippetURL,snippetEndPoint: snippetEP,
+      snippetDescription: snippetDesc
+  );
+
+  // final String apiUrl = "http://10.0.2.2:7070/tirtha/tirtha/seva-details";
+  Map<String, String> headers = {"Content-type": "application/json"};
+  Map<String, String> queryParameters = {"tirthaId": globals.tirthaId};
+
+   print("Global tirtha id "+globals.tirthaId);
+
+   var apiUrl = Uri.http('10.0.2.2:7070', '/tirtha/tirtha/history-snippet', queryParameters);
+
+  String body =tirthaSnippetModelToJson(TirthaSnippetModelVal);
+  print("Request body: "+body);
+
+  Response response = await post(apiUrl, headers: headers, body: body);
+  int statusCode = response.statusCode;
+  print("Response code:"+ statusCode.toString());
+
+
+  if (response.statusCode == 201 || response.statusCode == 200) {
+    return statusCode.toString();
+  } else {
+    return null;
+  }
+}
 
 class _tirthaAgentSnippetDetailsState extends State<tirthaAgentSnippetDetails> {
 
-
-  final TextEditingController _sevaNameController = new TextEditingController();
-  final TextEditingController _sevafromController = new TextEditingController();
-  final TextEditingController _sevatoController = new TextEditingController();
-  final TextEditingController _reportingController = new TextEditingController();
-  final TextEditingController _sevaPersonController = new TextEditingController();
-  final TextEditingController _sevaRptPlaceController = new TextEditingController();
-  final TextEditingController _sevaCostController = new TextEditingController();
-  final TextEditingController _sevaInstructionController = new TextEditingController();
+  final TextEditingController _snippetURLController = new TextEditingController();
+  final TextEditingController _snippetEndPointController = new TextEditingController();
+  final TextEditingController _snippetDescController = new TextEditingController();
 
   @override
 
@@ -120,8 +106,8 @@ class _tirthaAgentSnippetDetailsState extends State<tirthaAgentSnippetDetails> {
                                     width: 700.0,
                                     height: 35.0,
                                     child: TextField(
-                                        controller: _sevaNameController
-                                          ..text = 'Suprabhata Darshan',
+                                        controller: _snippetURLController
+                                          ..text = 'https://en.wikipedia.org/wiki/Tirupati',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -180,8 +166,8 @@ class _tirthaAgentSnippetDetailsState extends State<tirthaAgentSnippetDetails> {
                                     width: 700.0,
                                     height: 35.0,
                                     child: TextField(
-                                        controller: _sevaNameController
-                                          ..text = 'Suprabhata Darshan',
+                                        controller: _snippetEndPointController
+                                          ..text = 'https://en.wikipedia.org/wiki/Tirupati/Main-Details',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -240,8 +226,8 @@ class _tirthaAgentSnippetDetailsState extends State<tirthaAgentSnippetDetails> {
                                     width: 800.0,
                                     height: 35.0,
                                     child: TextField(
-                                        controller: _sevaNameController
-                                          ..text = 'Suprabhata Darshan',
+                                        controller: _snippetDescController
+                                          ..text = 'Snippet for retrieving Tirupathi temple details',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -465,75 +451,56 @@ class _tirthaAgentSnippetDetailsState extends State<tirthaAgentSnippetDetails> {
                                     child: MaterialButton(
                                       onPressed: () async {
 
-                                        final String sevaName =
-                                            _sevaNameController.text;
-                                        final String sevaFrom =
-                                            _sevafromController.text;
-                                        final String sevaTo =
-                                            _sevatoController.text;
-                                        final String reportingTime =
-                                            _reportingController.text;
-                                        final String sevaPersons =
-                                        _sevaPersonController.text;
-                                        final int sevaPersonInt = int.parse(sevaPersons);
-                                        final String sevaRptPlace =
-                                            _sevaRptPlaceController.text;
-                                        final String sevaCost =
-                                            _sevaCostController.text;
-                                        final int sevaCostInt = int.parse(sevaCost);
-                                        // final int sevaCostInt = sevaCost.
-                                        final String sevaInstruction =
-                                            _sevaInstructionController.text;
+                                        final String sURL =
+                                            _snippetURLController.text;
+                                        final String sEndPoint =
+                                            _snippetEndPointController.text;
+                                        final String sDesc =
+                                            _snippetDescController.text;
 
-                                        // final String responseCode =
-                                        // await saveTirthaSeva(
-                                        //     sevaName,
-                                        //     sevaAvblDays,
-                                        //     sevaFrom,
-                                        //     sevaTo,
-                                        //     reportingTime,
-                                        //     sevaRptPlace,
-                                        //     sevaPersonInt,
-                                        //     sevaCostInt,
-                                        //     sevaInstruction
-                                        // );
+                                        final String responseCode =
+                                        await saveTirthaSnippet(
+                                            sURL,
+                                            sEndPoint,
+                                            sDesc
+                                        );
 
                                         print(
                                             'saveTirthaSeva Called - AFTER');
 
-                                        // if (responseCode == "200" || responseCode == "201") {
-                                        //   return showDialog(
-                                        //     context: context,
-                                        //     builder: (ctx) => AlertDialog(
-                                        //       title: Text("Tirtha - Alert"),
-                                        //       content: Text("Seva Details saved successfully for Tirtha Id: " + globals.tirthaId),
-                                        //       actions: <Widget>[
-                                        //         FlatButton(
-                                        //           onPressed: () {
-                                        //             Navigator.of(ctx).pop();
-                                        //           },
-                                        //           child: Text("OK"),
-                                        //         ),
-                                        //       ],
-                                        //     ),
-                                        //   );
-                                        // } else {
-                                        //   return showDialog(
-                                        //     context: context,
-                                        //     builder: (ctx) => AlertDialog(
-                                        //       title: Text("Tirtha - Alert"),
-                                        //       content: Text("Seva details failed to save."),
-                                        //       actions: <Widget>[
-                                        //         FlatButton(
-                                        //           onPressed: () {
-                                        //             Navigator.of(ctx).pop();
-                                        //           },
-                                        //           child: Text("OK"),
-                                        //         ),
-                                        //       ],
-                                        //     ),
-                                        //   );
-                                        // }
+                                        if (responseCode == "200" || responseCode == "201") {
+                                          return showDialog(
+                                            context: context,
+                                            builder: (ctx) => AlertDialog(
+                                              title: Text("Tirtha - Alert"),
+                                              content: Text("Snippet Details saved successfully for Tirtha Id: " + globals.tirthaId),
+                                              actions: <Widget>[
+                                                FlatButton(
+                                                  onPressed: () {
+                                                    Navigator.of(ctx).pop();
+                                                  },
+                                                  child: Text("OK"),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        } else {
+                                          return showDialog(
+                                            context: context,
+                                            builder: (ctx) => AlertDialog(
+                                              title: Text("Tirtha - Alert"),
+                                              content: Text("Snippet details failed to save."),
+                                              actions: <Widget>[
+                                                FlatButton(
+                                                  onPressed: () {
+                                                    Navigator.of(ctx).pop();
+                                                  },
+                                                  child: Text("OK"),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        }
 
                                         //dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
                                       },
