@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tirtha_agent/pages/tirtha_agent_addldetails.dart';
 
 import 'package:tirtha_agent/pages/tirtha_agent_dashboard.dart';
 import 'package:tirtha_agent/pages/tirtha_agent_maininfo.dart';
@@ -21,6 +22,7 @@ void main() =>  runApp(MaterialApp(
     '/tirthaAgentSpecialEvents': (context) => tirthaAgentSpecialEvents(),
     '/tirthaAgentContactDetails': (context) => tirthaAgentContactDetails(),
     '/tirthaAgentSnippetDetails': (context) => tirthaAgentSnippetDetails(),
+    '/tirthaAgentAddlDetails': (context) => tirthaAgentAddlDetails(),
   },
 
 ));
