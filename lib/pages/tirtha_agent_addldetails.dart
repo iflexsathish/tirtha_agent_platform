@@ -33,7 +33,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
   bool chkformals = false;
   bool chkshirtless = false;
   bool chksaree = false;
-  bool chkchudidhar = false;
+  bool chkchuridhar = false;
 
   final TextEditingController _tirthaSpecialityController = new TextEditingController();
   final TextEditingController _altitudeLevelController = new TextEditingController();
@@ -1162,10 +1162,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           dense: true,
                                           checkColor: Colors.blue,
                                           activeColor: Colors.red,
-                                          value: this.chkchudidhar,
+                                          value: this.chkchuridhar,
                                           onChanged: (bool value) {
                                             setState(() {
-                                              this.chkchudidhar = value;
+                                              this.chkchuridhar = value;
                                             });
                                           },
                                           controlAffinity: ListTileControlAffinity.leading,
@@ -1214,8 +1214,8 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                                   if (this.chksaree) {
                                                     dressCodeList.add("SAREE");
                                                   }
-                                                  if (this.chkchudidhar) {
-                                                    dressCodeList.add("CHUDIDHAR");
+                                                  if (this.chkchuridhar) {
+                                                    dressCodeList.add("CHURIDHAR");
                                                   }
 
                                                   var stairsCount =
