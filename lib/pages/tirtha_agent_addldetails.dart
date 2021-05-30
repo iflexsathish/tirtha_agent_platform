@@ -41,7 +41,6 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
   final TextEditingController _trekDistanceValueController = new TextEditingController();
   final TextEditingController _walkingDistanceMetricController = new TextEditingController();
   final TextEditingController _walkingDistanceValueController = new TextEditingController();
-  final TextEditingController _stairsComplexityController = new TextEditingController();
   final TextEditingController _stairsStepCountController = new TextEditingController();
   final TextEditingController _caveLengthMetricController = new TextEditingController();
   final TextEditingController _caveLengthValueController = new TextEditingController();
@@ -52,7 +51,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
   var metricType = ['KILOMETERS','MILES','OTHERS'];
 
   final TextEditingController _complexitycontroller = new TextEditingController();
-  var stepsComplexityType = ['MANAGEABLE','STEEP','VERY STEEP'];
+  var stepsComplexityType = ['HIGH', 'LOW', 'MEDIUM'];
 
   @override
 
@@ -258,10 +257,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                       dense: true,
                                       checkColor: Colors.blue,
                                       activeColor: Colors.red,
-                                      value: this.chkdresscode,
+                                      value: this.chkelephant,
                                       onChanged: (bool value) {
                                         setState(() {
-                                          this.chkdresscode = value;
+                                          this.chkelephant = value;
                                         });
                                       },
                                       controlAffinity: ListTileControlAffinity.leading,
@@ -281,10 +280,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                       dense: true,
                                       checkColor: Colors.blue,
                                       activeColor: Colors.red,
-                                      value: this.chkdresscode,
+                                      value: this.chkpondfish,
                                       onChanged: (bool value) {
                                         setState(() {
-                                          this.chkdresscode = value;
+                                          this.chkpondfish = value;
                                         });
                                       },
                                       controlAffinity: ListTileControlAffinity.leading,
@@ -316,8 +315,8 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                         height: 35.0,
                                         // height: 400.0,
                                         child: TextField(
-                                          // controller: _sevaNameController
-                                          //   ..text = 'Suprabhata Darshan',
+                                          controller: _altitudeLevelController
+                                            ..text = '1300',
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
                                                 borderSide: BorderSide.none,
@@ -358,8 +357,8 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                         height: 35.0,
                                         // height: 400.0,
                                         child: TextField(
-                                          // controller: _sevaNameController
-                                          //   ..text = 'Suprabhata Darshan',
+                                          controller: _walkingDistanceValueController
+                                            ..text = '200',
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
                                                 borderSide: BorderSide.none,
@@ -387,7 +386,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           children: <Widget>[
                                             new Expanded(
                                                 child: new TextField(
-                                                    controller: _metriccontroller
+                                                    controller: _walkingDistanceMetricController
                                                       ..text = 'KILOMETERS',
                                                     decoration: InputDecoration(
                                                       border: OutlineInputBorder(
@@ -411,7 +410,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                             new PopupMenuButton<String>(
                                               icon: const Icon(Icons.arrow_drop_down),
                                               onSelected: (String value) {
-                                                _metriccontroller.text = value;
+                                                _walkingDistanceMetricController.text = value;
                                               },
                                               itemBuilder: (BuildContext context) {
                                                 return metricType
@@ -429,7 +428,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                     ],
                                   ),
                                   SizedBox(
-                                    height: 25.0,
+                                    height: 15.0,
                                   ),
                                   Row(
                                     children: [
@@ -447,10 +446,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           dense: true,
                                           checkColor: Colors.blue,
                                           activeColor: Colors.red,
-                                          value: this.chkchariot,
+                                          value: this.chktrekrequired,
                                           onChanged: (bool value) {
                                             setState(() {
-                                              this.chkchariot = value;
+                                              this.chktrekrequired = value;
                                             });
                                           },
                                           controlAffinity: ListTileControlAffinity.leading,
@@ -479,8 +478,8 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                         height: 35.0,
                                         // height: 400.0,
                                         child: TextField(
-                                          // controller: _sevaNameController
-                                          //   ..text = 'Suprabhata Darshan',
+                                          controller: _trekDistanceValueController
+                                            ..text = '20',
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
                                                 borderSide: BorderSide.none,
@@ -508,7 +507,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           children: <Widget>[
                                             new Expanded(
                                                 child: new TextField(
-                                                    controller: _metriccontroller
+                                                    controller: _trekDistanceMetricController
                                                       ..text = 'KILOMETERS',
                                                     decoration: InputDecoration(
                                                       border: OutlineInputBorder(
@@ -532,7 +531,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                             new PopupMenuButton<String>(
                                               icon: const Icon(Icons.arrow_drop_down),
                                               onSelected: (String value) {
-                                                _metriccontroller.text = value;
+                                                _trekDistanceMetricController.text = value;
                                               },
                                               itemBuilder: (BuildContext context) {
                                                 return metricType
@@ -550,7 +549,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                     ],
                                   ),
                                   SizedBox(
-                                    height: 25.0,
+                                    height: 15.0,
                                   ),
                                   Row(
                                     children: [
@@ -568,10 +567,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           dense: true,
                                           checkColor: Colors.blue,
                                           activeColor: Colors.red,
-                                          value: this.chkchariot,
+                                          value: this.chkstairsinvolved,
                                           onChanged: (bool value) {
                                             setState(() {
-                                              this.chkchariot = value;
+                                              this.chkstairsinvolved = value;
                                             });
                                           },
                                           controlAffinity: ListTileControlAffinity.leading,
@@ -600,8 +599,8 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                         height: 35.0,
                                         // height: 400.0,
                                         child: TextField(
-                                          // controller: _sevaNameController
-                                          //   ..text = 'Suprabhata Darshan',
+                                          controller: _stairsStepCountController
+                                            ..text = '232',
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
                                                 borderSide: BorderSide.none,
@@ -645,7 +644,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                             new Expanded(
                                                 child: new TextField(
                                                     controller: _complexitycontroller
-                                                      ..text = 'MANAGEABLE',
+                                                      ..text = 'MEDIUM',
                                                     decoration: InputDecoration(
                                                       border: OutlineInputBorder(
                                                         borderSide: BorderSide.none,
@@ -686,7 +685,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                     ],
                                   ),
                                   SizedBox(
-                                    height: 25.0,
+                                    height: 15.0,
                                   ),
                                   Row(
                                     children: [
@@ -704,10 +703,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           dense: true,
                                           checkColor: Colors.blue,
                                           activeColor: Colors.red,
-                                          value: this.chkchariot,
+                                          value: this.chkcaveinpassage,
                                           onChanged: (bool value) {
                                             setState(() {
-                                              this.chkchariot = value;
+                                              this.chkcaveinpassage = value;
                                             });
                                           },
                                           controlAffinity: ListTileControlAffinity.leading,
@@ -733,8 +732,8 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                         height: 35.0,
                                         // height: 400.0,
                                         child: TextField(
-                                          // controller: _sevaNameController
-                                          //   ..text = 'Suprabhata Darshan',
+                                          controller: _caveDiameterValueController
+                                            ..text = '6',
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
                                                 borderSide: BorderSide.none,
@@ -762,7 +761,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           children: <Widget>[
                                             new Expanded(
                                                 child: new TextField(
-                                                    controller: _metriccontroller
+                                                    controller: _caveDiameterMetricController
                                                       ..text = 'KILOMETERS',
                                                     decoration: InputDecoration(
                                                       border: OutlineInputBorder(
@@ -786,7 +785,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                             new PopupMenuButton<String>(
                                               icon: const Icon(Icons.arrow_drop_down),
                                               onSelected: (String value) {
-                                                _metriccontroller.text = value;
+                                                _caveDiameterMetricController.text = value;
                                               },
                                               itemBuilder: (BuildContext context) {
                                                 return metricType
@@ -821,8 +820,8 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                         height: 35.0,
                                         // height: 400.0,
                                         child: TextField(
-                                          // controller: _sevaNameController
-                                          //   ..text = 'Suprabhata Darshan',
+                                          controller: _caveLengthValueController
+                                            ..text = '50',
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
                                                 borderSide: BorderSide.none,
@@ -850,7 +849,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           children: <Widget>[
                                             new Expanded(
                                                 child: new TextField(
-                                                    controller: _metriccontroller
+                                                    controller: _caveLengthMetricController
                                                       ..text = 'KILOMETERS',
                                                     decoration: InputDecoration(
                                                       border: OutlineInputBorder(
@@ -874,7 +873,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                             new PopupMenuButton<String>(
                                               icon: const Icon(Icons.arrow_drop_down),
                                               onSelected: (String value) {
-                                                _metriccontroller.text = value;
+                                                _caveLengthMetricController.text = value;
                                               },
                                               itemBuilder: (BuildContext context) {
                                                 return metricType
@@ -892,7 +891,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                     ],
                                   ),
                                   SizedBox(
-                                    height: 25.0,
+                                    height: 15.0,
                                   ),
                                   Row(
                                     children: [
@@ -910,10 +909,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           dense: true,
                                           checkColor: Colors.blue,
                                           activeColor: Colors.red,
-                                          value: this.chkchariot,
+                                          value: this.chkfreeacco,
                                           onChanged: (bool value) {
                                             setState(() {
-                                              this.chkchariot = value;
+                                              this.chkfreeacco = value;
                                             });
                                           },
                                           controlAffinity: ListTileControlAffinity.leading,
@@ -936,10 +935,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           dense: true,
                                           checkColor: Colors.blue,
                                           activeColor: Colors.red,
-                                          value: this.chkchariot,
+                                          value: this.chkfreefood,
                                           onChanged: (bool value) {
                                             setState(() {
-                                              this.chkchariot = value;
+                                              this.chkfreefood = value;
                                             });
                                           },
                                           controlAffinity: ListTileControlAffinity.leading,
@@ -962,10 +961,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           dense: true,
                                           checkColor: Colors.blue,
                                           activeColor: Colors.red,
-                                          value: this.chkchariot,
+                                          value: this.chkfreetransport,
                                           onChanged: (bool value) {
                                             setState(() {
-                                              this.chkchariot = value;
+                                              this.chkfreetransport = value;
                                             });
                                           },
                                           controlAffinity: ListTileControlAffinity.leading,
@@ -988,10 +987,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           dense: true,
                                           checkColor: Colors.blue,
                                           activeColor: Colors.red,
-                                          value: this.chkchariot,
+                                          value: this.chkonseashore,
                                           onChanged: (bool value) {
                                             setState(() {
-                                              this.chkchariot = value;
+                                              this.chkonseashore = value;
                                             });
                                           },
                                           controlAffinity: ListTileControlAffinity.leading,
@@ -1014,10 +1013,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           dense: true,
                                           checkColor: Colors.blue,
                                           activeColor: Colors.red,
-                                          value: this.chkchariot,
+                                          value: this.chksurroundedbywater,
                                           onChanged: (bool value) {
                                             setState(() {
-                                              this.chkchariot = value;
+                                              this.chksurroundedbywater = value;
                                             });
                                           },
                                           controlAffinity: ListTileControlAffinity.leading,
@@ -1026,7 +1025,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                     ],
                                   ),
                                   SizedBox(
-                                    height: 25.0,
+                                    height: 15.0,
                                   ),
                                   Row(
                                     children: [
@@ -1059,10 +1058,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           dense: true,
                                           checkColor: Colors.blue,
                                           activeColor: Colors.red,
-                                          value: this.chkchariot,
+                                          value: this.chkdhoti,
                                           onChanged: (bool value) {
                                             setState(() {
-                                              this.chkchariot = value;
+                                              this.chkdhoti = value;
                                             });
                                           },
                                           controlAffinity: ListTileControlAffinity.leading,
@@ -1085,10 +1084,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           dense: true,
                                           checkColor: Colors.blue,
                                           activeColor: Colors.red,
-                                          value: this.chkchariot,
+                                          value: this.chkformals,
                                           onChanged: (bool value) {
                                             setState(() {
-                                              this.chkchariot = value;
+                                              this.chkformals = value;
                                             });
                                           },
                                           controlAffinity: ListTileControlAffinity.leading,
@@ -1111,10 +1110,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           dense: true,
                                           checkColor: Colors.blue,
                                           activeColor: Colors.red,
-                                          value: this.chkchariot,
+                                          value: this.chkshirtless,
                                           onChanged: (bool value) {
                                             setState(() {
-                                              this.chkchariot = value;
+                                              this.chkshirtless = value;
                                             });
                                           },
                                           controlAffinity: ListTileControlAffinity.leading,
@@ -1137,10 +1136,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           dense: true,
                                           checkColor: Colors.blue,
                                           activeColor: Colors.red,
-                                          value: this.chkchariot,
+                                          value: this.chksaree,
                                           onChanged: (bool value) {
                                             setState(() {
-                                              this.chkchariot = value;
+                                              this.chksaree = value;
                                             });
                                           },
                                           controlAffinity: ListTileControlAffinity.leading,
@@ -1163,10 +1162,10 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           dense: true,
                                           checkColor: Colors.blue,
                                           activeColor: Colors.red,
-                                          value: this.chkchariot,
+                                          value: this.chkchudidhar,
                                           onChanged: (bool value) {
                                             setState(() {
-                                              this.chkchariot = value;
+                                              this.chkchudidhar = value;
                                             });
                                           },
                                           controlAffinity: ListTileControlAffinity.leading,
@@ -1174,10 +1173,166 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                       ),
                                     ],
                                   ),
+                                  SizedBox(
+                                    height: 15.0,
+                                  ),
+                                  Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 700.0,
+                                      ),
+                                      Column(
+                                        children: [
+                                          Container(
+                                            width: 150.0,
+                                            height: 40.0,
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                              child: MaterialButton(
+                                                onPressed: () async {
+
+                                                  List<String> animalList = [];
+
+                                                  if (this.chkelephant) {
+                                                    animalList.add("ELEPHANT");
+                                                  }
+                                                  if (this.chkpondfish) {
+                                                    animalList.add("FISH");
+                                                  }
+
+                                                  List<String> dressCodeList = [];
+
+                                                  if (this.chkdhoti) {
+                                                    dressCodeList.add("DHOTI");
+                                                  }
+                                                  if (this.chkformals) {
+                                                    dressCodeList.add("FORMALS");
+                                                  }
+                                                  if (this.chkshirtless) {
+                                                    dressCodeList.add("SHIRTLESS");
+                                                  }
+                                                  if (this.chksaree) {
+                                                    dressCodeList.add("SAREE");
+                                                  }
+                                                  if (this.chkchudidhar) {
+                                                    dressCodeList.add("CHUDIDHAR");
+                                                  }
+
+                                                  var stairsCount =
+                                                      int.parse(_stairsStepCountController.text);
+                                                  assert(stairsCount is int);
+
+                                                  var caveDiameterValue =
+                                                  int.parse(_caveDiameterValueController.text);
+                                                  assert(caveDiameterValue is int);
+
+                                                  var caveLengthValue =
+                                                  int.parse(_caveLengthValueController.text);
+                                                  assert(caveLengthValue is int);
+
+                                                  var trekDistanceValue =
+                                                  int.parse(_trekDistanceValueController.text);
+                                                  assert(trekDistanceValue is int);
+
+                                                  var walkingDistanceValue =
+                                                  int.parse(_walkingDistanceValueController.text);
+                                                  assert(walkingDistanceValue is int);
+
+                                                  final String responseCode =
+                                                  await tirthaAddlDetails.saveTirthaAddlDetails(
+                                                      _altitudeLevelController.text,
+                                                      animalList,
+                                                      caveDiameterValue,
+                                                      _caveDiameterMetricController.text,
+                                                      this.chkcaveinpassage,
+                                                      caveLengthValue,
+                                                      _caveLengthMetricController.text,
+                                                      this.chkchariot,
+                                                      this.chkdresscode,
+                                                      dressCodeList,
+                                                      this.chkfreeacco,
+                                                      this.chkfreefood,
+                                                      this.chkfreetransport,
+                                                      this.chkhundi,
+                                                      this.chkpond,
+                                                      this.chkonseashore,
+                                                      this.chkprasadam,
+                                                      this.chkspecialdarshan,
+                                                      "TO BE FILLED LATER",
+                                                      stairsCount,
+                                                      _complexitycontroller.text,
+                                                      this.chkstairsinvolved,
+                                                      this.chksurroundedbywater,
+                                                      trekDistanceValue,
+                                                      _trekDistanceMetricController.text,
+                                                      this.chktrekrequired,
+                                                      walkingDistanceValue,
+                                                      _walkingDistanceMetricController.text,
+                                                      this.chkweighingscale
+                                                  );
+
+                                                  print(
+                                                      'saveTirthaSeva Called - AFTER');
+
+                                                  if (responseCode == "200" || responseCode == "201") {
+                                                    return showDialog(
+                                                      context: context,
+                                                      builder: (ctx) => AlertDialog(
+                                                        title: Text("Tirtha - Alert"),
+                                                        content: Text("Additional Details saved successfully for Tirtha Id: " + globals.tirthaId),
+                                                        actions: <Widget>[
+                                                          FlatButton(
+                                                            onPressed: () {
+                                                              Navigator.of(ctx).pop();
+                                                            },
+                                                            child: Text("OK"),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  } else {
+                                                    return showDialog(
+                                                      context: context,
+                                                      builder: (ctx) => AlertDialog(
+                                                        title: Text("Tirtha - Alert"),
+                                                        content: Text("Additional details failed to save."),
+                                                        actions: <Widget>[
+                                                          FlatButton(
+                                                            onPressed: () {
+                                                              Navigator.of(ctx).pop();
+                                                            },
+                                                            child: Text("OK"),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  }
+
+                                                  //dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
+                                                },
+                                                minWidth: 50.0,
+                                                height: 50.0,
+                                                color: const Color(0x7EE31A1A).withOpacity(0.5),
+                                                child: Text(
+                                                  "Save Details",
+                                                  style: TextStyle(
+                                                    fontSize: 18.0,
+                                                    fontFamily: "verdana",
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: 5.0,
+                                  ),
                                 ]
-                            ),
-                            SizedBox(
-                              width: 5.0,
                             ),
                           ],
                         ),
