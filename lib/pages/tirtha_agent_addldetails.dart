@@ -1397,7 +1397,7 @@ class _tirthaAgentAddlDetailsState extends State<tirthaAgentAddlDetails> {
                                           width: 50.0,
                                         ),
                                         commons.NavigateToNext(
-                                          navigateToPage: "/tirthaAgentAddlDetails",
+                                          navigateToPage: "/tirthaAgentParkingDetails",
                                           height: 50.0,
                                           width: 125.0,
                                         ),
