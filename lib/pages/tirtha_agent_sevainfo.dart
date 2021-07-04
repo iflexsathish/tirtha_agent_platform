@@ -468,8 +468,8 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                     width: 100.0,
                                     height: 30.0,
                                     child: TextField(
-                                        controller: _sevafromController,
-                                          //..text = "05:00",
+                                        controller: _sevafromController
+                                        ..text = "05:00",
                                         onTap: _selSevaFromTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -520,8 +520,8 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                     width: 100.0,
                                     height: 30.0,
                                     child: TextField(
-                                        controller: _sevatoController,
-                                        //..text = "06:00",
+                                        controller: _sevatoController
+                                        ..text = "06:00",
                                         onTap: _selSevaToTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -586,8 +586,8 @@ class _tirthaAgentSevaInfoState extends State<tirthaAgentSevaInfo> {
                                     width: 100.0,
                                     height: 30.0,
                                     child: TextField(
-                                        controller: _reportingController,
-                                        //..text = "04:30",
+                                        controller: _reportingController
+                                        ..text = "04:30",
                                         onTap: _selReportTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(

@@ -3,6 +3,7 @@ import 'package:tirtha_agent/pages/tirtha_agent_addldetails.dart';
 import 'package:tirtha_agent/pages/tirtha_agent_addldetails_Redesigned.dart';
 
 import 'package:tirtha_agent/pages/tirtha_agent_dashboard.dart';
+import 'package:tirtha_agent/pages/tirtha_agent_guidedetails.dart';
 import 'package:tirtha_agent/pages/tirtha_agent_maininfo.dart';
 import 'package:tirtha_agent/pages/tirtha_agent_parkingdetails.dart';
 import 'package:tirtha_agent/pages/tirtha_agent_sevainfo.dart';
@@ -26,6 +27,7 @@ void main() =>  runApp(MaterialApp(
     '/tirthaAgentSnippetDetails': (context) => tirthaAgentSnippetDetails(),
     '/tirthaAgentAddlDetails': (context) => tirthaAgentAddlDetails(),
     '/tirthaAgentParkingDetails': (context) => tirthaAgentParkingDetails(),
+    '/tirthaAgentGuideDetails': (context) => tirthaAgentGuideDetails(),
   },
 
 ));

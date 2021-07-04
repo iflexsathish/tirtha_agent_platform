@@ -1,15 +1,15 @@
 // To parse this JSON data, do
 //
-//     final tirthaParkingDetailsModel = tirthaParkingDetailsModelFromJson(jsonString);
+//     final parking = parkingFromJson(jsonString);
 
 import 'dart:convert';
 
-TirthaParkingDetailsModel tirthaParkingDetailsModelFromJson(String str) => TirthaParkingDetailsModel.fromJson(json.decode(str));
+Parking parkingFromJson(String str) => Parking.fromJson(json.decode(str));
 
-String tirthaParkingDetailsModelToJson(TirthaParkingDetailsModel data) => json.encode(data.toJson());
+String parkingToJson(Parking data) => json.encode(data.toJson());
 
-class TirthaParkingDetailsModel {
-  TirthaParkingDetailsModel({
+class Parking {
+  Parking({
     this.address,
     this.carWash,
     this.charges,
@@ -30,7 +30,7 @@ class TirthaParkingDetailsModel {
 
   Address address;
   bool carWash;
-  Charges charges;
+  List<Charge> charges;
   DistanceToTirtha distanceToTirtha;
   bool driverFacilities;
   bool dropOffFacilityAvailable;
@@ -45,10 +45,10 @@ class TirthaParkingDetailsModel {
   Timings timings;
   bool valetParking;
 
-  factory TirthaParkingDetailsModel.fromJson(Map<String, dynamic> json) => TirthaParkingDetailsModel(
+  factory Parking.fromJson(Map<String, dynamic> json) => Parking(
     address: Address.fromJson(json["address"]),
     carWash: json["carWash"],
-    charges: Charges.fromJson(json["charges"]),
+    charges: List<Charge>.from(json["charges"].map((x) => Charge.fromJson(x))),
     distanceToTirtha: DistanceToTirtha.fromJson(json["distanceToTirtha"]),
     driverFacilities: json["driverFacilities"],
     dropOffFacilityAvailable: json["dropOffFacilityAvailable"],
@@ -67,7 +67,7 @@ class TirthaParkingDetailsModel {
   Map<String, dynamic> toJson() => {
     "address": address.toJson(),
     "carWash": carWash,
-    "charges": charges.toJson(),
+    "charges": List<dynamic>.from(charges.map((x) => x.toJson())),
     "distanceToTirtha": distanceToTirtha.toJson(),
     "driverFacilities": driverFacilities,
     "dropOffFacilityAvailable": dropOffFacilityAvailable,
@@ -124,71 +124,59 @@ class Address {
   };
 }
 
-class Charges {
-  Charges({
-    this.bicycle,
-  });
-
-  Bicycle bicycle;
-
-  factory Charges.fromJson(Map<String, dynamic> json) => Charges(
-    bicycle: Bicycle.fromJson(json["BICYCLE"]),
-  );
-
-  Map<String, dynamic> toJson() => {
-    "BICYCLE": bicycle.toJson(),
-  };
-}
-
-class Bicycle {
-  Bicycle({
+class Charge {
+  Charge({
     this.addonCharge,
+    this.baseCharge,
     this.currency,
-    this.minimumChargeTimeUnit,
-    this.minimumChargeValue,
-    this.timeQuantity,
     this.type,
+    this.vehicleTypes,
   });
 
-  AddonCharge addonCharge;
+  AddonChargeClass addonCharge;
+  AddonChargeClass baseCharge;
   String currency;
-  String minimumChargeTimeUnit;
-  int minimumChargeValue;
-  int timeQuantity;
   String type;
+  String vehicleTypes;
 
-  factory Bicycle.fromJson(Map<String, dynamic> json) => Bicycle(
-    addonCharge: AddonCharge.fromJson(json["addonCharge"]),
+  factory Charge.fromJson(Map<String, dynamic> json) => Charge(
+    addonCharge: AddonChargeClass.fromJson(json["addonCharge"]),
+    baseCharge: AddonChargeClass.fromJson(json["baseCharge"]),
     currency: json["currency"],
-    minimumChargeTimeUnit: json["minimumChargeTimeUnit"],
-    minimumChargeValue: json["minimumChargeValue"],
-    timeQuantity: json["timeQuantity"],
     type: json["type"],
+    vehicleTypes: json["vehicleTypes"],
   );
 
   Map<String, dynamic> toJson() => {
     "addonCharge": addonCharge.toJson(),
+    "baseCharge": baseCharge.toJson(),
     "currency": currency,
-    "minimumChargeTimeUnit": minimumChargeTimeUnit,
-    "minimumChargeValue": minimumChargeValue,
-    "timeQuantity": timeQuantity,
     "type": type,
+    "vehicleTypes": vehicleTypes,
   };
 }
 
-class AddonCharge {
-  AddonCharge({
-    this.hours,
+class AddonChargeClass {
+  AddonChargeClass({
+    this.cost,
+    this.timeQuantity,
+    this.unitType,
   });
 
-  int hours;
+  int cost;
+  int timeQuantity;
+  String unitType;
 
-  factory AddonCharge.fromJson(Map<String, dynamic> json) => AddonCharge(
-    hours: json["HOURS"],
+  factory AddonChargeClass.fromJson(Map<String, dynamic> json) => AddonChargeClass(
+    cost: json["cost"],
+    timeQuantity: json["timeQuantity"],
+    unitType: json["unitType"],
   );
 
   Map<String, dynamic> toJson() => {
-    "HOURS": hours,
+    "cost": cost,
+    "timeQuantity": timeQuantity,
+    "unitType": unitType,
   };
 }
 

@@ -1097,9 +1097,8 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                 width: 100.0,
                                 height: 35.0,
                                 child: TextField(
-                                  //controller: _openTime1Controller,
-                                    controller: _openTime1Controller,
-                                      //..text = '8:00',
+                                    controller: _openTime1Controller
+                                    ..text = '16:30',
                                     onTap: _selOT1Time,
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
@@ -1147,8 +1146,8 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                 height: 35.0,
                                 child: TextField(
                                   //controller: _closeTime1Controller,
-                                    controller: _closeTime1Controller,
-                                      // ..text = '12:00',
+                                    controller: _closeTime1Controller
+                                      ..text = '18:30',
                                     onTap: _selCT1Time,
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
@@ -1227,8 +1226,8 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                 height: 35.0,
                                 child: TextField(
                                   //controller: _openTime2Controller,
-                                    controller: _openTime2Controller,
-                                      //..text = '14:00',
+                                    controller: _openTime2Controller
+                                      ..text = '04:30',
                                     onTap: _selOT2Time,
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(
@@ -1276,8 +1275,8 @@ class _tirthaAgentMainInfoState extends State<tirthaAgentMainInfo> {
                                 height: 35.0,
                                 child: TextField(
                                   //controller: _closeTime2Controller,
-                                    controller: _closeTime2Controller,
-                                      //..text = '20:00',
+                                    controller: _closeTime2Controller
+                                    ..text = '09:30',
                                     onTap: _selCT2Time,
                                     decoration: InputDecoration(
                                       border: OutlineInputBorder(

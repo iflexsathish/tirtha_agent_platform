@@ -34,11 +34,12 @@ class _tirthaAgentParkingDetailsState extends State<tirthaAgentParkingDetails> {
   final TextEditingController _distanceToTirthaMetricController = new TextEditingController();
   final TextEditingController _distanceToTirthaValueController = new TextEditingController();
 
-  final TextEditingController _parkingFeeController = new TextEditingController();
+  final TextEditingController _parkingBaseController = new TextEditingController();
+  final TextEditingController _parkingBaseIncrController = new TextEditingController();
+  final TextEditingController _parkingBaseMetricController = new TextEditingController();
   final TextEditingController _parkingAddOnController = new TextEditingController();
   final TextEditingController _parkingAddOnIncrController = new TextEditingController();
   final TextEditingController _parkingFeeMetricController = new TextEditingController();
-  final TextEditingController _sevaInstructionController = new TextEditingController();
 
   final TextEditingController _typecontroller = new TextEditingController();
   var parkingType = ['FREE','PAID','PRIVILEGED'];
@@ -47,7 +48,7 @@ class _tirthaAgentParkingDetailsState extends State<tirthaAgentParkingDetails> {
   var metricType = ['KILOMETERS','MILES','OTHERS'];
 
   final TextEditingController _basiscontroller = new TextEditingController();
-  var basisType = ['HOURLY','DAILY','OTHERS'];
+  var basisType = ["DAYS", "HOURS", "MINUTES"];
 
   TimeOfDay selParkingFromTime = TimeOfDay.now();
   TimeOfDay selParkingToTime = TimeOfDay.now();
@@ -110,35 +111,6 @@ class _tirthaAgentParkingDetailsState extends State<tirthaAgentParkingDetails> {
       });
     }
   }
-  // void _selReportTime() async {
-  //   final TimeOfDay newTime = await showTimePicker(
-  //     context: context,
-  //     initialTime: selReportTime,
-  //   );
-  //   if (newTime != null) {
-  //     setState(() {
-  //       selReportTime = newTime;
-  //       String fromTimeHour = selReportTime.hour.toString();
-  //       String fromTimeMin = selReportTime.minute.toString();
-  //
-  //       int hourLength = fromTimeHour.length;
-  //       int minLength = fromTimeMin.length;
-  //
-  //       if (hourLength == 1 ){
-  //         fromTimeHour = "0" + fromTimeHour;
-  //       }
-  //
-  //       if (minLength == 1 ){
-  //         fromTimeMin = fromTimeMin + "0";
-  //       }
-  //       _reportingController.text = fromTimeHour + ':' + fromTimeMin;
-  //       //_reportingController.text = selReportTime.hour.toString() + ':' + selReportTime.minute.toString();
-  //       // _sevafromController.text = formatDate(
-  //       //     DateTime(2019, 08, 1, selectedTime.hour, selectedTime.minute),
-  //       //     [hh, ':', nn, " ", am]).toString();
-  //     });
-  //   }
-  // }
 
   @override
 
@@ -243,7 +215,7 @@ class _tirthaAgentParkingDetailsState extends State<tirthaAgentParkingDetails> {
                                         child: new TextField(
                                           //controller: _efcontroller,
                                             controller: _typecontroller
-                                              ..text = 'PRIMARY',
+                                              ..text = 'PAID',
                                             decoration: InputDecoration(
                                               border: OutlineInputBorder(
                                                 borderSide: BorderSide.none,
@@ -705,8 +677,8 @@ class _tirthaAgentParkingDetailsState extends State<tirthaAgentParkingDetails> {
                                     width: 100.0,
                                     height: 30.0,
                                     child: TextField(
-                                        controller: _parkingtimefromController,
-                                        //..text = "05:00",
+                                        controller: _parkingtimefromController
+                                        ..text = "05:00",
                                         onTap: _selParkingFromTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -757,8 +729,9 @@ class _tirthaAgentParkingDetailsState extends State<tirthaAgentParkingDetails> {
                                     width: 100.0,
                                     height: 30.0,
                                     child: TextField(
-                                        controller: _parkingtimetoController,
-                                        //..text = "06:00",
+                                        controller: _parkingtimetoController
+                                        ..text = "23a"
+                                            ":00",
                                         onTap: _selParkingToTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -975,7 +948,7 @@ class _tirthaAgentParkingDetailsState extends State<tirthaAgentParkingDetails> {
                                     width: 100.0,
                                     height: 35.0,
                                     child: TextField(
-                                        controller: _parkingFeeController
+                                        controller: _parkingBaseController
                                           ..text = '100',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
@@ -997,7 +970,114 @@ class _tirthaAgentParkingDetailsState extends State<tirthaAgentParkingDetails> {
                                 ]
                             ),
                             SizedBox(
-                              width: 20.0,
+                              width: 10.0,
+                            ),
+                            Column(
+                                children: <Widget> [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Container(
+                                      width: 30.0,
+                                      child: Text("For",
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                            color: Colors.blue.shade600,
+                                            fontFamily: "verdana" ,
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                    ),
+                                  ),
+                                ]
+                            ),
+                            SizedBox(
+                              width: 5.0,
+                            ),
+                            Column(
+                                children: <Widget> [
+                                  Container(
+                                    width: 60.0,
+                                    height: 35.0,
+                                    child: TextField(
+                                        controller: _parkingBaseIncrController
+                                          ..text = '1',
+                                        decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                            borderSide: BorderSide.none,
+                                          ),
+                                          filled: true,
+                                          fillColor: Colors.white,
+                                          contentPadding: const EdgeInsets.only(
+                                              left: 10.0, bottom: 8.0, top: 8.0),
+                                        ),
+                                        style: TextStyle(
+                                          //color: Colors.grey,
+                                          backgroundColor: Colors.white38,
+                                          fontFamily: "verdana" ,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.normal,
+                                        )),
+                                  ),
+                                ]
+                            ),
+                            SizedBox(
+                              width: 5.0,
+                            ),
+                            Column(
+                                children: <Widget> [
+                                  Padding(
+                                    padding: const EdgeInsets.all(2.0),
+                                    child: Container(
+                                      width: 140.0,
+                                      height: 35.0,
+                                      child: new Row(
+                                        children: <Widget>[
+                                          new Expanded(
+                                              child: new TextField(
+                                                  controller: _parkingBaseMetricController
+                                                    ..text = 'HOURS',
+                                                  decoration: InputDecoration(
+                                                    border: OutlineInputBorder(
+                                                      borderSide: BorderSide.none,
+                                                    ),
+                                                    filled: true,
+                                                    fillColor: Colors.white,
+                                                    contentPadding:
+                                                    const EdgeInsets.only(
+                                                        left: 10.0,
+                                                        bottom: 8.0,
+                                                        top: 0.0),
+                                                  ),
+                                                  style: TextStyle(
+                                                    //color: Colors.grey,
+                                                    backgroundColor: Colors.white38,
+                                                    fontFamily: "verdana",
+                                                    fontSize: 16.0,
+                                                    fontWeight: FontWeight.normal,
+                                                  ))),
+                                          new PopupMenuButton<String>(
+                                            icon: const Icon(Icons.arrow_drop_down),
+                                            onSelected: (String value) {
+                                              _parkingBaseMetricController.text = value;
+                                            },
+                                            itemBuilder: (BuildContext context) {
+                                              return basisType
+                                                  .map<PopupMenuItem<String>>(
+                                                      (String value) {
+                                                    return new PopupMenuItem(
+                                                        child: new Text(value),
+                                                        value: value);
+                                                  }).toList();
+                                            },
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ]
+                            ),
+                            SizedBox(
+                              width: 5.0,
                             ),
                             Column(
                                 children: <Widget> [
@@ -1113,7 +1193,7 @@ class _tirthaAgentParkingDetailsState extends State<tirthaAgentParkingDetails> {
                                           new Expanded(
                                               child: new TextField(
                                                   controller: _parkingFeeMetricController
-                                                    ..text = 'HOURLY',
+                                                    ..text = 'HOURS',
                                                   decoration: InputDecoration(
                                                     border: OutlineInputBorder(
                                                       borderSide: BorderSide.none,
@@ -1285,7 +1365,7 @@ class _tirthaAgentParkingDetailsState extends State<tirthaAgentParkingDetails> {
                             Column(
                                 children: <Widget> [
                                   Container(
-                                    width: 200.0,
+                                    width: 170.0,
                                     height: 25.0,
                                     child: CheckboxListTile(
                                       contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
@@ -1338,305 +1418,107 @@ class _tirthaAgentParkingDetailsState extends State<tirthaAgentParkingDetails> {
                                   ),
                                 ]
                             ),
+                            Column(
+                              children: [
+                                Container(
+                                  width: 120.0,
+                                  height: 40.0,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                                    child: MaterialButton(
+                                      onPressed: () async {
+
+                                        final String responseCode =
+                                        await tirthaParking.saveTirthaParking(
+                                            _nameController.text,
+                                            _typecontroller.text,
+                                            _addr1Controller.text,
+                                            _addr2Controller.text,
+                                            _stateController.text,
+                                            _districtController.text,
+                                            _cityController.text,
+                                            _pincodeController.text,
+                                            int.parse(_locationController.text),
+                                            _parkingtimefromController.text,
+                                            _parkingtimetoController.text,
+                                            int.parse(_distanceToTirthaValueController.text),
+                                            _distanceToTirthaMetricController.text,
+                                            int.parse(_parkingBaseController.text),
+                                            int.parse(_parkingBaseIncrController.text),
+                                            _parkingBaseMetricController.text,
+                                            int.parse(_parkingAddOnController.text),
+                                            int.parse(_parkingAddOnIncrController.text),
+                                            _parkingFeeMetricController.text,
+                                            chkdriverfacilities,
+                                            chkvalet,
+                                            chkcarwash,
+                                            chkdropoff,
+                                            chkrestrooms,
+                                            chktirthamanaged
+                                        );
+
+                                        print(
+                                            'saveTirthaSeva Called - AFTER');
+
+                                        if (responseCode == "200" || responseCode == "201") {
+                                          return showDialog(
+                                            context: context,
+                                            builder: (ctx) => AlertDialog(
+                                              title: Text("Tirtha - Alert"),
+                                              content: Text("Parking Details saved successfully for Tirtha Id: " + globals.tirthaId),
+                                              actions: <Widget>[
+                                                FlatButton(
+                                                  onPressed: () {
+                                                    Navigator.of(ctx).pop();
+                                                  },
+                                                  child: Text("OK"),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        } else {
+                                          return showDialog(
+                                            context: context,
+                                            builder: (ctx) => AlertDialog(
+                                              title: Text("Tirtha - Alert"),
+                                              content: Text("Parking details failed to save."),
+                                              actions: <Widget>[
+                                                FlatButton(
+                                                  onPressed: () {
+                                                    Navigator.of(ctx).pop();
+                                                  },
+                                                  child: Text("OK"),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+                                        }
+
+                                        //dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
+                                      },
+                                      minWidth: 40.0,
+                                      height: 50.0,
+                                      color: const Color(0x7EE31A1A).withOpacity(0.5),
+                                      child: Text(
+                                        "Save",
+                                        style: TextStyle(
+                                          fontSize: 18.0,
+                                          fontFamily: "verdana",
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ],
                         ),
 
                       ),
                     ],
                   ),
-                  // Row(
-                  //   children: [
-                  //     Container(
-                  //       color: Colors.grey.shade200,
-                  //       width: 1260.0,
-                  //       height: 140.0,
-                  //       //alignment: Alignment.centerLeft,
-                  //       padding: const EdgeInsets.fromLTRB(20, 50 , 0, 0),
-                  //       child: Row(
-                  //         children: [
-                  //           Column(
-                  //               children: <Widget> [
-                  //                 Padding(
-                  //                   padding: const EdgeInsets.all(8.0),
-                  //                   child: Container(
-                  //                     width: 130.0,
-                  //                     child: Text("No of Persons",
-                  //                         textAlign: TextAlign.left,
-                  //                         style: TextStyle(
-                  //                           color: Colors.blue.shade600,
-                  //                           fontFamily: "verdana" ,
-                  //                           fontSize: 16.0,
-                  //                           fontWeight: FontWeight.bold,
-                  //                         )),
-                  //                   ),
-                  //                 ),
-                  //               ]
-                  //           ),
-                  //           Column(
-                  //               children: <Widget> [
-                  //                 Container(
-                  //                   width: 80.0,
-                  //                   height: 35.0,
-                  //                   child: TextField(
-                  //                       controller: _sevaPersonController
-                  //                         ..text = '1',
-                  //                       decoration: InputDecoration(
-                  //                         border: OutlineInputBorder(
-                  //                           borderSide: BorderSide.none,
-                  //                         ),
-                  //                         filled: true,
-                  //                         fillColor: Colors.white,
-                  //                         contentPadding: const EdgeInsets.only(
-                  //                             left: 10.0, bottom: 8.0, top: 8.0),
-                  //                       ),
-                  //                       style: TextStyle(
-                  //                         //color: Colors.grey,
-                  //                         backgroundColor: Colors.white38,
-                  //                         fontFamily: "verdana" ,
-                  //                         fontSize: 16.0,
-                  //                         fontWeight: FontWeight.normal,
-                  //                       )),
-                  //                 ),
-                  //               ]
-                  //           ),
-                  //           SizedBox(
-                  //             width: 10.0,
-                  //           ),
-                  //           Column(
-                  //               children: <Widget> [
-                  //                 Padding(
-                  //                   padding: const EdgeInsets.all(8.0),
-                  //                   child: Container(
-                  //                     width: 175.0,
-                  //                     child: Text("Cost per Person (Rs.)",
-                  //                         textAlign: TextAlign.left,
-                  //                         style: TextStyle(
-                  //                           color: Colors.blue.shade600,
-                  //                           fontFamily: "verdana" ,
-                  //                           fontSize: 16.0,
-                  //                           fontWeight: FontWeight.bold,
-                  //                         )),
-                  //                   ),
-                  //                 ),
-                  //               ]
-                  //           ),
-                  //           SizedBox(
-                  //             width: 5.0,
-                  //           ),
-                  //           Column(
-                  //               children: <Widget> [
-                  //                 Container(
-                  //                   width: 80.0,
-                  //                   height: 35.0,
-                  //                   child: TextField(
-                  //                       controller: _sevaCostController
-                  //                         ..text = '1000',
-                  //                       decoration: InputDecoration(
-                  //                         border: OutlineInputBorder(
-                  //                           borderSide: BorderSide.none,
-                  //                         ),
-                  //                         filled: true,
-                  //                         fillColor: Colors.white,
-                  //                         contentPadding: const EdgeInsets.only(
-                  //                             left: 10.0, bottom: 8.0, top: 8.0),
-                  //                       ),
-                  //                       style: TextStyle(
-                  //                         //color: Colors.grey,
-                  //                         backgroundColor: Colors.white38,
-                  //                         fontFamily: "verdana" ,
-                  //                         fontSize: 16.0,
-                  //                         fontWeight: FontWeight.normal,
-                  //                       )),
-                  //                 ),
-                  //               ]
-                  //           ),
-                  //           SizedBox(
-                  //             width: 25.0,
-                  //           ),
-                  //           Column(
-                  //               children: <Widget> [
-                  //                 Padding(
-                  //                   padding: const EdgeInsets.all(8.0),
-                  //                   child: Container(
-                  //                     width: 100.0,
-                  //                     child: Text("Instructions",
-                  //                         textAlign: TextAlign.left,
-                  //                         style: TextStyle(
-                  //                           color: Colors.blue.shade600,
-                  //                           fontFamily: "verdana" ,
-                  //                           fontSize: 16.0,
-                  //                           fontWeight: FontWeight.bold,
-                  //                         )),
-                  //                   ),
-                  //                 ),
-                  //               ]
-                  //           ),
-                  //           SizedBox(
-                  //             width: 5.0,
-                  //           ),
-                  //           Column(
-                  //               children: <Widget> [
-                  //                 Container(
-                  //                   width: 400.0,
-                  //                   height: 80.0,
-                  //                   child: TextField(
-                  //                       controller: _sevaInstructionController
-                  //                         ..text = 'Dhoti and Saree dress code',
-                  //                       decoration: InputDecoration(
-                  //                         border: OutlineInputBorder(
-                  //                           borderSide: BorderSide.none,
-                  //                         ),
-                  //                         filled: true,
-                  //                         fillColor: Colors.white,
-                  //                         contentPadding: const EdgeInsets.only(
-                  //                             left: 10.0, bottom: 8.0, top: 8.0),
-                  //                       ),
-                  //                       style: TextStyle(
-                  //                         //color: Colors.grey,
-                  //                         backgroundColor: Colors.white38,
-                  //                         fontFamily: "verdana" ,
-                  //                         fontSize: 16.0,
-                  //                         fontWeight: FontWeight.normal,
-                  //                       )),
-                  //                 ),
-                  //               ]
-                  //           ),
-                  //           SizedBox(
-                  //             width: 25.0,
-                  //           ),
-                  //           Column(
-                  //             children: [
-                  //               Container(
-                  //                 width: 120.0,
-                  //                 height: 40.0,
-                  //                 child: ClipRRect(
-                  //                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                  //                   child: MaterialButton(
-                  //                     onPressed: () async {
-                  //
-                  //                       final String sevaName =
-                  //                           _nameController.text;
-                  //                       final String sevaFrom =
-                  //                           _parkingtimefromController.text;
-                  //                       final String sevaTo =
-                  //                           _parkingtimetoController.text;
-                  //                       final String sevaPersons =
-                  //                       _sevaPersonController.text;
-                  //                       final int sevaPersonInt = int.parse(sevaPersons);
-                  //                       final String sevaRptPlace =
-                  //                           _sevaRptPlaceController.text;
-                  //                       final String sevaCost =
-                  //                           _sevaCostController.text;
-                  //                       final int sevaCostInt = int.parse(sevaCost);
-                  //                       // final int sevaCostInt = sevaCost.
-                  //                       final String sevaInstruction =
-                  //                           _sevaInstructionController.text;
-                  //
-                  //                       // List<String> sevaAvblDays = [];
-                  //
-                  //                       // if (this.chkmonday) {
-                  //                       //   var sevaMon = "MONDAY";
-                  //                       //   sevaAvblDays.add(sevaMon);
-                  //                       // }
-                  //                       // if (this.chktuesday) {
-                  //                       //   var sevaTue = "TUESDAY";
-                  //                       //   sevaAvblDays.add(sevaTue);
-                  //                       // }
-                  //                       // if (this.chkwednesday) {
-                  //                       //   var sevaWed = "WEDNESDAY";
-                  //                       //   sevaAvblDays.add(sevaWed);
-                  //                       // }
-                  //                       // if (this.chkthursday) {
-                  //                       //   var sevaThu = "THURSDAY";
-                  //                       //   sevaAvblDays.add(sevaThu);
-                  //                       // }
-                  //                       // if (this.chkfriday) {
-                  //                       //   var sevaFri = "FRIDAY";
-                  //                       //   sevaAvblDays.add(sevaFri);
-                  //                       // }
-                  //                       // if (this.chksaturday) {
-                  //                       //   var sevaSat = "SATURDAY";
-                  //                       //   sevaAvblDays.add(sevaSat);
-                  //                       // }
-                  //                       // if (this.chksunday) {
-                  //                       //   var sevaSun = "SUNDAY";
-                  //                       //   sevaAvblDays.add(sevaSun);
-                  //                       // }
-                  //
-                  //                       // final String responseCode =
-                  //                       // await tirthaParking.saveTirthaParking(
-                  //                       //     sevaName,
-                  //                       //     sevaAvblDays,
-                  //                       //     sevaFrom,
-                  //                       //     sevaTo,
-                  //                       //     reportingTime,
-                  //                       //     sevaRptPlace,
-                  //                       //     sevaPersonInt,
-                  //                       //     sevaCostInt,
-                  //                       //     sevaInstruction
-                  //                       // );
-                  //
-                  //                       print(
-                  //                           'saveTirthaSeva Called - AFTER');
-                  //
-                  //                       // if (responseCode == "200" || responseCode == "201") {
-                  //                       //   return showDialog(
-                  //                       //     context: context,
-                  //                       //     builder: (ctx) => AlertDialog(
-                  //                       //       title: Text("Tirtha - Alert"),
-                  //                       //       content: Text("Seva Details saved successfully for Tirtha Id: " + globals.tirthaId),
-                  //                       //       actions: <Widget>[
-                  //                       //         FlatButton(
-                  //                       //           onPressed: () {
-                  //                       //             Navigator.of(ctx).pop();
-                  //                       //           },
-                  //                       //           child: Text("OK"),
-                  //                       //         ),
-                  //                       //       ],
-                  //                       //     ),
-                  //                       //   );
-                  //                       // } else {
-                  //                       //   return showDialog(
-                  //                       //     context: context,
-                  //                       //     builder: (ctx) => AlertDialog(
-                  //                       //       title: Text("Tirtha - Alert"),
-                  //                       //       content: Text("Seva details failed to save."),
-                  //                       //       actions: <Widget>[
-                  //                       //         FlatButton(
-                  //                       //           onPressed: () {
-                  //                       //             Navigator.of(ctx).pop();
-                  //                       //           },
-                  //                       //           child: Text("OK"),
-                  //                       //         ),
-                  //                       //       ],
-                  //                       //     ),
-                  //                       //   );
-                  //                       // }
-                  //
-                  //                       //dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
-                  //                     },
-                  //                     minWidth: 50.0,
-                  //                     height: 50.0,
-                  //                     color: const Color(0x7EE31A1A).withOpacity(0.5),
-                  //                     child: Text(
-                  //                       "Add Seva",
-                  //                       style: TextStyle(
-                  //                         fontSize: 18.0,
-                  //                         fontFamily: "verdana",
-                  //                         fontWeight: FontWeight.bold,
-                  //                         color: Colors.white,
-                  //                       ),
-                  //                     ),
-                  //                   ),
-                  //                 ),
-                  //               ),
-                  //             ],
-                  //           ),
-                  //         ],
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
                   SizedBox(
                     height: 5.0,
                   ),
@@ -1695,7 +1577,7 @@ class _tirthaAgentParkingDetailsState extends State<tirthaAgentParkingDetails> {
                                           width: 50.0,
                                         ),
                                         commons.NavigateToNext(
-                                          navigateToPage: "/tirthaAgentSpecialEvents",
+                                          navigateToPage: "/tirthaAgentGuideDetails",
                                           height: 50.0,
                                           width: 125.0,
                                         ),
