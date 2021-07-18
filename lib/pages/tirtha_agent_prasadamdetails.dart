@@ -2,41 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import '../GlobalVals.dart' as globals;
-import '../methods/tirthaGuide_method.dart' as tirthaGuide;
+import '../methods/tirthaPrasadam_method.dart' as tirthaPrasadam;
 import '../pages/agentCommons.dart' as commons;
 
-class tirthaAgentGuideDetails extends StatefulWidget {
+class tirthaAgentPrasadamDetails extends StatefulWidget {
   @override
-  _tirthaAgentGuideDetailsState createState() => _tirthaAgentGuideDetailsState();
+  _tirthaAgentPrasadamDetailsState createState() => _tirthaAgentPrasadamDetailsState();
 }
 
-class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
+class _tirthaAgentPrasadamDetailsState extends State<tirthaAgentPrasadamDetails> {
 
-  bool chkEnglish = false;
-  bool chkHindi = false;
-  bool chkTamil = false;
-  bool chkTelugu = false;
-  bool chkMalayalam = false;
-  bool chkKannada = false;
-  bool chkMarathi = false;
-  bool chkBengali = false;
-  bool chkPunjabi = false;
-  bool chkOriya = false;
-  bool chkGujrathi = false;
-  bool chkUrdu = false;
+  bool chkmonday = false;
+  bool chktuesday = false;
+  bool chkwednesday = false;
+  bool chkthursday = false;
+  bool chkfriday = false;
+  bool chksaturday = false;
+  bool chksunday = false;
 
   bool chkListed = false;
 
   final TextEditingController _nameController = new TextEditingController();
-  final TextEditingController _emailController = new TextEditingController();
-  final TextEditingController _mobileController = new TextEditingController();
-  final TextEditingController _yearsOfExpController = new TextEditingController();
+  final TextEditingController _typeController = new TextEditingController();
+  final TextEditingController _locationController = new TextEditingController();
 
-  final TextEditingController _guideBaseController = new TextEditingController();
-  final TextEditingController _guideBaseIncrController = new TextEditingController();
-  final TextEditingController _guideBaseMetricController = new TextEditingController();
+  final TextEditingController _prasadamCostController = new TextEditingController();
+  final TextEditingController _prasadamQuantityController = new TextEditingController();
+  final TextEditingController _prasadamMetricController = new TextEditingController();
 
-  var basisType = ["DAYS", "HOURS"];
+
+
+  var tasteType = ["SWEET", "SOUR", "SALTY", "BITTER", "SAVORY"];
+  var basisType = ["KILOGRAMS", "GRAMS", "LITRE", "MILLI_LITRE", "POUND", "COUNT"];
 
   @override
 
@@ -53,7 +50,7 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                 //Header Row
                   commons.agentHeader(),
                   commons.agentTitleBar(
-                    titleText: "Guide Details",
+                    titleText: "Prasadam Details",
                   ),
                   Row(
                     children: [
@@ -90,7 +87,7 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                     height: 35.0,
                                     child: TextField(
                                         controller: _nameController
-                                          ..text = 'Anand Kumar',
+                                          ..text = 'Laddu',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -111,15 +108,15 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                 ]
                             ),
                             SizedBox(
-                              width: 25.0,
+                              width: 5.0,
                             ),
                             Column(
                                 children: <Widget> [
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Container(
-                                      width: 110.0,
-                                      child: Text("Mobile No",
+                                      width: 125.0,
+                                      child: Text("Taste Type",
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                             color: Colors.blue.shade600,
@@ -133,52 +130,59 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                             ),
                             Column(
                                 children: <Widget> [
-                                  Container(
-                                    width: 200.0,
-                                    height: 35.0,
-                                    child: TextField(
-                                        controller: _mobileController
-                                          ..text = '8000340008',
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide.none,
-                                          ),
-                                          filled: true,
-                                          fillColor: Colors.white,
-                                          contentPadding: const EdgeInsets.only(
-                                              left: 10.0, bottom: 8.0, top: 8.0),
-                                        ),
-                                        style: TextStyle(
-                                          //color: Colors.grey,
-                                          backgroundColor: Colors.white38,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.normal,
-                                        )),
-                                  ),
-                                ]
-                            ),
-                            Column(
-                                children: <Widget> [
                                   Padding(
-                                    padding: const EdgeInsets.all(8.0),
+                                    padding: const EdgeInsets.all(2.0),
                                     child: Container(
-                                      width: 210.0,
-                                      child: Text("Prefix Country Code (91)",
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            color: Colors.blue.shade600,
-                                            fontFamily: "verdana" ,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.bold,
-                                          )),
+                                      width: 200.0,
+                                      height: 35.0,
+                                      child: new Row(
+                                        children: <Widget>[
+                                          new Expanded(
+                                              child: new TextField(
+                                                  controller: _typeController
+                                                    ..text = 'SWEET',
+                                                  decoration: InputDecoration(
+                                                    border: OutlineInputBorder(
+                                                      borderSide: BorderSide.none,
+                                                    ),
+                                                    filled: true,
+                                                    fillColor: Colors.white,
+                                                    contentPadding:
+                                                    const EdgeInsets.only(
+                                                        left: 10.0,
+                                                        bottom: 8.0,
+                                                        top: 0.0),
+                                                  ),
+                                                  style: TextStyle(
+                                                    //color: Colors.grey,
+                                                    backgroundColor: Colors.white38,
+                                                    fontFamily: "verdana",
+                                                    fontSize: 16.0,
+                                                    fontWeight: FontWeight.normal,
+                                                  ))),
+                                          new PopupMenuButton<String>(
+                                            icon: const Icon(Icons.arrow_drop_down),
+                                            onSelected: (String value) {
+                                              _typeController.text = value;
+                                            },
+                                            itemBuilder: (BuildContext context) {
+                                              return tasteType
+                                                  .map<PopupMenuItem<String>>(
+                                                      (String value) {
+                                                    return new PopupMenuItem(
+                                                        child: new Text(value),
+                                                        value: value);
+                                                  }).toList();
+                                            },
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ]
                             ),
                           ],
                         ),
-
                       ),
                     ],
                   ),
@@ -198,7 +202,7 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                     padding: const EdgeInsets.all(8.0),
                                     child: Container(
                                       width: 110.0,
-                                      child: Text("Email Id",
+                                      child: Text("Location",
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                             color: Colors.blue.shade600,
@@ -216,56 +220,8 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                     width: 500.0,
                                     height: 35.0,
                                     child: TextField(
-                                        controller: _emailController
-                                          ..text = 'anandkumar_madurai@gmail.com',
-                                        decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                            borderSide: BorderSide.none,
-                                          ),
-                                          filled: true,
-                                          fillColor: Colors.white,
-                                          contentPadding: const EdgeInsets.only(
-                                              left: 10.0, bottom: 8.0, top: 8.0),
-                                        ),
-                                        style: TextStyle(
-                                          //color: Colors.grey,
-                                          backgroundColor: Colors.white38,
-                                          fontFamily: "verdana" ,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.normal,
-                                        )),
-                                  ),
-                                ]
-                            ),
-                            SizedBox(
-                              width: 25.0,
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      width: 110.0,
-                                      child: Text("Exp in Years",
-                                          textAlign: TextAlign.left,
-                                          style: TextStyle(
-                                            color: Colors.blue.shade600,
-                                            fontFamily: "verdana" ,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.bold,
-                                          )),
-                                    ),
-                                  ),
-                                ]
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Container(
-                                    width: 100.0,
-                                    height: 35.0,
-                                    child: TextField(
-                                        controller: _yearsOfExpController
-                                          ..text = '10',
+                                        controller: _locationController
+                                          ..text = 'Main Entrance',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -306,8 +262,8 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Container(
-                                      width: 150.0,
-                                      child: Text("Guide Fee (INR)",
+                                      width: 110.0,
+                                      child: Text("Cost (INR)",
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                             color: Colors.blue.shade600,
@@ -328,8 +284,8 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                     width: 100.0,
                                     height: 35.0,
                                     child: TextField(
-                                        controller: _guideBaseController
-                                          ..text = '100',
+                                        controller: _prasadamCostController
+                                          ..text = '50',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -379,8 +335,8 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                     width: 60.0,
                                     height: 35.0,
                                     child: TextField(
-                                        controller: _guideBaseIncrController
-                                          ..text = '1',
+                                        controller: _prasadamQuantityController
+                                          ..text = '100',
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                             borderSide: BorderSide.none,
@@ -414,8 +370,8 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                         children: <Widget>[
                                           new Expanded(
                                               child: new TextField(
-                                                  controller: _guideBaseMetricController
-                                                    ..text = 'HOURS',
+                                                  controller: _prasadamMetricController
+                                                    ..text = 'GRAMS',
                                                   decoration: InputDecoration(
                                                     border: OutlineInputBorder(
                                                       borderSide: BorderSide.none,
@@ -438,7 +394,7 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                           new PopupMenuButton<String>(
                                             icon: const Icon(Icons.arrow_drop_down),
                                             onSelected: (String value) {
-                                              _guideBaseMetricController.text = value;
+                                              _prasadamMetricController.text = value;
                                             },
                                             itemBuilder: (BuildContext context) {
                                               return basisType
@@ -477,7 +433,7 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                     padding: const EdgeInsets.all(8.0),
                                     child: Container(
                                       width: 150.0,
-                                      child: Text("Languages Known",
+                                      child: Text("Prasadam Days",
                                           textAlign: TextAlign.left,
                                           style: TextStyle(
                                             color: Colors.blue.shade600,
@@ -501,17 +457,17 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                         width: 1260.0,
                         height: 80.0,
                         //alignment: Alignment.centerLeft,
-                        padding: const EdgeInsets.fromLTRB(20, 25 , 0, 0),
+                        padding: const EdgeInsets.fromLTRB(20, 0 , 0, 0),
                         child: Row(
                           children: [
                             Column(
                                 children: <Widget> [
                                   Container(
-                                    width: 200.0,
+                                    width: 150.0,
                                     height: 25.0,
                                     child: CheckboxListTile(
                                       contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                      title: Text('English',
+                                      title: Text('Monday',
                                           style: TextStyle(
                                             color: Colors.blue.shade600,
                                             fontFamily: "verdana" ,
@@ -521,10 +477,10 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                       dense: true,
                                       checkColor: Colors.blue,
                                       activeColor: Colors.red,
-                                      value: this.chkEnglish,
+                                      value: this.chkmonday,
                                       onChanged: (bool value) {
                                         setState(() {
-                                          this.chkEnglish = value;
+                                          this.chkmonday = value;
                                         });
                                       },
                                       controlAffinity: ListTileControlAffinity.leading,
@@ -535,11 +491,11 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                             Column(
                                 children: <Widget> [
                                   Container(
-                                    width: 200.0,
+                                    width: 150.0,
                                     height: 25.0,
                                     child: CheckboxListTile(
                                       contentPadding: EdgeInsets.all(0),
-                                      title: Text('Hindi',
+                                      title: Text('Tuesday',
                                           style: TextStyle(
                                             color: Colors.blue.shade600,
                                             fontFamily: "verdana" ,
@@ -549,10 +505,10 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                       dense: true,
                                       checkColor: Colors.blue,
                                       activeColor: Colors.red,
-                                      value: this.chkHindi,
+                                      value: this.chktuesday,
                                       onChanged: (bool value) {
                                         setState(() {
-                                          this.chkHindi = value;
+                                          this.chktuesday = value;
                                         });
                                       },
                                       controlAffinity: ListTileControlAffinity.leading,
@@ -567,7 +523,7 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                     height: 25.0,
                                     child: CheckboxListTile(
                                       contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                      title: Text('Tamil',
+                                      title: Text('Wednesday',
                                           style: TextStyle(
                                             color: Colors.blue.shade600,
                                             fontFamily: "verdana" ,
@@ -577,10 +533,10 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                       dense: true,
                                       checkColor: Colors.blue,
                                       activeColor: Colors.red,
-                                      value: this.chkTamil,
+                                      value: this.chkwednesday,
                                       onChanged: (bool value) {
                                         setState(() {
-                                          this.chkTamil = value;
+                                          this.chkwednesday = value;
                                         });
                                       },
                                       controlAffinity: ListTileControlAffinity.leading,
@@ -595,7 +551,7 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                     height: 25.0,
                                     child: CheckboxListTile(
                                       contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                      title: Text('Telugu',
+                                      title: Text('Thursday',
                                           style: TextStyle(
                                             color: Colors.blue.shade600,
                                             fontFamily: "verdana" ,
@@ -605,10 +561,10 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                       dense: true,
                                       checkColor: Colors.blue,
                                       activeColor: Colors.red,
-                                      value: this.chkTelugu,
+                                      value: this.chkthursday,
                                       onChanged: (bool value) {
                                         setState(() {
-                                          this.chkTelugu = value;
+                                          this.chkthursday = value;
                                         });
                                       },
                                       controlAffinity: ListTileControlAffinity.leading,
@@ -619,11 +575,11 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                             Column(
                                 children: <Widget> [
                                   Container(
-                                    width: 170.0,
+                                    width: 150.0,
                                     height: 25.0,
                                     child: CheckboxListTile(
                                       contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                      title: Text('Malayalam',
+                                      title: Text('Friday',
                                           style: TextStyle(
                                             color: Colors.blue.shade600,
                                             fontFamily: "verdana" ,
@@ -633,10 +589,10 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                       dense: true,
                                       checkColor: Colors.blue,
                                       activeColor: Colors.red,
-                                      value: this.chkMalayalam,
+                                      value: this.chkfriday,
                                       onChanged: (bool value) {
                                         setState(() {
-                                          this.chkMalayalam = value;
+                                          this.chkfriday = value;
                                         });
                                       },
                                       controlAffinity: ListTileControlAffinity.leading,
@@ -647,11 +603,11 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                             Column(
                                 children: <Widget> [
                                   Container(
-                                    width: 200.0,
+                                    width: 150.0,
                                     height: 25.0,
                                     child: CheckboxListTile(
                                       contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                      title: Text('Kannada',
+                                      title: Text('Saturday',
                                           style: TextStyle(
                                             color: Colors.blue.shade600,
                                             fontFamily: "verdana" ,
@@ -661,10 +617,38 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                       dense: true,
                                       checkColor: Colors.blue,
                                       activeColor: Colors.red,
-                                      value: this.chkKannada,
+                                      value: this.chksaturday,
                                       onChanged: (bool value) {
                                         setState(() {
-                                          this.chkKannada = value;
+                                          this.chksaturday = value;
+                                        });
+                                      },
+                                      controlAffinity: ListTileControlAffinity.leading,
+                                    ),
+                                  ),
+                                ]
+                            ),
+                            Column(
+                                children: <Widget> [
+                                  Container(
+                                    width: 150.0,
+                                    height: 25.0,
+                                    child: CheckboxListTile(
+                                      contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                      title: Text('Sunday',
+                                          style: TextStyle(
+                                            color: Colors.blue.shade600,
+                                            fontFamily: "verdana" ,
+                                            fontSize: 16.0,
+                                          )
+                                      ),
+                                      dense: true,
+                                      checkColor: Colors.blue,
+                                      activeColor: Colors.red,
+                                      value: this.chksunday,
+                                      onChanged: (bool value) {
+                                        setState(() {
+                                          this.chksunday = value;
                                         });
                                       },
                                       controlAffinity: ListTileControlAffinity.leading,
@@ -685,176 +669,11 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                         width: 1260.0,
                         height: 80.0,
                         //alignment: Alignment.centerLeft,
-                        padding: const EdgeInsets.fromLTRB(20, 25 , 0, 0),
+                        padding: const EdgeInsets.fromLTRB(20, 10 , 0, 0),
                         child: Row(
                           children: [
-                            Column(
-                                children: <Widget> [
-                                  Container(
-                                    width: 200.0,
-                                    height: 25.0,
-                                    child: CheckboxListTile(
-                                      contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                      title: Text('Marathi',
-                                          style: TextStyle(
-                                            color: Colors.blue.shade600,
-                                            fontFamily: "verdana" ,
-                                            fontSize: 16.0,
-                                          )
-                                      ),
-                                      dense: true,
-                                      checkColor: Colors.blue,
-                                      activeColor: Colors.red,
-                                      value: this.chkMarathi,
-                                      onChanged: (bool value) {
-                                        setState(() {
-                                          this.chkMarathi = value;
-                                        });
-                                      },
-                                      controlAffinity: ListTileControlAffinity.leading,
-                                    ),
-                                  ),
-                                ]
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Container(
-                                    width: 200.0,
-                                    height: 25.0,
-                                    child: CheckboxListTile(
-                                      contentPadding: EdgeInsets.all(0),
-                                      title: Text('Bengali',
-                                          style: TextStyle(
-                                            color: Colors.blue.shade600,
-                                            fontFamily: "verdana" ,
-                                            fontSize: 16.0,
-                                          )
-                                      ),
-                                      dense: true,
-                                      checkColor: Colors.blue,
-                                      activeColor: Colors.red,
-                                      value: this.chkBengali,
-                                      onChanged: (bool value) {
-                                        setState(() {
-                                          this.chkBengali = value;
-                                        });
-                                      },
-                                      controlAffinity: ListTileControlAffinity.leading,
-                                    ),
-                                  ),
-                                ]
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Container(
-                                    width: 170.0,
-                                    height: 25.0,
-                                    child: CheckboxListTile(
-                                      contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                      title: Text('Punjabi',
-                                          style: TextStyle(
-                                            color: Colors.blue.shade600,
-                                            fontFamily: "verdana" ,
-                                            fontSize: 16.0,
-                                          )
-                                      ),
-                                      dense: true,
-                                      checkColor: Colors.blue,
-                                      activeColor: Colors.red,
-                                      value: this.chkPunjabi,
-                                      onChanged: (bool value) {
-                                        setState(() {
-                                          this.chkPunjabi = value;
-                                        });
-                                      },
-                                      controlAffinity: ListTileControlAffinity.leading,
-                                    ),
-                                  ),
-                                ]
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Container(
-                                    width: 150.0,
-                                    height: 25.0,
-                                    child: CheckboxListTile(
-                                      contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                      title: Text('Oriya',
-                                          style: TextStyle(
-                                            color: Colors.blue.shade600,
-                                            fontFamily: "verdana" ,
-                                            fontSize: 16.0,
-                                          )
-                                      ),
-                                      dense: true,
-                                      checkColor: Colors.blue,
-                                      activeColor: Colors.red,
-                                      value: this.chkOriya,
-                                      onChanged: (bool value) {
-                                        setState(() {
-                                          this.chkOriya = value;
-                                        });
-                                      },
-                                      controlAffinity: ListTileControlAffinity.leading,
-                                    ),
-                                  ),
-                                ]
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Container(
-                                    width: 170.0,
-                                    height: 25.0,
-                                    child: CheckboxListTile(
-                                      contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                      title: Text('Gujrathi',
-                                          style: TextStyle(
-                                            color: Colors.blue.shade600,
-                                            fontFamily: "verdana" ,
-                                            fontSize: 16.0,
-                                          )
-                                      ),
-                                      dense: true,
-                                      checkColor: Colors.blue,
-                                      activeColor: Colors.red,
-                                      value: this.chkGujrathi,
-                                      onChanged: (bool value) {
-                                        setState(() {
-                                          this.chkGujrathi = value;
-                                        });
-                                      },
-                                      controlAffinity: ListTileControlAffinity.leading,
-                                    ),
-                                  ),
-                                ]
-                            ),
-                            Column(
-                                children: <Widget> [
-                                  Container(
-                                    width: 200.0,
-                                    height: 25.0,
-                                    child: CheckboxListTile(
-                                      contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                      title: Text('Urdu',
-                                          style: TextStyle(
-                                            color: Colors.blue.shade600,
-                                            fontFamily: "verdana" ,
-                                            fontSize: 16.0,
-                                          )
-                                      ),
-                                      dense: true,
-                                      checkColor: Colors.blue,
-                                      activeColor: Colors.red,
-                                      value: this.chkUrdu,
-                                      onChanged: (bool value) {
-                                        setState(() {
-                                          this.chkUrdu = value;
-                                        });
-                                      },
-                                      controlAffinity: ListTileControlAffinity.leading,
-                                    ),
-                                  ),
-                                ]
+                            SizedBox(
+                              width: 1050.0,
                             ),
                             Column(
                               children: [
@@ -866,67 +685,51 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                     child: MaterialButton(
                                       onPressed: () async {
 
-                                        List<String> languageKnown = [];
+                                        List<String> prasadamDays = [];
 
-                                        if (this.chkEnglish) {
-                                          languageKnown.add("ENGLISH");
+                                        if (this.chkmonday) {
+                                          prasadamDays.add("MONDAY");
                                         }
-                                        if (this.chkHindi) {
-                                          languageKnown.add("HINDI");
+                                        if (this.chktuesday) {
+                                          prasadamDays.add("TUESDAY");
                                         }
-                                        if (this.chkTamil) {
-                                          languageKnown.add("TAMIL");
+                                        if (this.chkwednesday) {
+                                          prasadamDays.add("WEDNESDAY");
                                         }
-                                        if (this.chkTelugu) {
-                                          languageKnown.add("TELUGU");
+                                        if (this.chkthursday) {
+                                          prasadamDays.add("THURSDAY");
                                         }
-                                        if (this.chkMalayalam) {
-                                          languageKnown.add("MALAYALAM");
+                                        if (this.chkfriday) {
+                                          prasadamDays.add("FRIDAY");
                                         }
-                                        if (this.chkKannada) {
-                                          languageKnown.add("KANNADA");
+                                        if (this.chksaturday) {
+                                          prasadamDays.add("SATURDAY");
                                         }
-                                        if (this.chkMarathi) {
-                                          languageKnown.add("MARATHI");
-                                        }
-                                        if (this.chkBengali) {
-                                          languageKnown.add("BENGALI");
-                                        }
-                                        if (this.chkPunjabi) {
-                                          languageKnown.add("PUNJABI");
-                                        }
-                                        if (this.chkOriya) {
-                                          languageKnown.add("ORIYA");
-                                        }
-                                        if (this.chkGujrathi) {
-                                          languageKnown.add("GUJRATHI");
-                                        }
-                                        if (this.chkUrdu) {
-                                          languageKnown.add("URDU");
+                                        if (this.chksunday) {
+                                          prasadamDays.add("SUNDAY");
                                         }
 
                                         final String responseCode =
-                                        await tirthaGuide.saveTirthaGuide(
+                                        await tirthaPrasadam.saveTirthaPrasadam(
                                             _nameController.text,
-                                            _emailController.text,
-                                            _mobileController.text,
-                                            int.parse(_yearsOfExpController.text),
-                                            languageKnown,
-                                            int.parse(_guideBaseController.text),
-                                            int.parse(_guideBaseIncrController.text),
-                                            _guideBaseMetricController.text,
+                                            _typeController.text,
+                                            prasadamDays,
+                                            _locationController.text,
+                                            int.parse(_prasadamCostController.text),
+                                            int.parse(_prasadamQuantityController.text),
+                                            _prasadamMetricController.text,
                                             chkListed
                                         );
 
                                         print(
-                                            'saveTirthaGuide Called - AFTER');
+                                            'saveTirthaPrasadam Called - AFTER');
 
                                         if (responseCode == "200" || responseCode == "201") {
                                           return showDialog(
                                             context: context,
                                             builder: (ctx) => AlertDialog(
                                               title: Text("Tirtha - Alert"),
-                                              content: Text("Guide Details saved successfully for Tirtha Id: " + globals.tirthaId),
+                                              content: Text("Prasadam Details saved successfully for Tirtha Id: " + globals.tirthaId),
                                               actions: <Widget>[
                                                 FlatButton(
                                                   onPressed: () {
@@ -942,7 +745,7 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                             context: context,
                                             builder: (ctx) => AlertDialog(
                                               title: Text("Tirtha - Alert"),
-                                              content: Text("Guide details failed to save."),
+                                              content: Text("Prasadam details failed to save."),
                                               actions: <Widget>[
                                                 FlatButton(
                                                   onPressed: () {
@@ -1007,7 +810,7 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                           width: 345.0,
                                         ),
                                         commons.NavigateToPrev(
-                                          navigateToPage: "/tirthaAgentParkingDetails",
+                                          navigateToPage: "/tirthaAgentGuideDetails",
                                           height: 50.0,
                                           width: 125.0,
                                         ),
@@ -1038,7 +841,7 @@ class _tirthaAgentGuideDetailsState extends State<tirthaAgentGuideDetails> {
                                           width: 50.0,
                                         ),
                                         commons.NavigateToNext(
-                                          navigateToPage: "/tirthaAgentPrasadamDetails",
+                                          navigateToPage: "/tirthaAgentDashBoard",
                                           height: 50.0,
                                           width: 125.0,
                                         ),

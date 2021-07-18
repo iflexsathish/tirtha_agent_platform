@@ -730,8 +730,7 @@ class _tirthaAgentParkingDetailsState extends State<tirthaAgentParkingDetails> {
                                     height: 30.0,
                                     child: TextField(
                                         controller: _parkingtimetoController
-                                        ..text = "23a"
-                                            ":00",
+                                        ..text = "23:00",
                                         onTap: _selParkingToTime,
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(
