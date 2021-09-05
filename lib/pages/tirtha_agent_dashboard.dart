@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:tirtha_agent/models/tirtha_agentDashboard_RespModel.dart';
+import '../methods/tirthaAgentDashboard_method.dart' as tirthaDashboard;
 
 class tirthaAgentDashBoard extends StatefulWidget {
   @override
@@ -10,6 +12,37 @@ class tirthaAgentDashBoard extends StatefulWidget {
 class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
 
   @override
+  Future<void> initState() async {
+    super.initState();
+    print('hi there');
+
+    Future<AgentDashboard> dashboardData =
+      tirthaDashboard.fetchTirthaDetails(
+      10,
+      1).catchError(
+              (Object e, StackTrace stackTrace) {
+            print(e.toString());
+            print(stackTrace);
+          },
+          test: (Object error) => error is Exception
+      )
+          .whenComplete(() { print('complete'); });
+
+    // dashboardData.then((value) => print("object value" + value.toString()).catchError.);
+
+    // try{
+    //   AgentDashboard onValue= await tirthaDashboard.fetchTirthaDetails(
+    //       10,
+    //       1);
+    //   print('On success : $onValue');
+    // }on Exception catch( onError){
+    //   print('On error : $onError');
+    // }finally{
+    //   print('On success/error its commpeted');
+    // }
+
+  }
+
 
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -164,13 +197,21 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(5, 35, 0, 0),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(40),
-                                      child: Image.asset(
-                                        'assets/images/Kapilatheertham1.jpg',
-                                        fit: BoxFit.cover,
-                                        height: 80,
-                                        width: 80,
+                                    child: GestureDetector(
+                                      onTap: () async {
+                                        dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
+                                        //dynamic result = await Navigator.pushNamed(context, '/tirthaAgentTirthaLanding');
+                                      },
+                                      child: Container(
+                                        child: ClipRRect(
+                                          borderRadius: BorderRadius.circular(40),
+                                          child: Image.asset(
+                                            'assets/images/Kapilatheertham1.jpg',
+                                            fit: BoxFit.cover,
+                                            height: 80,
+                                            width: 80,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -2058,13 +2099,14 @@ class _tirthaAgentDashBoardState extends State<tirthaAgentDashBoard> {
                                     borderRadius: BorderRadius.all(Radius.circular(20.0)),
                                     child: MaterialButton(
                                       onPressed: () async {
-                                        dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
+                                        // dynamic result = await Navigator.pushNamed(context, '/tirthaAgentMainInfo');
+                                        dynamic result = await Navigator.pushNamed(context, '/tirthaLogin');
                                       },
                                       minWidth: 250.0,
                                       height: 50.0,
                                       color: Colors.deepPurple.shade300,
                                       child: Text(
-                                        "New Tirtha",
+                                        "Log out",
                                         style: TextStyle(
                                           fontSize: 18.0,
                                           fontFamily: "verdana",

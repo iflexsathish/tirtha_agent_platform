@@ -15,6 +15,8 @@ import 'package:tirtha_agent/pages/tirtha_launch.dart';
 import 'package:tirtha_agent/pages/tirtha_login.dart';
 import 'package:tirtha_agent/pages/welcome.dart';
 
+import 'pages/tirtha_agent_tirthalanding.dart';
+
 void main() =>  runApp(MaterialApp(
   initialRoute: '/tirthaLaunch',
   routes: {
@@ -30,6 +32,7 @@ void main() =>  runApp(MaterialApp(
     '/tirthaAgentParkingDetails': (context) => tirthaAgentParkingDetails(),
     '/tirthaAgentGuideDetails': (context) => tirthaAgentGuideDetails(),
     '/tirthaAgentPrasadamDetails': (context) => tirthaAgentPrasadamDetails(),
+    '/tirthaAgentTirthaLanding': (context) => tirthaAgentTirthaLanding(),
   },
 
 ));
